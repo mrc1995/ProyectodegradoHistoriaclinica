@@ -16,10 +16,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from Historiaclinica.views import index
+from Historiaclinica.views import index,Ingresarpaciente
 
 urlpatterns = [
 	url(r'^index',index, name = 'index'),
     url(r'^admin/', admin.site.urls),
-    
+    url(r'^Ingresarpaciente',Ingresarpaciente, name = 'Ingresarpaciente'),
 ]

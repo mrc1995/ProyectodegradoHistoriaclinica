@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registrar Paciente</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+  <link rel="stylesheet" href="{%static 'js/bootstrap.min.js'%}">
+  <link rel="stylesheet"  href="{% static 'css/estilos.css'%}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div class = "centro">
+	<form method="POST">
+		{% csrf_token %}
+		<table>
+			{{formulario.as_table}}
+		</table>
+		<input type="submit" value="crear" />
+	</form>
+	<a href="javascript:history.go(-1)">Regresar</a>
+</div>
+</body>
+</html>

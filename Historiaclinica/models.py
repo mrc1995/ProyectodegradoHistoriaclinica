@@ -12,9 +12,9 @@ class paciente(models.Model):
 	Apellido = models.CharField(max_length = 35)
 	EPS = models.CharField(max_length = 35)
 	Genero = models.CharField(max_length = 35)
-	#Edad = models.DataField(auto_now = False)
 	Email = models.EmailField(max_length = 35)
 	Municipio = models.CharField(max_length = 35)
+	Edad = models.CharField (max_length =12)
 
 class Motivo_consulta(models.Model):
 	Id_Motivo = models.AutoField(primary_key = True, max_length = 35, unique = True)
