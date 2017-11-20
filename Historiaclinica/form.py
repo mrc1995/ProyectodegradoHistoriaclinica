@@ -3,10 +3,8 @@ from django import forms
 from .models import *
 
 class loginForm(forms.Form):
-	username = forms.CharField(max_length=25,required = True,
-		widget=(forms.TextInput(attrs={"placeholder":"Nombre de usuario","class":"input-login"})))
-	password = forms.CharField(max_length=25,required = True,
-		widget=(forms.TextInput(attrs={"placeholder":"Contrasena","class":"input-login"})))
+	username = forms.CharField(max_length=25,required = True)
+	password = forms.CharField(max_length=25,required = True)
 
 
 class IngresarPaciente(forms.Form):
@@ -19,4 +17,10 @@ class IngresarPaciente(forms.Form):
 	Municipio = forms.CharField(required = True, widget =(forms.TextInput(attrs = {"placheholder":"Municipio"})))
 	Edad = forms.CharField(required = True, widget =(forms.TextInput(attrs = {"placheholder":"Edad"})))
 
-	
+class Motivoconsulta(forms.Form):
+	#id_paciente_id = forms.CharField(required = True, widget =(forms.TextInput(attrs = {"placheholder":"Documento Identidad"})))
+	#Motivo_consulta = forms.CharField(widget=(forms.TextInput(attrs ={"placeholder":"Motivo consulta"})))
+
+	class Meta:
+		model = Motivo_consulta
+		fields = ('id_paciente_id','Motivo_consulta')

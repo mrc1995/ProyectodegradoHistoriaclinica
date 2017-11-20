@@ -4,25 +4,64 @@
 <head>
   <title>Login</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
-  <link rel="stylesheet" href="{%static 'js/bootstrap.min.js'%}">
-  <link rel="stylesheet"  href="{% static 'css/estilos.css'%}">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet"  href="{% static 'css/style.css'%}">
 </head>
 <body>
-<div class = "centro">
-	<h1>Login</h1>
+	<h1 align="center">Login</h1>
 	<form method="POST">
 		{% csrf_token %}
+		<div align="center">
 		<table>
-			{{formulario.as_table}}
-		</table>
-		<input type="submit" value="ingresar" />
+			<tbody>
+				<tr>
+					<th>
+						<label for="username">Nombre de usuario:</label>
+					</th>
+					<td>
+						<input type="text" name="username" id = "username" required  
+						placeholder="Nombre de usuario" class="input-login"  maxlength="25">
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<label for="password">Contrasena:</label>
+					</th>
+					<td>
+						<input type="password" name="password" id = "password" required 
+						placeholder="Contrasena" class="input-login" maxlength="25">
+					</td>
+				</tr>
+			</tbody>
+		</div>
+		</table><br>
+		<input type="submit" value="ingresar" /><br>
 	</form>
-	<a href="javascript:history.go(-1)">Regresar</a>
-</div>
+	<a href="javascript:history.go(-1)">Regresar</a>	
 </body>
 </html>
 
 
+<!--html>
+	<head>
+		<meta charset="utf-8">
+		<title>Login</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div class="loginBox">
+			<img src="user.png" class="user">
+			<h2>Login</h2>
+			<form>
+				<p>Nombre de Usuario</p>
+				<input type="text" name="" placeholder="Nombre de Usuario">
+				<p>Contraseña</p>
+				<input type="Password" name="" placeholder="••••••">
+				<input type="submit" name="" value="Ingresar">
+				<a href="#">Registrarse</a><br>
+				<a href="#">Olvidaste la contraseña?</a>
+			</form>
+			</div>
+		</div>
+	</body>
+</html-->

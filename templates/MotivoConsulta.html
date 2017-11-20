@@ -1,0 +1,39 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registrar Paciente</title>
+  <meta charset="utf-8">
+</head>
+<body>
+<div class = "centro">
+	<form method="POST">
+		{% csrf_token %}
+		<table>
+			<tbody>
+				<tr>
+					<th>
+						<label for="id_paciente_id">Documento identificacion:</label>
+					</th>
+					<td>
+						<input type="text" name="codigo" id = "id_paciente_id" required 
+						placeholder="Cc paciente" class="input-login" maxlength="25">
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<label for="Motivo_consulta">Motivo consulta:</label>
+					</th>
+					<td>
+						<input type="text" name="motivo" id = "Motivo_consulta" required 
+						placeholder="Motivo Consulta" class="input-login" maxlength="25">
+					</td>
+				</tr>
+			</tbody>	
+		</table>
+		<input type="submit" value="crear" />
+	</form>
+	<a href="javascript:history.go(-1)">Regresar</a>
+</div>
+</body>
+</html>
