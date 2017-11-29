@@ -1,0 +1,71 @@
+/* -- HEADER -- */
+.navbar {
+	margin-bottom: 0;
+	
+}
+
+.navbar .container{
+	color: #A6ACAF;
+}
+
+.color .jumbotron  {
+	background: #36d920;
+	background-image: url(images/cafetero.jpg);
+	color:#fff;
+	padding:19% 0;
+}
+
+
+.jumbotron .titulo{
+	font-family: sans-serif;
+	font-size: 90px;
+	font-style: oblique;
+}
+
+/* -- POST -- */
+.main {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.post {
+	padding-bottom:20px;
+	margin-bottom:20px;
+	border-bottom:1px solid #999;
+	color:#A6ACAF;
+}
+
+.post  .post-title a {
+	color:#333;
+	font-size: 30px;
+}
+
+.post .thumb {
+	margin-right:10px;
+	width:40%;
+}
+
+.post .thumb img {
+	width:100%;
+}
+
+.post .contenedor-botones {
+	width: 100%;
+}
+
+/* -- Media Querie -- */
+@media screen and (max-width: 768px) {
+	.post .thumb {
+		width: 100%;
+		margin-bottom: 20px;
+		margin-right: 0;
+	}
+}
+
+
+
+/*--- Crear usuario --*/
+
+.centro{
+	align-self:center;
+}

@@ -14,13 +14,18 @@ class IngresarPaciente(forms.Form):
 	EPS = forms.CharField(required = True, widget =(forms.TextInput(attrs = {"placheholder":"EPS"})))
 	Genero = forms.CharField(required = True, widget =(forms.TextInput(attrs = {"placheholder":"Genero"})))
 	Email = forms.CharField(required = True, widget =(forms.TextInput(attrs = {"placheholder":"Email"})))
-	Municipio = forms.CharField(required = True, widget =(forms.TextInput(attrs = {"placheholder":"Municipio"})))
-	Edad = forms.CharField(required = True, widget =(forms.TextInput(attrs = {"placheholder":"Edad"})))
+	Municipio = forms.CharField(required = True)
+	Edad = forms.CharField(required = True)
 
-class Motivoconsulta(forms.Form):
-	#id_paciente_id = forms.CharField(required = True, widget =(forms.TextInput(attrs = {"placheholder":"Documento Identidad"})))
-	#Motivo_consulta = forms.CharField(widget=(forms.TextInput(attrs ={"placeholder":"Motivo consulta"})))
+class Motivoconsulta(forms.ModelForm):
 
 	class Meta:
 		model = Motivo_consulta
-		fields = ('id_paciente_id','Motivo_consulta')
+		fields = ('id_paciente','Motivo_consulta')
+
+
+class Enfermedadactual(forms.ModelForm):
+
+	class Meta:
+		model = Enfermedad_Actual
+		fields = ('id_paciente','Enf_actual')

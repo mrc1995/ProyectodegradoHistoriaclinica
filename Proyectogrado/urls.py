@@ -16,14 +16,16 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from Historiaclinica import views
+from Historiaclinica.views import Ingresarpaciente,MotivoConsulta,loginstart,privado,endsesion, EnfermedadActual
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',views.loginstart, name = 'loginstart'),
-     url(r'^loginstart',views.loginstart, name = 'loginstart'),
-    url(r'^privado/$',views.privado,name = 'privado'),
-    url(r'^endsesion/$',views.endsesion,name = 'endsesion'),
-    url(r'^Ingresarpaciente',views.Ingresarpaciente, name = 'Ingresarpaciente'),
-    url(r'^MotivoConsulta',views.MotivoConsulta, name = 'MotivoConsulta'),
+    url(r'^$',loginstart, name = 'loginstart'),
+     url(r'^loginstart',loginstart, name = 'loginstart'),
+    url(r'^privado$',privado,name = 'privado'),
+    url(r'^endsesion/$',endsesion,name = 'endsesion'),
+    url(r'^Ingresarpaciente',Ingresarpaciente, name = 'Ingresarpaciente'),
+    url(r'^MotivoConsulta',MotivoConsulta, name = 'MotivoConsulta'),
+    url(r'^EnfermedadActual',EnfermedadActual, name = 'Enfermedad'),
 ]
+

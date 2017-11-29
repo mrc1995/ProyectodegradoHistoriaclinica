@@ -1,44 +1,62 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Login</title>
   <meta charset="utf-8">
-  <link rel="stylesheet"  href="{% static 'css/style.css'%}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Inicio Sesion</title>
+  <!-- Bootstrap core CSS-->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.css'%}" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="{% static 'css/sb-admin.css'%}" rel="stylesheet">
 </head>
-<body>
-	<h1 align="center">Login</h1>
-	<form method="POST">
-		{% csrf_token %}
-		<div align="center">
-		<table>
-			<tbody>
-				<tr>
-					<th>
-						<label for="username">Nombre de usuario:</label>
-					</th>
-					<td>
-						<input type="text" name="username" id = "username" required  
-						placeholder="Nombre de usuario" class="input-login"  maxlength="25">
-					</td>
-				</tr>
-				<tr>
-					<th>
-						<label for="password">Contrasena:</label>
-					</th>
-					<td>
-						<input type="password" name="password" id = "password" required 
-						placeholder="Contrasena" class="input-login" maxlength="25">
-					</td>
-				</tr>
-			</tbody>
-		</div>
-		</table><br>
-		<input type="submit" value="ingresar" /><br>
-	</form>
-	<a href="javascript:history.go(-1)">Regresar</a>	
+
+<body class="bg-dark">
+  <div class="container">
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header">Login</div>
+      <div class="card-body">
+        <form method="POST">
+          {% csrf_token %}
+          <div class="form-group-login">
+            <tr>
+              <label for="username">Nombre de usuario:</label>
+            </tr>
+            <td> 
+				<input class="form-control-login" name="username" id = "username" required  
+				placeholder="Nombre de usuario" maxlength="25">
+            </td>
+          </div>
+          <div class="form-group">
+            <tr>
+              <label for="password">Contrasena:</label>
+            </tr>
+            <td>
+              	<input class="form-control-login" name="password" id = "password" required 
+				placeholder="Contrasena" type="password" placeholder="Password" maxlength="25">
+            </td>          
+          </div>
+          <input class="btn btn-primary btn-block" type="submit" value="Iniciar Sesion">
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap core JavaScript-->
+  <script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js'%}"></script>
 </body>
+
 </html>
+
 
 
 <!--html>

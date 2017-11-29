@@ -16,6 +16,7 @@ class paciente(models.Model):
 	Municipio = models.CharField(max_length = 35)
 	Edad = models.CharField (max_length =12)
 
+
 class Motivo_consulta(models.Model):
 	Id_Motivo = models.AutoField(primary_key = True, max_length = 35, unique = True)
 	id_paciente = models.ForeignKey(paciente, null = False, blank = False, on_delete=models.CASCADE)
