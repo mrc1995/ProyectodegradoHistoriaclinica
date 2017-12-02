@@ -70,7 +70,7 @@ def MotivoConsulta(request):
 		form_registro_motivo = Motivoconsulta()
 	return render(request,'MotivoConsulta.html')
 
-
+@login_required(login_url='/ingresar')
 def EnfermedadActual(request):
 	if request.method == "POST":
 		form_enfermedad = Enfermedadactual(request.POST or None)
@@ -79,5 +79,17 @@ def EnfermedadActual(request):
 			newEnfermedad = Enfermedad_Actual(id_paciente = p, Enf_actual = request.POST['Enf_actual'])
 			newEnfermedad.save()
 	else: 
-		form_enfermedad = Enfermedad_actual()
+		form_enfermedad = Enfermedadactual()
 	return render(request, 'EnfermedadActual.html')
+
+@login_required(login_url='/ingresar')
+def gustos_paciente(request):
+	if request.method == "POST":
+		form_gustos = gustos(request.POST or None)
+		if form_gustos.is_valid():
+			p = paciente.objects.get(id_paciente = request.POST['id_paciente'])
+			newGustos = Gustos_preferencias(id_paciente = p, Clima = ['Clima'], Temperatura = ['Temperatura'],Colores = ['Colores'], Numeros = ['Numeros'])
+			newGustos.save()
+	else:
+		form_gustos = gustos()
+	return render (request,'Gustos.html') 

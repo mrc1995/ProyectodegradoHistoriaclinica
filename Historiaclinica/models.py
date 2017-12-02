@@ -19,17 +19,17 @@ class paciente(models.Model):
 
 class Motivo_consulta(models.Model):
 	Id_Motivo = models.AutoField(primary_key = True, max_length = 35, unique = True)
-	id_paciente = models.ForeignKey(paciente, null = False, blank = False, on_delete=models.CASCADE)
+	id_paciente = models.ForeignKey(paciente, null = False, blank = False)
 	Motivo_consulta = models.CharField(max_length = 200)
 
 class Enfermedad_Actual(models.Model):
 	Id_Enfermedad = models.AutoField(primary_key = True, max_length = 35, unique = True)
-	id_paciente = models.ForeignKey(paciente, null = False, blank = False, on_delete=models.CASCADE)
+	id_paciente = models.ForeignKey(paciente, null = False, blank = False)
 	Enf_actual = models.CharField(max_length = 200)
 
 class Gustos_preferencias(models.Model):
 	Id_Gustos = models.AutoField(primary_key = True, max_length = 35, unique = True)
-	id_paciente = models.ForeignKey(paciente, null = False, blank = False, on_delete=models.CASCADE)
+	id_paciente = models.ForeignKey(paciente, null = False, blank = False)
 	Clima = models.CharField(max_length = 50)
 	Temperatura = models.CharField(max_length = 50)
 	Colores = models.CharField(max_length = 50)
@@ -37,7 +37,7 @@ class Gustos_preferencias(models.Model):
 
 class Examen_Fisico(models.Model):
 	Id_examen = models.AutoField(primary_key = True, max_length = 35, unique = True)
-	id_paciente = models.ForeignKey(paciente, null = False, blank = False, on_delete=models.CASCADE)
+	id_paciente = models.ForeignKey(paciente, null = False, blank = False)
 	TA = models.IntegerField()
 	FC = models.IntegerField()
 	FR = models.IntegerField()
@@ -49,38 +49,38 @@ class Examen_Fisico(models.Model):
 
 class medidas_antropometricas(models.Model):
 	Id_medidas = models.AutoField(primary_key = True, max_length = 35, unique = True)
-	id_examen = models.ForeignKey(Examen_Fisico, null = False, blank = False, on_delete=models.CASCADE)
+	id_examen = models.ForeignKey(Examen_Fisico, null = False, blank = False)
 	Organo = models.CharField(max_length=50)
 	Clasificacion = models.CharField(max_length=50)
 	Especificacion = models.CharField(max_length=50)
 
 class Diagnostico(models.Model):
 	Id_diag_CIE10 = models.AutoField(primary_key = True, max_length = 35, unique = True)
-	id_paciente = models.ForeignKey(paciente, null = False, blank = False, on_delete=models.CASCADE)
+	id_paciente = models.ForeignKey(paciente, null = False, blank = False)
 	codigo= models.CharField(max_length=50)
 	Nombre= models.CharField(max_length=50)
 	Tipo= models.CharField(max_length=50)
 
 class Resultado_Examen(models.Model):
 	Id_resultado = models.AutoField(primary_key = True, max_length = 35, unique = True)
-	id_paciente = models.ForeignKey(paciente, null = False, blank = False, on_delete=models.CASCADE)
+	id_paciente = models.ForeignKey(paciente, null = False, blank = False)
 	Resultado= models.CharField(max_length=50)
 
 class Terapias(models.Model):
 	Id_terapia = models.AutoField(primary_key = True, max_length = 35, unique = True)
-	id_paciente = models.ForeignKey(paciente, null = False, blank = False, on_delete=models.CASCADE)
+	id_paciente = models.ForeignKey(paciente, null = False, blank = False)
 	Terapia= models.CharField(max_length=50)
 	Estado= models.CharField(max_length=50)
 	Especificaciones = models.CharField(max_length=50)
 
 class Diagnosticos_propios(models.Model):
 	Id_diagnostico = models.AutoField(primary_key = True, max_length = 35, unique = True)
-	id_paciente = models.ForeignKey(paciente, null = False, blank = False, on_delete=models.CASCADE)
+	id_paciente = models.ForeignKey(paciente, null = False, blank = False)
 	Nombre_diag= models.CharField(max_length=50)
 
 class Antecedentes(models.Model):
 	Id_antecedentes = models.AutoField(primary_key = True, max_length = 35, unique = True)
-	id_paciente = models.ForeignKey(paciente, null = False, blank = False, on_delete=models.CASCADE)
+	id_paciente = models.ForeignKey(paciente, null = False, blank = False)
 	Patologicos_medicamentos= models.CharField(max_length=50)
 	Toxicos_alergicos= models.CharField(max_length=50)
 	Quirurgicos= models.CharField(max_length=50)
@@ -92,11 +92,11 @@ class Antecedentes(models.Model):
 
 class Plan_manejo(models.Model):
 	Id_plan = models.AutoField(primary_key = True, max_length = 35, unique = True)
-	id_paciente = models.ForeignKey(paciente, null = False, blank = False, on_delete=models.CASCADE)
+	id_paciente = models.ForeignKey(paciente, null = False, blank = False)
 	Plan_manejo= models.CharField(max_length=50)
 	Control= models.CharField(max_length=50)
 
 class Rev_sistemas(models.Model):
 	Id_revision = models.AutoField(primary_key = True, max_length = 35, unique = True)
-	id_paciente = models.ForeignKey(paciente, null = False, blank = False, on_delete=models.CASCADE)
+	id_paciente = models.ForeignKey(paciente, null = False, blank = False)
 	Rev_consulta= models.CharField(max_length=50)
