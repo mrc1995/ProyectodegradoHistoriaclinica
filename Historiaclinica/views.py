@@ -44,14 +44,11 @@ def endsesion(request):
 @login_required(login_url='/ingresar')
 def Ingresarpaciente(request):
 	if request.method == "POST":
-		print "estoy despues del if"
 		form_registro_usuario = IngresarPaciente(request.POST or None)
 		if form_registro_usuario.is_valid():
-			print "estoy despues del if"
 			newPaciente = paciente(id_paciente = request.POST['id_paciente'], Nombre =request.POST['Nombre'],
 			Apellido=request.POST['Apellido'],EPS=request.POST['EPS'],Genero=request.POST['Genero'],
 			Email=request.POST['Email'],Municipio=request.POST['Municipio'],Edad=request.POST['Edad'])
-			print "Paciente ingresado"
 			newPaciente.save()
 	else:
 		form_registro_usuario = IngresarPaciente()
@@ -63,7 +60,6 @@ def MotivoConsulta(request):
 		form_registro_motivo = Motivoconsulta(request.POST or None)
 		if form_registro_motivo.is_valid():
 			p = paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			print p.Nombre
 			newMotivo = Motivo_consulta(id_paciente = p, Motivo_consulta=request.POST['Motivo_consulta'])
 			newMotivo.save()
 	else:
