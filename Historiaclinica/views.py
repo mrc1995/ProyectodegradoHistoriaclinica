@@ -172,13 +172,42 @@ def Diagnosticos_propios(request):
 
 
 @login_required(login_url='/ingresar')
-def Diagnosticos_propios(request):
+def Antecedentes(request):
 	if request.method == "POST":
-		form_propios = diagnosticos_propios(request.POST or None)
-		if form_propios.is_valid():
+		form_antecedentes = antecedentes(request.POST or None)
+		if form_antecedentes.is_valid():
 			paciente = paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newPropios = Diagnosticos_propios(id_paciente = paciente, Nombre_diag = request.POST['Nombre_diag'])
-			newPropios.save()
+			newAntecedentes = Antecedentes(id_paciente = paciente, Patologicos_medicamentos = request.POST['Patologicos_medicamentos'],
+				Toxicos_alergicos = request.POST['Toxicos_alergicos'],Quirurgicos = request.POST['Quirurgicos'],Trau_fisicos = request.POST['Trau_fisicos'],
+				Trau_emocionales = request.POST['Trau_emocionales'], Habitos_saludables = request.POST['Habitos_saludables'],Habitos_riesgo = request.POST['Habitos_riesgo'],
+				Familiares = request.POST['Familiares'])
+			newAntecedentes.save()
 	else:
-		form_gustos = diagnosticos_propios()
-	return render (request,'Diagnosticos_propios.html') 
+		form_antecedentes = antecedentes()
+	return render (request,'Antecedentes.html') 
+
+
+@login_required(login_url='/ingresar')
+def Plan_manejo(request):
+	if request.method == "POST":
+		form_plan = plan(request.POST or None)
+		if form_plan.is_valid():
+			paciente = paciente.objects.get(id_paciente = request.POST['id_paciente'])
+			newPlan = Diagnosticos_propios(id_paciente = paciente, Plan_manejo = request.POST['Plan_manejo'],Control = request.POST['Control'])
+			newPlan.save()
+	else:
+		form_plan = plan()
+	return render (request,'Plan_manejo.html') 
+
+
+@login_required(login_url='/ingresar')
+def Revision_sistemas(request):
+	if request.method == "POST":
+		form_revision = revision_sistemas(request.POST or None)
+		if form_revision.is_valid():
+			paciente = paciente.objects.get(id_paciente = request.POST['id_paciente'])
+			newRevision = Diagnosticos_propios(id_paciente = paciente, Rev_consulta = request.POST['Rev_consulta'])
+			newRevision.save()
+	else:
+		form_revision = revision_sistemas()
+	return render (request,'Revision_sistemas.html') 

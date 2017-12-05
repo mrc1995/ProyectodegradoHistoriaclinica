@@ -16,16 +16,26 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from Historiaclinica.views import Ingresarpaciente,MotivoConsulta,loginstart,privado,endsesion, EnfermedadActual
+from Historiaclinica.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',loginstart, name = 'loginstart'),
-     url(r'^loginstart',loginstart, name = 'loginstart'),
+    url(r'^loginstart',loginstart, name = 'loginstart'),
     url(r'^privado$',privado,name = 'privado'),
     url(r'^endsesion/$',endsesion,name = 'endsesion'),
     url(r'^Ingresarpaciente',Ingresarpaciente, name = 'Ingresarpaciente'),
     url(r'^MotivoConsulta',MotivoConsulta, name = 'MotivoConsulta'),
     url(r'^EnfermedadActual',EnfermedadActual, name = 'Enfermedad'),
+    url(r'^gustos_paciente',gustos_paciente, name = 'Gustos'),
+    url(r'^Examen',Examen,name='Examen'),
+    url(r'^Medidas',Medidas,name ='Medidas_antropometricas'),
+    url(r'^Diagnostico', Diagnostico, name='Diagnostico'),
+    url(r'^Resultado', Resultado, name='Resultado'),
+    url(r'^Terapias_new', Terapias_new, name = 'Terapias'),
+    url(r'^Diagnosticos_propios', Diagnosticos_propios, name='Diagnosticos_propios'),
+    url(r'^Antecedentes', Antecedentes, name='Antecedentes'),
+    url(r'^Plan_manejo', Plan_manejo, name= 'Plan'),
+    url(r'^Revision_sistemas', Revision_sistemas, name= 'Revision')
 ]
 
