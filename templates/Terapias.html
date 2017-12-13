@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Registrar Paciente</title>
+  <title>Gustos</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
@@ -29,35 +29,31 @@
 				</tr>
 				<tr>
 					<th>
-						<label for="Clima">Clima:</label><br>
-					</th>
-
-					<td>
-						<input class="form-control" name="Clima" id = "Clima" required placeholder="Clima"  maxlength="50">
-					</td>
-				</tr>
-				<tr>	
-					<th>
-						<label for="Temperatura">Temperatura:</label>
+						<label for="Terapia">Terapia:</label>
 					</th>
 					<td>
-						<input class="form-control" name="Temperatura" id = "Temperatura" required placeholder="Temperatura"  maxlength="50">
+						<input class="form-control" name="Terapia" id = "Terapia" required placeholder="Descripción Terapia"  maxlength="50">
 					</td>
 				</tr>
 				<tr>
 					<th>
-						<label for="Colores">Colores:</label>
+						<label for="Estado">Estado:</label>
 					</th>
 					<td>
-						<input class="form-control" name="Colores" id = "Colores" required placeholder="Colores"  maxlength="50">
+						<select class="form-control" name="Estado" id = "Estado" required placeholder="Estado Terapia" maxlength="25" >
+						<option>En proceso</option>
+						<option>Finalizada</option>
+						<option>Cancelada</option>
+						<option>A definir</option>
+						</select>
 					</td>
 				</tr>
 				<tr>
 					<th>
-						<label for="Numeros">Numeros:</label>
+						<label for="Especificaciones">Especificaciones:</label>
 					</th>
 					<td>
-						<input class="form-control" name="Numeros" id = "Numeros" required placeholder="Numeros"  maxlength="50">
+						<input class="form-control" name="Especificaciones" id = "Especificaciones" required placeholder="Especificaciones Terapia"  maxlength="50">
 					</td>
 				</tr>
 			</div>

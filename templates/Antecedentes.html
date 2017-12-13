@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gustos</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+  <link rel="stylesheet" href="{%static 'js/bootstrap.min.js'%}">
+  <link rel="stylesheet"  href="{% static 'css/estilos.css'%}">
+  <link href="{% static 'css/sb-admin.css'%}" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+	{% block content %}
+	<form method="POST">
+		{% csrf_token %}
+			<div class="form-group" align="center">
+				<tr>
+					<th>
+						<br>
+						<label for="id_paciente">Documento identificacion:</label>
+					</th>
+					<td>
+						<input class="form-control" type="text" name="id_paciente" id = "id_paciente" required 
+						placeholder="Cc paciente" maxlength="25">
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<label for="Patologicos_medicamentos">Patológicos/Medicamentos:</label>
+					</th>
+					<td>
+						<input class="form-control" name="Patologicos_medicamentos" id = "Patologicos_medicamentos" required placeholder="Patologicos/Medicamentos"  maxlength="200">
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<label for="Toxicos_alergicos">Tóxicos/Alérgicos:</label>
+					</th>
+					<td>
+						<input class="form-control" name="Toxicos_alergicos" id = "Toxicos_alergicos" required placeholder="Tóxicos/Alérgicos"  maxlength="200">
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<label for="Quirurgicos">Quirúrgicos:</label>
+					</th>
+					<td>
+						<input class="form-control" name="Quirurgicos" id = "Quirurgicos" required placeholder="Quirúrgicos"  maxlength="200">
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<label for="Trau_fisicos">Traumas Físicos:</label>
+					</th>
+					<td>
+						<input class="form-control" name="Trau_fisicos" id = "Trau_fisicos" required placeholder="Traumas Físicos"  maxlength="200">
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<label for="Trau_emocionales">Traumas Emocionales:</label>
+					</th>
+					<td>
+						<input class="form-control" name="Trau_emocionales" id = "Trau_emocionales" required placeholder="Traumas Emocionales"  maxlength="200">
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<label for="Habitos_saludables">Hábitos Saludables:</label>
+					</th>
+					<td>
+						<input class="form-control" name="Habitos_saludables" id = "Habitos_saludables" required placeholder="Hábitos Saludables"  maxlength="200">
+					</td>
+				</tr>
+					<th>
+						<label for="Habitos_riesgo">Hábitos de Riesgo:</label>
+					</th>
+					<td>
+						<input class="form-control" name="Habitos_riesgo" id = "Habitos_riesgo" required placeholder="Hábitos de Riesgo"  maxlength="200">
+					</td>
+				</tr>
+				</tr>
+					<th>
+						<label for="Familiares">Familiares:</label>
+					</th>
+					<td>
+						<input class="form-control" name="Familiares" id = "Familiares" required placeholder="Familiares"  maxlength="200">
+					</td>
+				</tr>
+
+			</div>
+		<div align="center"><input class="btn btn-primary btn-block-form" type="submit" value="Siguiente"></div>
+	</form>
+	<a href="javascript:history.go(-1)">Regresar</a>
+	{% endblock content %}
+</div>
+</body>
+</html>

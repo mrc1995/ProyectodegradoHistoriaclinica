@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gustos</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+  <link rel="stylesheet" href="{%static 'js/bootstrap.min.js'%}">
+  <link rel="stylesheet"  href="{% static 'css/estilos.css'%}">
+  <link href="{% static 'css/sb-admin.css'%}" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+	{% block content %}
+	<form method="POST">
+		{% csrf_token %}
+			<div class="form-group" align="center">
+				<tr>
+					<th>
+						<br>
+						<label for="id_paciente">Documento identificacion:</label>
+					</th>
+					<td>
+						<input class="form-control" type="text" name="id_paciente" id = "id_paciente" required 
+						placeholder="Cc paciente" maxlength="25">
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<label for="TA">Tensión Arterial:</label>
+					</th>
+					<td>
+						<input class="form-control" name="TA" id = "TA" required placeholder="TA"  maxlength="50">
+				</tr>
+				<tr>
+					<th>
+						<label for="FC">Frecuencia Cardíaca:</label>
+					</th>
+					<td>
+						<input class="form-control" name="FC" id = "FC" required placeholder="FC"  maxlength="50">
+				</tr>
+				<tr>
+					<th>
+						<label for="FR">Frecuencia Respiratoria:</label>
+					</th>
+					<td>
+						<input class="form-control" name="FR" id = "FR" required placeholder="FR"  maxlength="50">
+				</tr>
+				
+
+
+
+				<tr>
+						<script type="text/javascript"> 
+            				//definimos la funcion 
+    						function calculaIMC() 
+            					{ 
+                					//declaramos las variables 
+									var peso, altura, imc, leyenda; 
+									//hacemos la llamada a los datos introducidos 
+                					peso=document.getElementById("Peso").value; 
+                					altura=document.getElementById("Estatura").value/100; 
+									//calculamos el imc 
+                					imc=peso/(altura*altura); 
+									//enviamos el resultado a la caja correspondiente y lo reducimos a 2 decimales 
+                					document.getElementById("IMC").value=imc.toFixed(2); 
+									//mediante if comparamos el resultado para determinar si es correcto el peso 
+									if(imc<=20.5) 
+    									{ 
+    										//determinamos el defecto en peso y definimos el comentario 
+    										leyenda="Estas delgado. Debes engordar " + (altura*altura*20.5-peso).toFixed(1) + " kilos"; 
+    									} 
+    									else if(imc>=25.5) 
+										{ 
+											//determinamos el exceso en peso y definimos el comentario 
+											leyenda="Tienes sobrepeso. Debes adelgazar "+(peso-altura*altura*25.5).toFixed(1) +" kilos";     
+										} 
+										else 
+    									{ 
+    									leyenda="Estas en tu peso ideal"; 
+    									} 
+										//enviamos el comentario a la caja correspondiente
+										document.getElementById("leyenda").value=leyenda; 
+    									} 
+						</script> 
+    				 
+					    <br>
+					    
+					    <label for="Peso">Peso en kg:</label>
+					    <!--definimos una caja donde introducir el dato del peso--> 
+					    <input class="form-control" name="Peso" id = "Peso" required placeholder="Peso"  maxlength="50"> 
+					    
+					   
+					    <label for="Estatura">Altura en cm:</label>
+					    <!--definimos una caja donde introducir el dato de la altura--> 
+					    <input class="form-control" name="Estatura" id = "Estatura" required placeholder="Estatura"  maxlength="50"> 
+					    
+					    <!--definimos un boton que hara la llamada a la funcion para calcular el imc--> 
+					    <input type="button" value="Calcular IMC" onClick="calculaIMC()"> 
+					    <br>
+					    <br>
+					    <label for="IMC">IMC:</label>
+					    <!--definimos una caja donde la funcion devolvera el valor de imc calculado--> 
+					    <input input class="form-control" name="IMC" id = "IMC" required placeholder="IMC"  maxlength="50"> 
+
+					    
+					
+
+
+
+
+
+
+				</tr>
+				
+
+
+
+
+				<tr>
+					<th>
+						<label for="Perimetro_cintura">Perimetro Cintura:</label>
+					</th>
+					<td>
+						<input class="form-control" name="Perimetro_cintura" id = "Perimetro_cintura" required placeholder="Perimetro Cintura"  maxlength="50">
+				</tr>
+				<tr>
+					<th>
+						<label for="Pulso">Pulso:</label>
+					</th>
+					<td>
+						<input class="form-control" name="Pulso" id = "Pulso" required placeholder="Pulso"  maxlength="50">
+				</tr>
+
+			</div>
+		<div align="center"><input class="btn btn-primary btn-block-form" type="submit" value="Siguiente"></div>
+	</form>
+	<a href="javascript:history.go(-1)">Regresar</a>
+	{% endblock content %}
+</div>
+</body>
+</html>

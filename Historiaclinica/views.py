@@ -9,7 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
-
+ 
 
 def loginstart(request):
 	form = loginForm(request.POST or None)
@@ -62,9 +62,9 @@ def MotivoConsulta(request):
 	if request.method == "POST":
 		form_registro_motivo = Motivoconsulta(request.POST or None)
 		if form_registro_motivo.is_valid():
-			paciente =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
+			p =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
 			print p.Nombre
-			newMotivo = Motivo_consulta(id_paciente = paciente, Motivo_consulta=request.POST['Motivo_consulta'])
+			newMotivo = Motivo_consulta(id_paciente = p, Motivo_consulta=request.POST['Motivo_consulta'])
 			newMotivo.save()
 	else:
 		form_registro_motivo = Motivoconsulta()
@@ -75,8 +75,8 @@ def EnfermedadActual(request):
 	if request.method == "POST":
 		form_enfermedad = Enfermedadactual(request.POST or None)
 		if form_enfermedad.is_valid():
-			paciente =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newEnfermedad = Enfermedad_Actual(id_paciente = paciente, Enf_actual = request.POST['Enf_actual'])
+			p =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
+			newEnfermedad = Enfermedad_Actual(id_paciente = p, Enf_actual = request.POST['Enf_actual'])
 			newEnfermedad.save()
 	else: 
 		form_enfermedad = Enfermedadactual()
@@ -87,8 +87,8 @@ def gustos_paciente(request):
 	if request.method == "POST":
 		form_gustos = gustos(request.POST or None)
 		if form_gustos.is_valid():
-			paciente =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newGustos = Gustos_preferencias(id_paciente = paciente, Clima = request.POST['Clima'], Temperatura = request.POST['Temperatura'],Colores = request.POST['Colores'], Numeros = request.POST['Numeros'])
+			p =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
+			newGustos = Gustos_preferencias(id_paciente = p, Clima = request.POST['Clima'], Temperatura = request.POST['Temperatura'],Colores = request.POST['Colores'], Numeros = request.POST['Numeros'])
 			newGustos.save()
 	else:
 		form_gustos = gustos()
@@ -99,8 +99,8 @@ def Examen(request):
 	if request.method == "POST":
 		form_examen = examen(request.POST or None)
 		if form_examen.is_valid():
-			paciente =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newExamen = Examen_fisico(id_paciente = paciente, TA = request.POST['TA'], FC = request.POST['FC'],FR = request.POST['FR'], Peso = request.POST['Peso'],
+			p =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
+			newExamen = Examen_fisico(id_paciente = p, TA = request.POST['TA'], FC = request.POST['FC'],FR = request.POST['FR'], Peso = request.POST['Peso'],
 				Estatura =request.POST['Estatura'],Perimetro_cintura = request.POST['Perimetro_cintura'],IMC = request.POST['IMC'],Pulso = request.POST['Pulso'] )
 			newExamen.save()
 	else:
@@ -124,8 +124,8 @@ def Diagnostico(request):
 	if request.method == "POST":
 		form_diagnostico = diagnostico(request.POST or None)
 		if form_diagnostico.is_valid():
-			paciente =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newDiagnostico = Diagnostico(id_paciente = paciente, Codigo = request.POST['Codigo'], Nombre = request.POST['Nombre'],Tipo = request.POST['Tipo'])
+			p =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
+			newDiagnostico = Diagnostico(id_paciente = p, Codigo = request.POST['Codigo'], Nombre = request.POST['Nombre'],Tipo = request.POST['Tipo'])
 			newDiagnostico.save()
 	else:
 		form_gustos = diagnostico()
@@ -136,8 +136,8 @@ def Resultado(request):
 	if request.method == "POST":
 		form_resultado = Resultado_examen(request.POST or None)
 		if form_resultado.is_valid():
-			paciente = paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newResultado = Resultado_Examen(id_paciente = paciente, Resultado = request.POST['Resultado'])
+			p = paciente.objects.get(id_paciente = request.POST['id_paciente'])
+			newResultado = Resultado_Examen(id_paciente = p, Resultado = request.POST['Resultado'])
 			newResultado.save()
 	else:
 		form_gustos = Resultado_examen()
@@ -148,8 +148,8 @@ def Terapias_new(request):
 	if request.method == "POST":
 		form_terapia = terapias(request.POST or None)
 		if form_terapia.is_valid():
-			paciente = paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newTerapia = Terapias(id_paciente = paciente, Terapia = request.POST['Terapia'],Estado = request.POST['Estado'],Espeficaciones = request.POST['Especificaciones'])
+			p = paciente.objects.get(id_paciente = request.POST['id_paciente'])
+			newTerapia = Terapias(id_paciente = p, Terapia = request.POST['Terapia'],Estado = request.POST['Estado'],Espeficaciones = request.POST['Especificaciones'])
 			newTerapia.save()
 	else:
 		form_gustos = terapias()
@@ -160,8 +160,8 @@ def Diagnosticos_propios(request):
 	if request.method == "POST":
 		form_propios = diagnosticos_propios(request.POST or None)
 		if form_propios.is_valid():
-			paciente = paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newPropios = Diagnosticos_propios(id_paciente = paciente, Nombre_diag = request.POST['Nombre_diag'])
+			p = paciente.objects.get(id_paciente = request.POST['id_paciente'])
+			newPropios = Diagnosticos_propios(id_paciente = p, Nombre_diag = request.POST['Nombre_diag'])
 			newPropios.save()
 	else:
 		form_gustos = diagnosticos_propios()
@@ -176,11 +176,8 @@ def Antecedentes(request):
 	if request.method == "POST":
 		form_antecedentes = antecedentes(request.POST or None)
 		if form_antecedentes.is_valid():
-			paciente = paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newAntecedentes = Antecedentes(id_paciente = paciente, Patologicos_medicamentos = request.POST['Patologicos_medicamentos'],
-				Toxicos_alergicos = request.POST['Toxicos_alergicos'],Quirurgicos = request.POST['Quirurgicos'],Trau_fisicos = request.POST['Trau_fisicos'],
-				Trau_emocionales = request.POST['Trau_emocionales'], Habitos_saludables = request.POST['Habitos_saludables'],Habitos_riesgo = request.POST['Habitos_riesgo'],
-				Familiares = request.POST['Familiares'])
+			p = paciente.objects.get(id_paciente = request.POST['id_paciente'])
+			newAntecedentes = Antecedentes(id_paciente = p, Patologicos_medicamentos = request.POST['Patologicos_medicamentos'], Toxicos_alergicos = request.POST['Toxicos_alergicos'],Quirurgicos = request.POST['Quirurgicos'],Trau_fisicos = request.POST['Trau_fisicos'], Trau_emocionales = request.POST['Trau_emocionales'], Habitos_saludables = request.POST['Habitos_saludables'],Habitos_riesgo = request.POST['Habitos_riesgo'], Familiares = request.POST['Familiares'])
 			newAntecedentes.save()
 	else:
 		form_antecedentes = antecedentes()
@@ -192,8 +189,8 @@ def Plan_manejo(request):
 	if request.method == "POST":
 		form_plan = plan(request.POST or None)
 		if form_plan.is_valid():
-			paciente = paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newPlan = Diagnosticos_propios(id_paciente = paciente, Plan_manejo = request.POST['Plan_manejo'],Control = request.POST['Control'])
+			p = paciente.objects.get(id_paciente = request.POST['id_paciente'])
+			newPlan = Plan_manejo(id_paciente = p, Plan_manejo = request.POST['Plan_manejo'], Control = request.POST['Control'])
 			newPlan.save()
 	else:
 		form_plan = plan()
@@ -205,8 +202,8 @@ def Revision_sistemas(request):
 	if request.method == "POST":
 		form_revision = revision_sistemas(request.POST or None)
 		if form_revision.is_valid():
-			paciente = paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newRevision = Diagnosticos_propios(id_paciente = paciente, Rev_consulta = request.POST['Rev_consulta'])
+			p = paciente.objects.get(id_paciente = request.POST['id_paciente'])
+			newRevision = Rev_sistemas(id_paciente = p, Rev_consulta = request.POST['Rev_consulta'])
 			newRevision.save()
 	else:
 		form_revision = revision_sistemas()
