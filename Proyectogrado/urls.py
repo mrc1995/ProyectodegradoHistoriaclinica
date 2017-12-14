@@ -30,12 +30,12 @@ urlpatterns = [
     url(r'^gustos_paciente',gustos_paciente, name = 'Gustos'),
     url(r'^Examen',Examen,name='Examen'),
     url(r'^Medidas',Medidas,name ='Medidas_antropometricas'),
-    url(r'^Diagnostico', Diagnostico, name='Diagnostico'),
+    url(r'^diagnostico_medico', diagnostico_medico, name='diagnostico_medico'),
     url(r'^Resultado', Resultado, name='Resultado'),
     url(r'^Terapias_new', Terapias_new, name = 'Terapias'),
-    url(r'^Diagnosticos_propios', Diagnosticos_propios, name='Diagnosticos_propios'),
-    url(r'^Antecedentes', Antecedentes, name='Antecedentes'),
-    url(r'^Plan_manejo', Plan_manejo, name= 'Plan'),
+    url(r'^propios', propios, name='propios'),
+    url(r'^recuerdos', recuerdos, name='hola'),
+    url(r'^plan_de_manejo', plan_de_manejo, name= 'Plan'),
     url(r'^Revision_sistemas', Revision_sistemas, name= 'Revision')
 ]
 

@@ -49,7 +49,7 @@ class Examen_Fisico(models.Model):
 
 class medidas_antropometricas(models.Model):
 	Id_medidas = models.AutoField(primary_key = True, max_length = 35, unique = True)
-	id_examen = models.ForeignKey(Examen_Fisico, null = False, blank = False)
+	Id_examen = models.ForeignKey(Examen_Fisico, null = False, blank = False)
 	Organo = models.CharField(max_length=50)
 	Clasificacion = models.CharField(max_length=50)
 	Especificacion = models.CharField(max_length=50)
@@ -93,7 +93,7 @@ class Antecedentes(models.Model):
 class Plan_manejo(models.Model):
 	Id_plan = models.AutoField(primary_key = True, max_length = 35, unique = True)
 	id_paciente = models.ForeignKey(paciente, null = False, blank = False)
-	Plan_manejo= models.CharField(max_length=50)
+	Plan= models.CharField(max_length=50)
 	Control= models.CharField(max_length=50)
 
 class Rev_sistemas(models.Model):

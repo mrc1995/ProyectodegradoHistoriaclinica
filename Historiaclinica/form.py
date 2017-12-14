@@ -45,7 +45,7 @@ class examen(forms.ModelForm):
 class medidas(forms.ModelForm):
 	class Meta:
 		model = medidas_antropometricas
-		fields = ('id_examen','Organo','Clasificacion','Especificacion')
+		fields = ('Id_examen','Organo','Clasificacion','Especificacion')
 
 class diagnostico(forms.ModelForm):
 	class Meta:
@@ -82,7 +82,7 @@ class plan(forms.ModelForm):
 
 	class Meta:
 		model = Plan_manejo
-		fields = ('id_paciente','Plan_manejo','Control')
+		fields = ('id_paciente','Plan','Control')
 
 class revision_sistemas(forms.ModelForm):
 

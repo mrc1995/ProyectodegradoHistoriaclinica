@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate,login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
-from django.contrib.auth.decorators import login_required
+
  
 
 def loginstart(request):
@@ -100,7 +100,7 @@ def Examen(request):
 		form_examen = examen(request.POST or None)
 		if form_examen.is_valid():
 			p =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newExamen = Examen_fisico(id_paciente = p, TA = request.POST['TA'], FC = request.POST['FC'],FR = request.POST['FR'], Peso = request.POST['Peso'],
+			newExamen = Examen_Fisico(id_paciente = p, TA = request.POST['TA'], FC = request.POST['FC'],FR = request.POST['FR'], Peso = request.POST['Peso'],
 				Estatura =request.POST['Estatura'],Perimetro_cintura = request.POST['Perimetro_cintura'],IMC = request.POST['IMC'],Pulso = request.POST['Pulso'] )
 			newExamen.save()
 	else:
@@ -112,20 +112,20 @@ def Medidas(request):
 	if request.method == "POST":
 		form_medidas = medidas(request.POST or None)
 		if form_medidas.is_valid():
-			examen = paciente.objects.get(id_examen = request.POST['id_examen'])
-			newMedidas = medidas_antropometricas(id_examen = examen, Organo = request.POST['Organo'], Clasificacion = request.POST['Clasificacion'],Especificacion = request.POST['Expecificacion'])
+			e = Examen_Fisico.objects.get(Id_examen = request.POST['Id_examen'])
+			newMedidas = medidas_antropometricas(Id_examen = e, Organo = request.POST['Organo'], Clasificacion = request.POST['Clasificacion'],Especificacion = request.POST['Especificacion'])
 			newMedidas.save()
 	else:
 		form_gustos = medidas()
 	return render (request,'Medidas.html') 
 
 @login_required(login_url='/ingresar')
-def Diagnostico(request):
+def diagnostico_medico(request):
 	if request.method == "POST":
 		form_diagnostico = diagnostico(request.POST or None)
 		if form_diagnostico.is_valid():
 			p =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newDiagnostico = Diagnostico(id_paciente = p, Codigo = request.POST['Codigo'], Nombre = request.POST['Nombre'],Tipo = request.POST['Tipo'])
+			newDiagnostico = Diagnostico(id_paciente = p, codigo = request.POST['codigo'], Nombre = request.POST['Nombre'],Tipo = request.POST['Tipo'])
 			newDiagnostico.save()
 	else:
 		form_gustos = diagnostico()
@@ -149,14 +149,14 @@ def Terapias_new(request):
 		form_terapia = terapias(request.POST or None)
 		if form_terapia.is_valid():
 			p = paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newTerapia = Terapias(id_paciente = p, Terapia = request.POST['Terapia'],Estado = request.POST['Estado'],Espeficaciones = request.POST['Especificaciones'])
+			newTerapia = Terapias(id_paciente = p, Terapia = request.POST['Terapia'],Estado = request.POST['Estado'],Especificaciones = request.POST['Especificaciones'])
 			newTerapia.save()
 	else:
 		form_gustos = terapias()
 	return render (request,'Terapias.html') 
 
 @login_required(login_url='/ingresar')
-def Diagnosticos_propios(request):
+def propios(request):
 	if request.method == "POST":
 		form_propios = diagnosticos_propios(request.POST or None)
 		if form_propios.is_valid():
@@ -167,12 +167,8 @@ def Diagnosticos_propios(request):
 		form_gustos = diagnosticos_propios()
 	return render (request,'Diagnosticos_propios.html') 
 
-
-###############################33
-
-
 @login_required(login_url='/ingresar')
-def Antecedentes(request):
+def recuerdos(request):
 	if request.method == "POST":
 		form_antecedentes = antecedentes(request.POST or None)
 		if form_antecedentes.is_valid():
@@ -182,19 +178,6 @@ def Antecedentes(request):
 	else:
 		form_antecedentes = antecedentes()
 	return render (request,'Antecedentes.html') 
-
-
-@login_required(login_url='/ingresar')
-def Plan_manejo(request):
-	if request.method == "POST":
-		form_plan = plan(request.POST or None)
-		if form_plan.is_valid():
-			p = paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newPlan = Plan_manejo(id_paciente = p, Plan_manejo = request.POST['Plan_manejo'], Control = request.POST['Control'])
-			newPlan.save()
-	else:
-		form_plan = plan()
-	return render (request,'Plan_manejo.html') 
 
 
 @login_required(login_url='/ingresar')
@@ -208,3 +191,15 @@ def Revision_sistemas(request):
 	else:
 		form_revision = revision_sistemas()
 	return render (request,'Revision_sistemas.html') 
+
+@login_required(login_url='/ingresar')
+def plan_de_manejo(request):
+	if request.method == "POST":
+		form_plan = plan(request.POST or None)
+		if form_plan.is_valid():
+			p =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
+			newPlan = Plan_manejo(id_paciente = p, Plan = request.POST['Plan'], Control = request.POST['Control'])				
+			newPlan.save()
+	else:
+		form_plan = plan()
+	return render (request,'Plan_manejo.html')
