@@ -23,7 +23,7 @@
 						<label for="id_paciente">Documento identificacion:</label>
 					</th>
 					<td>
-						<input class="form-control" type="text" name="id_paciente" id = "id_paciente" required 
+						<input title="Ingrese un documento valido" pattern="[0-9]*" class="form-control" type="text" name="id_paciente" id = "id_paciente" required 
 						placeholder="Cc paciente" maxlength="25">
 					</td>
 				</tr>
@@ -32,21 +32,21 @@
 						<label for="TA">Tensión Arterial:</label>
 					</th>
 					<td>
-						<input class="form-control" name="TA" id = "TA" required placeholder="TA"  maxlength="50">
+						<input title="Ingrese valores numericos" pattern="[0-9]*" class="form-control" name="TA" id = "TA" required placeholder="TA"  maxlength="50">
 				</tr>
 				<tr>
 					<th>
 						<label for="FC">Frecuencia Cardíaca:</label>
 					</th>
 					<td>
-						<input class="form-control" name="FC" id = "FC" required placeholder="FC"  maxlength="50">
+						<input title="Ingrese valores numericos" pattern="[0-9]*" class="form-control" name="FC" id = "FC" required placeholder="FC"  maxlength="50">
 				</tr>
 				<tr>
 					<th>
 						<label for="FR">Frecuencia Respiratoria:</label>
 					</th>
 					<td>
-						<input class="form-control" name="FR" id = "FR" required placeholder="FR"  maxlength="50">
+						<input title="Ingrese valores numericos" pattern="[0-9]*"  class="form-control" name="FR" id = "FR" required placeholder="FR"  maxlength="50">
 				</tr>
 				
 
@@ -90,12 +90,12 @@
 					    
 					    <label for="Peso">Peso en kg:</label>
 					    <!--definimos una caja donde introducir el dato del peso--> 
-					    <input class="form-control" name="Peso" id = "Peso" required placeholder="Peso"  maxlength="50"> 
+					    <input title="Ingrese valores numericos" pattern="[0-9]*" class="form-control" name="Peso" id = "Peso" required placeholder="Peso"  maxlength="50"> 
 					    
 					   
 					    <label for="Estatura">Altura en cm:</label>
 					    <!--definimos una caja donde introducir el dato de la altura--> 
-					    <input class="form-control" name="Estatura" id = "Estatura" required placeholder="Estatura"  maxlength="50"> 
+					    <input title="Ingrese valores numericos" pattern="[0-9]*" class="form-control" name="Estatura" id = "Estatura" required placeholder="Estatura"  maxlength="50"> 
 					    
 					    <!--definimos un boton que hara la llamada a la funcion para calcular el imc--> 
 					    <input type="button" value="Calcular IMC" onClick="calculaIMC()"> 
@@ -124,14 +124,14 @@
 						<label for="Perimetro_cintura">Perimetro Cintura:</label>
 					</th>
 					<td>
-						<input class="form-control" name="Perimetro_cintura" id = "Perimetro_cintura" required placeholder="Perimetro Cintura"  maxlength="50">
+						<input title="Ingrese valores numericos" pattern="[0-9]*" class="form-control" name="Perimetro_cintura" id = "Perimetro_cintura" required placeholder="Perimetro Cintura"  maxlength="50">
 				</tr>
 				<tr>
 					<th>
 						<label for="Pulso">Pulso:</label>
 					</th>
 					<td>
-						<input class="form-control" name="Pulso" id = "Pulso" required placeholder="Pulso"  maxlength="50">
+						<input title="Ingrese valores numericos" pattern="[0-9]*" class="form-control" name="Pulso" id = "Pulso" required placeholder="Pulso"  maxlength="50">
 				</tr>
 
 			</div>

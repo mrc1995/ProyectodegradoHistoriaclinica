@@ -22,21 +22,21 @@
               <label for="id_paciente">Documento Identificacion:</label>
             </tr>
             <td> 
-				<input class="form-control" name="id_paciente" id = "id_paciente" required  
+				<input title="Ingrese un documento valido" pattern="[0-9]*" class="form-control" name="id_paciente" id = "id_paciente" required  
 				placeholder="Documento Identificacion" maxlength="25" >
             </td>
             <tr>
               <label for="Nombre">Nombre:</label>
             </tr>
             <td>
-              	<input class="form-control" name="Nombre" id = "Nombre" required 
+              	<input title="Ingrese un nombre valido" pattern="[A-Za-z]*" class="form-control" name="Nombre"  id = "Nombre" required 
 				placeholder="Nombre" maxlength="25" pattern="[A-Za-z]">
             </td>
              <tr>
               <label for="Apellido">Apellidos:</label>
             </tr>
             <td>
-              	<input class="form-control" name="Apellido" id = "Apellido" required 
+              	<input title="Ingrese un apellido valido" pattern="[A-Za-z]*" class="form-control" name="Apellido" id = "Apellido" required 
 				placeholder="Apellidos" maxlength="25">
             </td>    
              <tr>
@@ -72,14 +72,14 @@
               <label for="Municipio">Municipio:</label>
             </tr>
             <td>
-              	<input class="form-control" name="Municipio" id = "Municipio" required 
+              	<input title="Ingrese un municipio valido" pattern="[A-Za-z]*" class="form-control" name="Municipio" id = "Municipio" required 
 				placeholder="Municipio" maxlength="25">
             </td> 
             <tr>
               <label for="Edad">Edad:</label>
             </tr>
             <td>
-              	<input class="form-control" name="Edad" id = "Edad" required 
+              	<input title="Ingrese una edad valida" pattern="[1-9]*" class="form-control" name="Edad" id = "Edad" required 
 				placeholder="Edad" maxlength="25">
             </td>                  
         </div><br>
