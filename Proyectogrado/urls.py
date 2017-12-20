@@ -36,6 +36,9 @@ urlpatterns = [
     url(r'^propios', propios, name='propios'),
     url(r'^recuerdos', recuerdos, name='hola'),
     url(r'^plan_de_manejo', plan_de_manejo, name= 'Plan'),
-    url(r'^Revision_sistemas', Revision_sistemas, name= 'Revision')
+    url(r'^Revision_sistemas', Revision_sistemas, name= 'Revision'),
+    url(r'^registrar_usuario', registrar_usuario, name = 'registrar_usuario'),
+    url(r'^desplegar', desplegar, name = 'desplegar'),
+    url(r'^BuscarHistoria', BuscarHistoria, name = 'BuscarHistoria'),
 ]
 

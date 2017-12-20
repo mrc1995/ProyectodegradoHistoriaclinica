@@ -1,0 +1,228 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{%static 'js/bootstrap.min.js'%}">
+    <link rel="stylesheet"  href="{% static 'css/estilos.css'%}">
+    <link href="{% static 'css/sb-admin.css'%}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+     <input class="form-control" type="text" name="id_paciente" id = "id_paciente"
+    placeholder="Documento identifacion" maxlength="12">   
+</form>                
+    <tr>
+        <td>Documento identificacion:</td>
+        <td>{{lpaciente.id_paciente}}</td>
+    </tr><br>
+    <tr>
+        <td>Nombre:</td>
+        <td>{{lpaciente.Nombre}}</td>
+    </tr><br>
+    <tr>
+        <td>Apellido:</td>
+        <td>{{lpaciente.Apellido}}</td>
+    </tr><br>
+     <tr>
+        <td>EPS:</td>
+        <td>{{lpaciente.EPS}}</td>
+    </tr><br>
+     <tr>
+        <td>Genero:</td>
+        <td>{{lpaciente.Genero}}</td>
+    </tr><br>
+     <tr>
+        <td>Municipio:</td>
+        <td>{{lpaciente.Municipio}}</td>
+    </tr><br>
+     <tr>
+        <td>Edad:</td>
+        <td>{{lpaciente.Edad}}</td>
+    </tr><br>
+<h3>Motivo de consulta</h3>
+     {%for a in motivos%}
+    <tr>
+        <td>Motivo de consulta:</td>
+        <td>{{a.Motivo_consulta}}</td>
+    </tr><br>
+    {%endfor%}
+
+<h3>Enfermedad actuals</h3>
+    {%for b in enfermedad%}
+    <tr>
+        <td>Enfermedad actual:</td>
+        <td>{{b.Enf_actual}}</td>
+    </tr><br>
+    {%endfor%}
+
+<h3>Gustos y preferencias</h3>
+    {%for b in gustos%}
+    <tr>
+        <td>Clima:</td>
+        <td>{{b.Clima}}</td>
+    </tr><br>
+    <tr>
+        <td>Temperatura:</td>
+        <td>{{b.Temperatura}}</td>
+    </tr><br>
+    <tr>
+        <td>Colores:</td>
+        <td>{{b.Colores}}</td>
+    </tr><br>
+    <tr>
+        <td>Numeros:</td>
+        <td>{{b.Numeros}}</td>
+    </tr><br>
+    {%endfor%}
+<h3>Examen</h3>
+    {%for c in examen%}
+    <tr>
+        <td>TA:</td>
+        <td>{{c.TA}}</td>
+    </tr><br>
+    <tr>
+        <td>FC:</td>
+        <td>{{c.FC}}</td>
+    </tr><br>
+    <tr>
+        <td>FR:</td>
+        <td>{{c.FR}}</td>
+    </tr><br>
+    <tr>
+        <td>Peso:</td>
+        <td>{{c.Peso}}</td>
+    </tr><br>
+    <tr>
+        <td>Estatura:</td>
+        <td>{{c.Estatura}}</td>
+    </tr><br>
+    <tr>
+        <td>Perimetro Cintura:</td>
+        <td>{{c.Perimetro_cintura}}</td>
+    </tr><br>
+    <tr>
+        <td>IMC:</td>
+        <td>{{c.IMC}}</td>
+    </tr><br>
+    <tr>
+        <td>Pulso:</td>
+        <td>{{c.Pulso}}</td>
+    </tr><br>
+    {%endfor%}
+
+<h3>Diagnostico</h3>
+    {%for b in diagnostico%}
+    <tr>
+        <td>Codigo:</td>
+        <td>{{b.codigo}}</td>
+    </tr><br>
+    <tr>
+        <td>Nombre:</td>
+        <td>{{b.Nombre}}</td>
+    </tr><br>
+    <tr>
+        <td>Tipo:</td>
+        <td>{{b.Tipo}}</td>
+    </tr><br>
+    {%endfor%}
+
+<h3>Resultado examen</h3>
+    {%for b in resultado%}
+    <tr>
+        <td>Resultado examen:</td>
+        <td>{{b.Resultado}}</td>
+    </tr><br>
+    <tr>
+    {%endfor%}
+
+<h3>Terapias</h3>
+    {%for b in terapia%}
+    <tr>
+        <td>Terapia:</td>
+        <td>{{b.Terapia}}</td>
+    </tr><br>
+    <tr>
+        <td>Estado:</td>
+        <td>{{b.Estado}}</td>
+    </tr><br>
+    <tr>
+        <td>Especificacion:</td>
+        <td>{{b.Especificaciones}}</td>
+    </tr><br>
+    {%endfor%}
+
+<h3>Diagnosticos propios</h3>
+    {%for b in propios%}
+    <tr>
+        <td>Diagnostico propio:</td>
+        <td>{{b.Nombre_diag}}</td>
+    </tr><br>
+    <tr>
+    {%endfor%}
+
+<h3>Antecedentes</h3>
+    {%for c in antecedentes%}
+    <tr>
+        <td>Patologicos medicamentos:</td>
+        <td>{{c.Patologicos_medicamentos}}</td>
+    </tr><br>
+    <tr>
+        <td>Toxicos alergicos:</td>
+        <td>{{c.Toxicos_alergicos}}</td>
+    </tr><br>
+    <tr>
+        <td>Quirurgicos:</td>
+        <td>{{c.Quirurgicos}}</td>
+    </tr><br>
+    <tr>
+        <td>Traumas fisicos:</td>
+        <td>{{c.Trau_fisicos}}</td>
+    </tr><br>
+    <tr>
+        <td>Traumas emocionales:</td>
+        <td>{{c.Trau_emocionales}}</td>
+    </tr><br>
+    <tr>
+        <td>Habitos saludables:</td>
+        <td>{{c.Habitos_saludables}}</td>
+    </tr><br>
+    <tr>
+        <td>Habitos riesgo:</td>
+        <td>{{c.Habitos_riesgo}}</td>
+    </tr><br>
+    <tr>
+        <td>Familiares:</td>
+        <td>{{c.Familiares}}</td>
+    </tr><br>
+    {%endfor%}
+
+<h3>Plan</h3>
+    {%for b in plan%}
+    <tr>
+        <td>Plan:</td>
+        <td>{{b.Plan}}</td>
+    </tr><br>
+    <tr>
+        <td>Control:</td>
+        <td>{{b.Control}}</td>
+    </tr><br>
+    {%endfor%}
+
+<h3>Revision por sistemas</h3>
+    {%for b in revision%}
+    <tr>
+        <td>Revision consulta:</td>
+        <td>{{b.Rev_consulta}}</td>
+    </tr><br>
+    <tr>
+    {%endfor%}
+
+
+</body>
+</html>

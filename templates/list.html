@@ -1,0 +1,82 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{%static 'js/bootstrap.min.js'%}">
+    <link rel="stylesheet"  href="{% static 'css/estilos.css'%}">
+    <link href="{% static 'css/sb-admin.css'%}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+     <input class="form-control" type="text" name="id_paciente" id = "id_paciente"
+    placeholder="Documento identifacion" maxlength="12">   
+</form>                
+    <tr>
+        <td>Documento identificacion:</td>
+        <td>{{lpaciente.id_paciente}}</td>
+    </tr><br>
+    <tr>
+        <td>Nombre:</td>
+        <td>{{lpaciente.Nombre}}</td>
+    </tr><br>
+    <tr>
+        <td>Apellido:</td>
+        <td>{{lpaciente.Apellido}}</td>
+    </tr><br>
+     <tr>
+        <td>EPS:</td>
+        <td>{{lpaciente.EPS}}</td>
+    </tr><br>
+     <tr>
+        <td>Genero:</td>
+        <td>{{lpaciente.Genero}}</td>
+    </tr><br>
+     <tr>
+        <td>Municipio:</td>
+        <td>{{lpaciente.Municipio}}</td>
+    </tr><br>
+     <tr>
+        <td>Edad:</td>
+        <td>{{lpaciente.Edad}}</td>
+    </tr>
+    
+<form method="POST">
+        {% csrf_token %}
+            <div class="form-group" align="center">
+                <tr>
+                    <th>
+                        <br>
+                        <label for="Diagnostico">Diagnostico del paciente:</label>
+                    </th>
+                    <td>
+                        <input class="form-control" type="text" name="Diagnostico" id = "Diagnostico"
+                        placeholder="Diagnostico" maxlength="500">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="Medicamentos">Medicamentos:</label>
+                    </th>
+                    <td>
+                        <input class="form-control" name="Medicamentos" id = "Medicamentos" placeholder="Medicamentos"  maxlength="500">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="Incapacidad">Incapacidad:</label>
+                    </th>
+                    <td>
+                        <input class="form-control" name="Incapacidad" id = "Incapacidad" placeholder="Control"  maxlength="500">
+                    </td>
+                </tr>
+            </div>
+        <div align="center"><input class="btn btn-primary btn-block-form" type="submit" value="Siguiente"></div>
+    </form>
+</body>
+</html>

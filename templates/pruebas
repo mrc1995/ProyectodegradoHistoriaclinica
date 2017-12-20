@@ -1,0 +1,3 @@
+   {%for a in lmotivos%}
+    <p>{{a.Motivo_consulta}}</p>
+    {%endfor%}

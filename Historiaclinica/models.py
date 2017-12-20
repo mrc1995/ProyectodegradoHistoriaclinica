@@ -16,6 +16,9 @@ class paciente(models.Model):
 	Municipio = models.CharField(max_length = 35)
 	Edad = models.CharField (max_length =12)
 
+	def __str__(self):
+		return self.id_paciente + self.Nombre + self.Apellido + self.EPS + self.Genero + self.Municipio + self.Edad
+
 
 class Motivo_consulta(models.Model):
 	Id_Motivo = models.AutoField(primary_key = True, max_length = 35, unique = True)
@@ -100,3 +103,10 @@ class Rev_sistemas(models.Model):
 	Id_revision = models.AutoField(primary_key = True, max_length = 35, unique = True)
 	id_paciente = models.ForeignKey(paciente, null = False, blank = False)
 	Rev_consulta= models.CharField(max_length=50)
+
+
+class Paraclinicos(models.Model):
+	Id_paraclinico = models.AutoField(primary_key = True, max_length = 35, unique = True)
+	Diagnostico= models.CharField(max_length=500)
+	Medicamentos= models.CharField(max_length=500)
+	Incapacidad= models.CharField(max_length=500)

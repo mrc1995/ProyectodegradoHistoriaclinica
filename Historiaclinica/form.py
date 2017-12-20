@@ -7,13 +7,20 @@ class loginForm(forms.Form):
 	password = forms.CharField(max_length=25,required = True)
 
 
+class registrar(forms.Form):
+	username = forms.CharField(max_length=25,required = True)
+	password = forms.CharField(max_length=25,required = True)
+	first_name = forms.CharField()
+	last_name = forms.CharField()
+	email = forms.CharField()
+
 class IngresarPaciente(forms.Form):
 	id_paciente = forms.CharField(required = True)
 	Nombre = forms.CharField(required = True)
 	Apellido = forms.CharField(required = True)
 	EPS = forms.CharField(required = True)
 	Genero = forms.CharField(required = True)
-	Email = forms.CharField(required = True)
+	Email = forms.CharField()
 	Municipio = forms.CharField(required = True)
 	Edad = forms.CharField(required = True)
 
@@ -89,3 +96,19 @@ class revision_sistemas(forms.ModelForm):
 	class Meta:
 		model = Rev_sistemas
 		fields = ('id_paciente','Rev_consulta')
+
+class paracli(forms.ModelForm):
+
+	class Meta:
+		model =  Paraclinicos
+		fields = ('Diagnostico','Medicamentos','Incapacidad')
+
+class BuscarPaciente(forms.Form):
+	id_paciente = forms.CharField(required = True)
+	Nombre = forms.CharField(required = True)
+	Apellido = forms.CharField(required = True)
+	EPS = forms.CharField(required = True)
+	Genero = forms.CharField(required = True)
+	Email = forms.CharField()
+	Municipio = forms.CharField(required = True)
+	Edad = forms.CharField(required = True)

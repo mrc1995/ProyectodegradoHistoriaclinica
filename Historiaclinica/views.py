@@ -3,14 +3,13 @@ from django.contrib.auth.decorators import login_required
 from .form import *
 from .models import *
 from django.http import HttpResponseRedirect,HttpResponse
-from django.contrib.auth import authenticate,login
 # Create your views here.
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
-
+from reportlab.pdfgen import canvas
+from django.http import HttpResponse
  
-
 def loginstart(request):
 	form = loginForm(request.POST or None)
 	if form.is_valid():
@@ -44,14 +43,11 @@ def endsesion(request):
 @login_required(login_url='/ingresar')
 def Ingresarpaciente(request):
 	if request.method == "POST":
-		print "estoy despues del if"
 		form_registro_usuario = IngresarPaciente(request.POST or None)
 		if form_registro_usuario.is_valid():
-			print "estoy despues del if"
 			newPaciente = paciente(id_paciente = request.POST['id_paciente'], Nombre =request.POST['Nombre'],
 			Apellido=request.POST['Apellido'],EPS=request.POST['EPS'],Genero=request.POST['Genero'],
 			Email=request.POST['Email'],Municipio=request.POST['Municipio'],Edad=request.POST['Edad'])
-			print "Paciente ingresado"
 			newPaciente.save()
 	else:
 		form_registro_usuario = IngresarPaciente()
@@ -203,3 +199,90 @@ def plan_de_manejo(request):
 	else:
 		form_plan = plan()
 	return render (request,'Plan_manejo.html')
+
+def registrar_usuario(request):
+	if request.method == "POST":
+		form_registro = registrar(request.POST or None)
+		if form_registro.is_valid():
+			NewUsuario = auth_us(username = request.POST['username'],password = request.POST['password'],first_name = request.POST['first_name'],
+				last_name = request.POST['last_name'],email = request.POST['email'])
+			#NewUsuario.save()
+	else:
+		form_registro = registrar()
+	return render(request,'Registrar.html')
+
+
+def desplegar(request):
+	context = {}
+	if request.method == "POST":
+		lpaciente = paciente.objects.get(id_paciente = request.POST.get('id_paciente'))
+		#lmotivos = Motivo_consulta.objects.filter(id_paciente = request.POST.get('id_paciente'))
+		context = {
+			"lpaciente": lpaciente,
+		#	"lmotivos": lmotivos,
+		}
+	return render(request, 'list.html', context)
+
+def para(request):
+	if request.method == "POST":
+		form_para = paracli(request.POST or None)
+		if form_para.is_valid():
+			Newpara = Paraclinicos(Diagnostico = request.POST['Diagnostico'], Medicamentos = request.POST['Medicamentos'],
+			Incapacidad = request.POST['Incapacidad'])
+			Newpara.save()
+	else:
+		form_para = paracli()
+	return render(request, 'paraclinicos.html')
+
+
+def hello_pdf(request):
+    # Create the HttpResponse object with the appropriate PDF headers.
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename=hello.pdf'
+ 
+    # Create the PDF object, using the response object as its "file."
+    p = canvas.Canvas(response)
+ 	
+    # Draw things on the PDF. Here's where the PDF generation happens.
+    # See the ReportLab documentation for the full list of functionality.
+    p.drawString(100, 100, "Hello world.")
+ 	
+
+    # Close the PDF object cleanly, and we're done.
+    p.showPage()
+    p.save()
+    return response
+
+
+def BuscarHistoria(request):
+	context = {}
+	if request.method == "POST":
+		lpaciente = paciente.objects.get(id_paciente = request.POST.get('id_paciente'))
+		motivos = Motivo_consulta.objects.filter(id_paciente = request.POST.get('id_paciente'))
+		enfermedad = Enfermedad_Actual.objects.filter(id_paciente = request.POST.get('id_paciente'))
+		gustos = Gustos_preferencias.objects.filter(id_paciente = request.POST.get('id_paciente'))
+		examen = Examen_Fisico.objects.filter(id_paciente = request.POST.get('id_paciente'))
+		#medidas = medidas_antropometricas.objects.filter(id_paciente = request.POST.get('id_paciente'))
+		diagnostico = Diagnostico.objects.filter(id_paciente = request.POST.get('id_paciente'))
+		resultado = Resultado_Examen.objects.filter(id_paciente = request.POST.get('id_paciente'))
+		terapia = Terapias.objects.filter(id_paciente = request.POST.get('id_paciente'))
+		propios =Diagnosticos_propios.objects.filter(id_paciente = request.POST.get('id_paciente'))
+		antecedentes = Antecedentes.objects.filter(id_paciente = request.POST.get('id_paciente'))
+		plan = Plan_manejo.objects.filter(id_paciente = request.POST.get('id_paciente'))
+		revision = Rev_sistemas.objects.filter(id_paciente = request.POST.get('id_paciente'))
+		context = {
+			"lpaciente": lpaciente,
+			"motivos": motivos,
+			"enfermedad": enfermedad,
+			"gustos":gustos,
+			"examen":examen,
+			#"medidas":medidas,
+			"diagnostico":diagnostico,
+			"resultado":resultado,
+			"terapia":terapia,
+			"propios":propios,
+			"antecedentes":antecedentes,
+			"plan":plan,
+			"revision":revision,
+		}
+	return render(request, 'Historiaclinica.html', context)
