@@ -1,0 +1,44 @@
+h1 {
+	color: #3A7DA3;
+	font-family: 'Lobster';
+	text-align: center;	
+	font-size: 40px;
+}
+
+.form-control{
+	font-family: 'Lobster';
+	color: #3A7DA3;
+	text-align: center;
+	width: auto;
+	margin-left: auto;
+  	margin-right: auto;
+}
+
+hr {
+	height:5px; 
+   	background-color:#3A7DA3; 
+   	border:none; 
+}
+
+label {
+	font-family: 'Lobster';
+	color: #3A7DA3;
+}
+
+.table-striped{
+	border: #3A7DA3 3px solid;
+	font-family: 'Lobster';
+	color: #3A7DA3;
+
+}
+/*
+.table-bordered{
+	border: #3A7DA3 3px solid;
+	font-family: 'Lobster';
+	color: #3A7DA3;
+	position: absolute;
+	top:600px;
+
+}
+*/
+

@@ -20,7 +20,7 @@ def loginstart(request):
 		if acceso is not None:
 			if acceso.is_active:
 				login(request,acceso)
-				return HttpResponseRedirect('/privado')
+				return HttpResponseRedirect('/menu')
 				#return HttpResponse("Bienvenido {}".format(username))
 			else:
 				return render(request,'noactivo.html')
@@ -286,3 +286,8 @@ def BuscarHistoria(request):
 			"revision":revision,
 		}
 	return render(request, 'Historiaclinica.html', context)
+
+@login_required(login_url='/ingresar')
+def menu(request):
+	username = request.user
+	return render(request,'menu.html')

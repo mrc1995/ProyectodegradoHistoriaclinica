@@ -40,5 +40,6 @@ urlpatterns = [
     url(r'^registrar_usuario', registrar_usuario, name = 'registrar_usuario'),
     url(r'^desplegar', desplegar, name = 'desplegar'),
     url(r'^BuscarHistoria', BuscarHistoria, name = 'BuscarHistoria'),
+    url(r'^menu', menu, name = 'menu'),
 ]
 
