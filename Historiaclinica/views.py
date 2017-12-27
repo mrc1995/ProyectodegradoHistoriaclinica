@@ -4,12 +4,24 @@ from .form import *
 from .models import *
 from django.http import HttpResponseRedirect,HttpResponse
 # Create your views here.
+from django.contrib.auth.models import User 
 from django.contrib.auth.forms import UserCreationForm
+from django.views.generic import CreateView
+from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from reportlab.pdfgen import canvas
 from django.http import HttpResponse
- 
+from .form import RegistroForm
+
+
+class RegistroUsuario(CreateView):
+	model = User
+	template_name = "Registrar.html"
+	form_class = RegistroForm
+	success_url = reverse_lazy('loginstart')
+
+
 def loginstart(request):
 	form = loginForm(request.POST or None)
 	if form.is_valid():
@@ -200,16 +212,16 @@ def plan_de_manejo(request):
 		form_plan = plan()
 	return render (request,'Plan_manejo.html')
 
-def registrar_usuario(request):
+"""def registrar_usuario(request):
 	if request.method == "POST":
 		form_registro = registrar(request.POST or None)
 		if form_registro.is_valid():
 			NewUsuario = auth_us(username = request.POST['username'],password = request.POST['password'],first_name = request.POST['first_name'],
 				last_name = request.POST['last_name'],email = request.POST['email'])
-			#NewUsuario.save()
+			NewUsuario.save()
 	else:
 		form_registro = registrar()
-	return render(request,'Registrar.html')
+	return render(request,'Registrar.html')"""
 
 
 def desplegar(request):

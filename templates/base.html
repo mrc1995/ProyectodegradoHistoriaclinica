@@ -5,25 +5,35 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Marcellus|Tangerine" rel="stylesheet"> 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Historia clinica</title>
-  <!-- Bootstrap core CSS-->
-  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
-  <!-- Custom fonts for this template-->
+  
+  <title>Historia clínica</title>
+  
+  <!--<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+   Custom fonts for this template-->
   <link href="{% static 'vendor/bootstrap/css/bootstrap.css'%}" rel="stylesheet">
   <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
-  <!-- Page level plugin CSS-->
+  
   <link href="{% static 'vendor/datatables/dataTables.bootstrap4.css'%}" rel="stylesheet">
-  <!-- Custom styles for this template-->
+  
   <link href="{% static 'css/sb-admin.css'%}" rel="stylesheet">
+
 </head>
 
 <body class="fixed-nav bg-dark" id="page-top">
+
+
+
+
+
+
+
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html"> Historia Clinica</a>
+    <a class="navbar-brand"> Historia Clinica</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 
 <!--><-->
@@ -55,7 +65,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal" >
-          <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+          <i class="fa fa-fw fa-sign-out"></i>Salir</a>
         </li>
       </ul>
     </div>
@@ -65,15 +75,15 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">¿Desea salir?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">Seleccione "Cerrar sesión" para terminar su sesión.</div>
           <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="{% url 'endsesion' %}">Logout</a>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <a class="btn btn-primary" href="{% url 'endsesion' %}">Cerrar sesión</a>
           </div>
         </div>
       </div>
@@ -88,6 +98,8 @@
     {% endblock %}
     </div>
   </div>
+
+
 
     
     <!-- Bootstrap core JavaScript-->

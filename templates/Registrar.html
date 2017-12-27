@@ -1,62 +1,93 @@
+{% block content %}
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Registrar Paciente</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
-  <link rel="stylesheet" href="{%static 'js/bootstrap.min.js'%}">
-  <link rel="stylesheet"  href="{% static 'css/estilos.css'%}">
-  <link href="{% static 'css/sb-admin.css'%}" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title></title>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Marcellus|Tangerine" rel="stylesheet"> 
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/registrar.css' %}">
 </head>
+
 <body>
-	{% block content %}
-	<form method="POST">
-		{% csrf_token %}
-		<div class="form-group" align="center">
-            <tr>
-              <br>
-              <label for="username">Nombre de usuario:</label>
-            </tr>
-            <td> 
-				<input class="form-control" name="username" id = "username" required  
-				placeholder="Nombre de usuario" minlength = "8" maxlength="25" >
-            </td>
-            <tr>
-              <label for="password">Nombre:</label>
-            </tr>
-            <td>
-              	<input title="Ingrese un nombre valido" pattern="[A-Za-z]*" class="form-control" name="password"  id = "password" required 
-				placeholder="Nombre" minlength = "8" maxlength="25" pattern="[A-Za-z]">
-            </td>
-             <tr>
-              <label for="first_name">Apellidos:</label>
-            </tr>
-            <td>
-              	<input title="Ingrese un apellido valido" pattern="[A-Za-z]*" class="form-control" name="first_name" id = "first_name" required 
-				placeholder="Apellidos" maxlength="25">
-            </td>    
-             <tr>
-              <label for="last_name">Genero:</label>
-            </tr>
-            <td>
-            <input class="form-control" name="last_name" id = "last_name" required 
-				placeholder="Genero" maxlength="25" >
-			</td>
-			<tr>
-              <label for="email">email:</label>
-            </tr>
-            <td>
-              	<input class="form-control" name="email" id = "email" required 
-				placeholder="Email" maxlength="25" type="Email">
-            </td> 
-        </div><br>
-		<div align="center"><input class="btn btn-primary btn-block-form"  type="submit" value="Siguiente"></div>
-	</form>
-	<a href="javascript:history.go(-1)">Regresar</a>
-	{% endblock %}
+
+<div class="Encabezado">
+<img src="static/images/LogoConsultorio.png" class="img-responsive" alt="Responsive image" hspace="5" vspace="5" style="float: left;">
+<h1>Dr. Jose Alfonso Gutierrez Grisales</h1>
+<h3>Médico Bioenergético</h3>
+<h5>Registro Médico 1396</h5>
+<hr>
 </div>
+
+<form method= "post">
+    {% csrf_token %}
+    
+<h6>Los campos con (*) son obligatorios</h6>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="form-group">
+          <label>Nombre (*)</label>
+          <input class="form-control" type="text" name="first_name" required>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="form-group">
+          <label>Apellidos (*)</label>
+          <input class="form-control" type="text" name="last_name" required>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="form-group">
+          <label>Nombre de usuario (*)</label>
+          <input class="form-control" type="text" name="username" required>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="form-group">
+          <label>Correo electronico</label>
+          <input class="form-control" type="email" name="email">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="form-group">
+          <label>Contraseña (*)</label>
+          <input class="form-control" type="text" name="password1" required>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="form-group">
+          <label>Confirmar contraseña (*)</label>
+          <input class="form-control" type="text" name="password2" required>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="form-group">
+          <button class="btn btn-primary" type= "submit">Guardar</button>
+        </div>
+      </div>
+    </div>
+
+
+
+    
+</form>
+{% endblock %}
+
 </body>
 </html>

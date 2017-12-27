@@ -18,6 +18,8 @@ from django.conf.urls import url
 from django.contrib import admin
 from Historiaclinica.views import *
 
+
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',loginstart, name = 'loginstart'),
@@ -37,7 +39,7 @@ urlpatterns = [
     url(r'^recuerdos', recuerdos, name='hola'),
     url(r'^plan_de_manejo', plan_de_manejo, name= 'Plan'),
     url(r'^Revision_sistemas', Revision_sistemas, name= 'Revision'),
-    url(r'^registrar_usuario', registrar_usuario, name = 'registrar_usuario'),
+    url(r'^registrar', RegistroUsuario.as_view(), name = 'Registrar'),
     url(r'^desplegar', desplegar, name = 'desplegar'),
     url(r'^BuscarHistoria', BuscarHistoria, name = 'BuscarHistoria'),
     url(r'^menu', menu, name = 'menu'),

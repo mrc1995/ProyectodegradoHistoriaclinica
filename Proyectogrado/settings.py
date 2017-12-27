@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Historiaclinica',
+    'django.contrib.sites',
+    'registration',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -132,3 +134,6 @@ STATICFILES_DIRS = (
        os.path.join(BASE_DIR, 'templates'),
        os.path.join(BASE_DIR,"static"),
    )
+
+
+ACCOUNT_ACTIVATION_DAYS = 7

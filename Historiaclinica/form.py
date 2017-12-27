@@ -1,18 +1,42 @@
 from django.forms import ModelForm
+from django.contrib.auth.models import User 
+from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from .models import *
+
+
+
+
+class RegistroForm(UserCreationForm):
+
+	class Meta:
+		model = User
+		fields = [
+				'username',
+				'first_name',
+				'last_name',
+				'email',	
+			]
+		labels = {
+				'username': 'Nombre de usuario',
+				'first_name': 'Nombre',
+				'last_name': 'Apellidos',
+				'email': 'Correo',
+		}
+
+
 
 class loginForm(forms.Form):
 	username = forms.CharField(max_length=25,required = True)
 	password = forms.CharField(max_length=25,required = True)
 
 
-class registrar(forms.Form):
+"""class registrar(forms.Form):
 	username = forms.CharField(max_length=25,required = True)
 	password = forms.CharField(max_length=25,required = True)
 	first_name = forms.CharField()
 	last_name = forms.CharField()
-	email = forms.CharField()
+	email = forms.CharField()"""
 
 class IngresarPaciente(forms.Form):
 	id_paciente = forms.CharField(required = True)
