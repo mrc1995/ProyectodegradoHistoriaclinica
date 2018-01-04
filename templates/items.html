@@ -1,0 +1,49 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Marcellus|Tangerine" rel="stylesheet"> 
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/items.css' %}">
+
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{%static 'js/bootstrap.min.js'%}">
+    <link rel="stylesheet"  href="{% static 'css/estilos.css'%}">
+    <link href="{% static 'css/sb-admin.css'%}" rel="stylesheet">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <div id="nav">
+      <div class="titulonav">
+      Historia clínica
+      </div>
+      
+      <div class="cuerporec">
+      <ul>
+        
+         
+            <li><a href="{% url 'Ingresarpaciente' %}" target="contenido">Ingresa paciente</a><br></li>
+            <li><a href="{% url 'MotivoConsulta' %}" target="contenido">Motivo de consulta</a><br></li>
+            <li><a href="{% url 'Enfermedad' %}" target="contenido">Enfermedad actual</a><br></li>
+            <li><a href="{% url 'Gustos' %}" target="contenido">Gustos</a><br></li>
+            <li><a href="{% url 'Examen' %}" target="contenido">Examen Físico</a><br></li>
+            <li><a href="{% url 'Revision' %}" target="contenido">Revisión de Sistemas</a><br></li>
+            <li><a href="{% url 'Plan' %}" target="contenido">Plan de Manejo</a><br></li>
+            <li><a href="{% url 'hola' %}" target="contenido">Antecedentes</a><br></li>
+            <li><a href="{% url 'diagnostico_medico' %}" target="contenido">Diagnóstico (CIE 10)</a><br></li>
+            <li><a href="{% url 'propios' %}" target="contenido">Diagnóstico Propio</a><br></li>
+            <li><a href="{% url 'Terapias' %}" target="contenido">Terapias</a><br></li>
+            <li><a href="{% url 'Resultado' %}" target="contenido">Resultado Examenes</a><br></li>
+            <li><a href="{% url 'Medidas_antropometricas' %}" target="contenido">Medidas antropométricas</a><br></li>
+            <li><a href="{% url 'individuales' %}" target="contenido">Paraclínicos</a><br></li>
+
+      </ul>
+      </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Marcellus|Tangerine" rel="stylesheet"> 
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/list.css' %}">
+
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{%static 'js/bootstrap.min.js'%}">
+    <link rel="stylesheet"  href="{% static 'css/estilos.css'%}">
+    <link href="{% static 'css/sb-admin.css'%}" rel="stylesheet">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+</head>
+<body>
+
+<div class="navbar-right">
+    <a class="navbar-brand" href="{% url 'endsesion' %}">
+       <span class="glyphicon glyphicon-log-out"></span> Cerrar sesión   
+    </a> 
+    <br>
+    <a class="navbar-brand" href="menu">Volver al menú</a>                                                             
+</div>
+
+<div class="Encabezado">
+<img src="static/images/LogoConsultorio.png" class="img-responsive" alt="Responsive image" hspace="5" vspace="5" style="float: left;">
+<h1>Dr. Jose Alfonso Gutierrez Grisales</h1>
+<h3>Médico Bioenergético</h3>
+<h5>Registro Médico 1396</h5>
+<hr>
+</div>
+
+<form method="POST">
+    {% csrf_token %}
+     <div class="form-group" align="center">
+     <label for="documento">Ingrese documento del paciente: </label>
+     <input class="form-control2s" type="text" name="id_paciente" id = "id_paciente"
+    placeholder="Documento identificación" maxlength="12">
+    <button>Buscar</button>
+     </div>  
+</form>                
+
+<br>
+    
+<table class="table table-striped">
+    
+
+    <tr>
+        <td>Documento identificacion: {{lpaciente.id_paciente}}</td> <td>Nombre: {{lpaciente.Nombre}}</td> <td>Apellido: {{lpaciente.Apellido}}</td> 
+    </tr>
+    <tr>
+        <td>EPS: {{lpaciente.EPS}}</td> <td>Genero: {{lpaciente.Genero}}</td> <td>Municipio: {{lpaciente.Municipio}}</td> <td>Edad: {{lpaciente.Edad}}</td>
+    </tr> 
+
+</table> 
+
+<div align="center">
+    <font size="3">
+    <script languaje="JavaScript"> 
+        var mydate=new Date() 
+        var year=mydate.getYear() 
+        if (year < 1000) 
+        year+=1900 
+        var day=mydate.getDay() 
+        var month=mydate.getMonth() 
+        var daym=mydate.getDate() 
+        if (daym<10) 
+        daym="0"+daym 
+        var dayarray=new Array("Domingo,","Lunes,","Martes,","Miércoles,","Jueves,","Viernes,","Sábado,")
+        var montharray=new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre")
+        document.write("<font color='black' face='Georgia' style='font-size:8pt'>"+dayarray[day]+" "+daym+" de "+montharray[month]+" de "+year+"</font>") 
+    </script>
+    </font>
+</div>
+
+        <table class="table table-striped">
+            <tbody> 
+            {%for b in paraclinicos%}
+            <tr>
+            <th>Diagnostico</th>
+            </tr> 
+            <tr>
+                <td>{{b.Diagnostico}}</td>
+            </tr><br>
+             {%endfor%}
+            </tbody>
+        </table>
+
+        <table class="table table-striped">
+            <tbody> 
+            {%for b in paraclinicos%}
+             <tr>
+            <th>Medicamentos</th>
+            </tr> 
+            <tr>
+                <td>{{b.Medicamentos}}</td>
+            </tr><br>
+             {%endfor%}
+            </tbody>
+        </table>
+
+
+        <table class="table table-striped">
+            <tbody> 
+            {%for b in paraclinicos%}
+             <tr>
+            <th>Incapacidad</th>
+            </tr> 
+            <tr>
+                <td>{{b.Incapacidad}}</td>
+            </tr><br>
+             {%endfor%}
+            </tbody>
+        </table>
+        <div align="center">
+        <form>
+        <input type='button' onclick='window.print();' value='Imprimir' /></form> 
+        </div>
+</body>
+
+</html>

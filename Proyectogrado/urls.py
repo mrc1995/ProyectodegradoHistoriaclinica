@@ -40,8 +40,15 @@ urlpatterns = [
     url(r'^plan_de_manejo', plan_de_manejo, name= 'Plan'),
     url(r'^Revision_sistemas', Revision_sistemas, name= 'Revision'),
     url(r'^registrar', RegistroUsuario.as_view(), name = 'Registrar'),
-    url(r'^desplegar', desplegar, name = 'desplegar'),
+    #rl(r'^desplegar', desplegar, name = 'desplegar'),
     url(r'^BuscarHistoria', BuscarHistoria, name = 'BuscarHistoria'),
     url(r'^menu', menu, name = 'menu'),
+    url(r'^cabecera', cabecera, name = 'cabecera'),
+    url(r'^items', items, name = 'items'),
+    url(r'^contenido', contenido, name = 'contenido'),
+    url(r'^modificar',modificar,name = 'modificar'),
+    url(r'^individuales',individuales,name= 'individuales'),
+    url(r'^paraclinicos',paraclinicos,name = 'paraclinicos'),
+    url(r'^no_existe',no_existe,name = 'no_existe'),
 ]
 

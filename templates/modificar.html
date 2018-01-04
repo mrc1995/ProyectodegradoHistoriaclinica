@@ -1,0 +1,108 @@
+{% load staticfiles %}
+<!DOCTYPE>
+<html>
+<head>
+	<title></title>
+	 <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Marcellus|Tangerine" rel="stylesheet"> 
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/list.css' %}">
+
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{%static 'js/bootstrap.min.js'%}">
+    <link rel="stylesheet"  href="{% static 'css/estilos.css'%}">
+    <link href="{% static 'css/sb-admin.css'%}" rel="stylesheet">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="navbar-right">
+    <a class="navbar-brand" href="{% url 'endsesion' %}">
+       <span class="glyphicon glyphicon-log-out"></span> Cerrar sesión   
+    </a>                                                              
+</div>
+
+
+<form method="POST">
+    {% csrf_token %}
+     <div class="form-group" align="center">
+     <label for="documento">Ingrese documento del paciente: </label>
+     <input class="form-control2s" type="text" name="id_paciente" id = "id_paciente"
+    placeholder="Documento identificación" maxlength="12">
+     </div> 
+</form>             
+<br>
+<form method="POST">
+		{% csrf_token %}
+		<div class="form-group" align="center">
+            <tr>
+              <br>
+              <label for="id_paciente">Documento Identificacion:</label>
+            </tr>
+            <td>
+				<input title="Ingrese un documento valido" pattern="[0-9]*" class="form-control" name="id_paciente" id = "id_paciente" required  
+				placeholder="Documento Identificacion" maxlength="25" value="{{lpaciente.id_paciente}}" readonly>
+            </td>
+            <tr>
+              <label for="Nombre">Nombre:</label>
+            </tr>
+            <td>
+              	<input title="Ingrese un nombre valido" pattern="[A-Z a-z]*" class="form-control" name="Nombre"  id = "Nombre" required 
+				placeholder="Nombre" maxlength="25" pattern="[A-Za-z]" value="{{lpaciente.Nombre}}" readonly>
+            </td>
+             <tr>
+              <label for="Apellido">Apellidos:</label>
+            </tr>
+            <td>
+              	<input title="Ingrese un apellido valido" pattern="[A-Za-z]*" class="form-control" name="Apellido" id = "Apellido" required 
+				placeholder="Apellidos" maxlength="25" value="{{lpaciente.Apellido}}" readonly>
+            </td>    
+             <tr>
+              <label for="EPS">EPS:</label>
+            </tr>
+            <td>
+            <select class="form-control" name="EPS" id = "EPS" required 
+				placeholder="EPS" maxlength="25">
+				<option>{{lpaciente.EPS}}</option>
+				<option>Cafesalud</option>
+				<option>Medimas</option>
+				<option>Nueva EPS</option>
+				<option>Particular</option>
+			</select>
+			</td>
+             <tr>
+              <label for="Genero">Genero:</label>
+            </tr>
+            <td>
+            <input type="text" class="form-control" name="Genero" id = "Genero" required 
+				placeholder="Genero" maxlength="25" value="{{lpaciente.Genero}}" readonly>
+			</td>
+			<tr>
+              <label for="Email">Email:</label>
+            </tr>
+            <td>
+              	<input class="form-control" name="Email" id = "Email" required 
+				placeholder="Email" maxlength="25" type="Email" value="{{lpaciente.Email}}">
+            </td> 
+            <tr>
+              <label for="Municipio">Municipio:</label>
+            </tr>
+            <td>
+              	<input title="Ingrese un municipio valido" class="form-control" name="Municipio" id = "Municipio" required 
+				placeholder="Municipio" maxlength="25" value="{{lpaciente.Municipio}}">
+            </td> 
+            <tr>
+              <label for="Edad">Edad:</label>
+            </tr>
+            <td>
+              	<input title="Ingrese una edad valida" pattern="[1-9]*" class="form-control" name="Edad" id = "Edad" required 
+				placeholder="Edad" maxlength="25" value="{{lpaciente.Edad}}">
+            </td>                  
+        </div><br>
+		<div align="center"><input class="btn btn-primary btn-block-form"  type="submit" value="Guardar"></div>
+	</form>
+	<a href="javascript:history.go(-1)">Regresar</a>
+</body>
+</html>

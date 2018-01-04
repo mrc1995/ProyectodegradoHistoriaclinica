@@ -48,6 +48,25 @@ class IngresarPaciente(forms.Form):
 	Municipio = forms.CharField(required = True)
 	Edad = forms.CharField(required = True)
 
+
+class modificar_paciente(forms.Form):
+	id_paciente = forms.CharField(required = True)
+	Nombre = forms.CharField(required = True)
+	Apellido = forms.CharField(required = True)
+	EPS = forms.CharField(required = True)
+	Genero = forms.CharField(required = True)
+	Email = forms.CharField()
+	Municipio = forms.CharField(required = True)
+	Edad = forms.CharField(required = True)
+
+
+class paracli(forms.ModelForm):
+
+	class Meta:
+		model =  Paraclinicos
+		fields = ('id_paciente','Diagnostico','Medicamentos','Incapacidad')
+
+
 class Motivoconsulta(forms.ModelForm):
 
 	class Meta:

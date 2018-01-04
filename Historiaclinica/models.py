@@ -106,6 +106,7 @@ class Rev_sistemas(models.Model):
 
 
 class Paraclinicos(models.Model):
+	id_paciente = models.ForeignKey(paciente, null = False, blank = False)
 	Id_paraclinico = models.AutoField(primary_key = True, max_length = 35, unique = True)
 	Diagnostico= models.CharField(max_length=500)
 	Medicamentos= models.CharField(max_length=500)

@@ -16,9 +16,27 @@
 </head>
 <body>
 
+<div class="navbar-right">
+    <a class="navbar-brand" href="{% url 'endsesion' %}">
+       <span class="glyphicon glyphicon-log-out"></span> Cerrar sesión   
+    </a> 
+    <br>
+    <a class="navbar-brand" href="menu">Volver al menú</a>                                                             
+</div>
+
+
+
+
 <br>
 <h1>Busqueda de Historias Clínicas</h1>
 <hr>
+
+
+
+<script>var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'right';var pfDisablePDF = 0;var pfDisableEmail = 0;var pfDisablePrint = 0;var pfCustomCSS = '';var pfBtVersion='2';(function(){var js,pf;pf=document.createElement('script');pf.type='text/javascript';pf.src='//cdn.printfriendly.com/printfriendly.js';document.getElementsByTagName('head')[0].appendChild(pf)})();</script><a href="https://www.printfriendly.com" style="color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF"><img style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="//cdn.printfriendly.com/buttons/printfriendly-pdf-button-nobg-md.png" alt="Print Friendly and PDF"/></a>
+
+
+
 
 <form method="POST">
     {% csrf_token %}
@@ -27,7 +45,8 @@
         
         <label for="documento">Ingrese documento del paciente: </label>
         <input class="form-control" type="text" name="id_paciente" id="id_paciente"
-        placeholder="Documento identificación" maxlength="12">
+        placeholder="Documento identificación" maxlength="12"><br>
+        <button>Buscar</button>
     </div>    
         
         <table class="table table-striped">
