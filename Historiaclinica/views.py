@@ -214,6 +214,7 @@ def plan_de_manejo(request):
 		form_plan = plan()
 	return render (request,'Plan_manejo.html')
 
+@login_required(login_url='/ingresar')
 def paraclinicos(request):
 	context = {}
 	if request.method == "POST":
@@ -231,6 +232,7 @@ def no_existe(request):
 	return render(request,'noexiste.html')
 
 
+@login_required(login_url='/ingresar')
 def individuales(request):
 	if request.method == "POST":
 		form_para = paracli(request.POST or None)
@@ -243,6 +245,7 @@ def individuales(request):
 		form_para = paracli()
 	return render(request, 'paraclinicos_individuales.html')
 
+@login_required(login_url='/ingresar')
 def BuscarHistoria(request):
 	context = {}
 	if request.method == "POST":
@@ -300,6 +303,7 @@ def contenido(request):
 	return render(request,'contenido.html')
 
 
+@login_required(login_url='/ingresar')
 def modificar(request):
 	context = {}
 	if request.method == "POST":

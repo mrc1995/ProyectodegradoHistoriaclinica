@@ -26,21 +26,7 @@ hr {
 	text-align: center;
 }
 
-.form-control{
-	font-family: 'Marcellus', serif;
-	color: #3A7DA3;
-	text-align: center;
-	margin-left: auto;
-  	margin-right: auto;
-  	height: 100px;
-}
 
-.form-control2{
-	font-family: 'Marcellus', serif;
-	color: #3A7DA3;
-	text-align: center;
-	margin-left: auto;
-  	margin-right: auto;
 }
 
 label {
@@ -54,9 +40,18 @@ img {
 	margin-left: 50px; 
 }
 
-.table-striped{
-	border: #3A7DA3 3px solid;
-	font-family: 'Marcellus', serif;
-	color: #3A7DA3;
 
+.form-control{
+	font-family: 'Lobster';
+	color: #3A7DA3;
+	text-align: center;
+	width: auto;
+	margin-left: auto;
+  	margin-right: auto;
+}
+
+body {
+   color: #0369ac;
+   font-family: 'Marcellus', serif;
+   font-size: 15px;
 }

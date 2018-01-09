@@ -4,6 +4,7 @@
 <head>
     <title></title>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/print.css' %}" media="print" />
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Marcellus|Tangerine" rel="stylesheet"> 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
@@ -119,7 +120,7 @@
              {%endfor%}
             </tbody>
         </table>
-        <div align="center">
+        <div class="impresion" align="center">
         <form>
         <input type='button' onclick='window.print();' value='Imprimir' /></form> 
         </div>

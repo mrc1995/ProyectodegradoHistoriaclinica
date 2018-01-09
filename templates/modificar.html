@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Marcellus|Tangerine" rel="stylesheet"> 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/modificar.css' %}">
 
     <!--<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
@@ -21,8 +21,22 @@
 <div class="navbar-right">
     <a class="navbar-brand" href="{% url 'endsesion' %}">
        <span class="glyphicon glyphicon-log-out"></span> Cerrar sesión   
-    </a>                                                              
+    </a>  <br>
+    <a class="navbar-brand" href="menu">Volver al menú</a>                                                            
 </div>
+
+
+<div class="Encabezado">
+
+<img src="static/images/LogoConsultorio.png" class="img-responsive" alt="Responsive image" hspace="5" vspace="5" style="float: left;">
+<h1>Dr. Jose Alfonso Gutierrez Grisales</h1>
+<h3>Médico Bioenergético</h3>
+<h5>Registro Médico 1396</h5>
+<hr>
+</div>
+
+
+
 
 
 <form method="POST">
@@ -31,6 +45,7 @@
      <label for="documento">Ingrese documento del paciente: </label>
      <input class="form-control2s" type="text" name="id_paciente" id = "id_paciente"
     placeholder="Documento identificación" maxlength="12">
+    <button>Buscar</button>
      </div> 
 </form>             
 <br>

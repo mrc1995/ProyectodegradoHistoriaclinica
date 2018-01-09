@@ -1,9 +1,9 @@
-
+	
 body {
    color: #0369ac;
    font-family: 'Marcellus', serif;
    background: url(../images/caduceus.jpg) no-repeat center;
-   background-size: 700px auto;
+   background-size: 500px auto;
    font-size: 15px;
 }
 
@@ -20,7 +20,7 @@ body {
 a{
 	font-family: 'Lobster';
 	color: #3A7DA3;
-	margin-left: 450px;
+	margin-left: 380px;
   	font-size: 17px;
 
 }

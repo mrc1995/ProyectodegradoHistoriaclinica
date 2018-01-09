@@ -3,7 +3,8 @@ body {
    color: #0369ac;
    font-family: 'Marcellus', serif;
    background: url(../images/caduceus.jpg) no-repeat center;
-   background-size: 700px auto;
+   background-size: 700px 500px;
+   background-position: center top;
    font-size: 15px;
 }
 

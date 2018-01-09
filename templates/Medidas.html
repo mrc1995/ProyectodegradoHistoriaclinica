@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Marcellus|Tangerine" rel="stylesheet"> 
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="{% static 'css/cuerpo.css' %}">
+  <link rel="stylesheet" href="{% static 'css/cuerpo12.css' %}">
 
   <!--<link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
   <link rel="stylesheet" href="{%static 'js/bootstrap.min.js'%}">
@@ -33,6 +33,7 @@
 					</td>
 				</tr>
 				<tr>
+					<br>
 					<th>
 						<label for="Organo">Organo:</label>
 					</th>
@@ -40,6 +41,7 @@
 						<input class="form-control" name="Organo" id = "Organo" required placeholder="Organo"  maxlength="100">
 				</tr>
 				<tr>
+					<br>
 					<th>
 						<label for="Clasificacion">Clasificación:</label>
 					</th>
@@ -47,16 +49,20 @@
 						<input class="form-control" name="Clasificacion" id = "Clasificacion" required placeholder="Clasificación"  maxlength="100">
 				</tr>
 				<tr>
+					<br>
 					<th>
 						<label for="Especificacion">Especificación:</label>
 					</th>
 					<td>
-						<input class="form-control" name="Especificacion" id = "Especificacion" required placeholder="Especificación"  maxlength="100">
+						<textarea class="form-control" name="Especificacion" id = "Especificacion" required placeholder="Describa las especificaciones"  maxlength="1000"></textarea>
 				</tr>
 			</div>
-		<div align="center"><input class="btn btn-primary btn-block-form" type="submit" value="Siguiente"></div>
+		<br>
+		<div align="center"><input class="btn btn-primary btn-block-form" type="submit" value="Guardar"></div>
 	</form>
-	<a href="javascript:history.go(-1)">Regresar</a>
+	<br>
+	<a href="individuales">Siguiente</a>
+	<br><br><br>
 	{% endblock content %}
 </div>
 </body>

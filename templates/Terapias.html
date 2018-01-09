@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Marcellus|Tangerine" rel="stylesheet"> 
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="{% static 'css/cuerpo.css' %}">
+  <link rel="stylesheet" href="{% static 'css/cuerpo10.css' %}">
 
   <!--<link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
   <link rel="stylesheet" href="{%static 'js/bootstrap.min.js'%}">
@@ -33,14 +33,16 @@
 					</td>
 				</tr>
 				<tr>
+					<br>
 					<th>
-						<label for="Terapia">Terapia:</label>
+						<label for="Terapia">Terapia(s):</label>
 					</th>
 					<td>
-						<input class="form-control" name="Terapia" id = "Terapia" required placeholder="Descripción Terapia"  maxlength="50">
+						<input class="form-control" name="Terapia" id = "Terapia" required placeholder="Descripción Terapia"  maxlength="500">
 					</td>
 				</tr>
 				<tr>
+					<br>
 					<th>
 						<label for="Estado">Estado:</label>
 					</th>
@@ -54,17 +56,21 @@
 					</td>
 				</tr>
 				<tr>
+					<br>
 					<th>
 						<label for="Especificaciones">Especificaciones:</label>
 					</th>
 					<td>
-						<input class="form-control" name="Especificaciones" id = "Especificaciones" required placeholder="Especificaciones Terapia"  maxlength="50">
+						<textarea class="form-control" name="Especificaciones" id = "Especificaciones" required placeholder="Describa las especificaciones de la(s) terapia(s)"  maxlength="1000"></textarea>
 					</td>
 				</tr>
 			</div>
-		<div align="center"><input class="btn btn-primary btn-block-form" type="submit" value="Siguiente"></div>
+		<br>
+		<div align="center"><input class="btn btn-primary btn-block-form" type="submit" value="Guardar"></div>
 	</form>
-	<a href="javascript:history.go(-1)">Regresar</a>
+	<br>
+	<a href="Resultado">Siguiente</a>
+	<br><br><br>	
 	{% endblock content %}
 </div>
 </body>

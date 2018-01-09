@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Marcellus|Tangerine" rel="stylesheet"> 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/cuerpo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cuerpo13.css' %}">
 
     <!--<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
@@ -24,7 +24,7 @@
                 <tr>
                     <th>
                         <br>
-                        <label for="id_paciente">Documento identificacion:</label>
+                        <label for="id_paciente">Documento identificación:</label>
                     </th>
                     <td>
                         <input title="Ingrese un documento valido" pattern="[0-9]*" class="form-control" type="text" name="id_paciente" id = "id_paciente" required 
@@ -34,12 +34,11 @@
                 <tr>
                     <th>
                         <br>
-                        <label for="Diagnostico">Diagnostico del paciente:</label>
+                        <label for="Diagnostico">Diagnóstico del paciente:</label>
                     </th>
                     <td>
-                        <input class="form-control" type="text"name="Diagnostico" id = "Diagnostico"
-                        placeholder="Diagnostico" maxlength="1000" >
-                        <br>
+                        <textarea class="form-control" type="text" name="Diagnostico" id = "Diagnostico"
+                        placeholder="Describa el diagnóstico del paciente" maxlength="1000"></textarea>
                         <br>
                     </td>
                 </tr>
@@ -48,8 +47,7 @@
                         <label for="Medicamentos">Medicamentos:</label>
                     </th>
                     <td>
-                        <input class="form-control" name="Medicamentos" id = "Medicamentos" placeholder="Medicamentos"  maxlength="500">
-                        <br>
+                        <textarea class="form-control" name="Medicamentos" id = "Medicamentos" placeholder="Medicamentos a formular"  maxlength="500"></textarea>
                         <br>
                     </td>
                 </tr>
@@ -58,11 +56,13 @@
                         <label for="Incapacidad">Incapacidad:</label>
                     </th>
                     <td>
-                        <input class="form-control" name="Incapacidad" id = "Incapacidad" placeholder="Control"  maxlength="500">
-                        <br>
+                        <textarea class="form-control" name="Incapacidad" id = "Incapacidad" placeholder="Incapacidad del paciente"  maxlength="500"></textarea>
                         <br>
                     </td>
                 </tr>
             </div>
         <div align="center"><input class="btn btn-primary btn-block-form" type="submit" value="Guardar"></div>
+        <br>
+        <a target="_top" href="menu">Finalizar y volver al menú</a>
+        <br><br>
     </form>

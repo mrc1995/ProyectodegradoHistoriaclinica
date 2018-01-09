@@ -1,0 +1,25 @@
+
+body {
+   background: url(../images/caduceus.jpg) no-repeat center;
+}
+
+label{
+	display: none;
+	}
+
+div .impresion{
+  	display: none;
+  }
+
+.navbar-right{
+	display: none;
+}
+
+form{
+	display: none;
+}
+
+
+
+
+

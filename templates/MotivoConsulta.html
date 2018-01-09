@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Marcellus|Tangerine" rel="stylesheet"> 
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="{% static 'css/cuerpo.css' %}">
+  <link rel="stylesheet" href="{% static 'css/cuerpo1.css' %}">
 
   <!--<link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
   <link rel="stylesheet" href="{%static 'js/bootstrap.min.js'%}">
@@ -34,16 +34,20 @@
 				</tr>
 				<tr>
 					<th>
+						<br>
 						<label for="Motivo_consulta">Motivo consulta:</label>
 					</th>
 					<td>
-						<input class="form-control" name="Motivo_consulta" id = "Motivo_consulta" required placeholder="Motivo Consulta"  maxlength="25">
+						<textarea class="form-control" name="Motivo_consulta" id="Motivo_consulta"  maxlength="1000" placeholder="Describa el motivo de la consulta" required></textarea>
 					</td>
 				</tr>
-			</div>
-		<div align="center"><input class="btn btn-primary btn-block-form" type="submit" value="Siguiente"></div>
+			</div><br><br>
+		<div align="center"><input class="btn btn-primary btn-block-form" type="submit" value="Guardar"></div>
 	</form>
-	<a href="javascript:history.go(-1)">Regresar</a>
+
+	<br>
+	<a href="EnfermedadActual">Siguiente</a>
+	<br>
 	{% endblock content %}
 </div>
 </body>
