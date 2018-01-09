@@ -90,7 +90,7 @@ class gustos(forms.ModelForm):
 class examen(forms.ModelForm):
     class Meta:
     	model = Examen_Fisico
-        fields = ('id_paciente','TA','FC','FR','Peso','Estatura','Perimetro_cintura','IMC','Pulso')
+        fields = ('id_paciente','TA','FC','FR','Peso','Estatura','IMC','Perimetro_cintura','Pulso')
 
 class medidas(forms.ModelForm):
 	class Meta:

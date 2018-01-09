@@ -41,14 +41,14 @@ class Gustos_preferencias(models.Model):
 class Examen_Fisico(models.Model):
 	Id_examen = models.AutoField(primary_key = True, max_length = 35, unique = True)
 	id_paciente = models.ForeignKey(paciente, null = False, blank = False)
-	TA = models.IntegerField()
-	FC = models.IntegerField()
-	FR = models.IntegerField()
-	Peso = models.IntegerField()
-	Estatura = models.IntegerField()
-	Perimetro_cintura = models.IntegerField()
-	IMC = models.IntegerField()
-	Pulso = models.IntegerField()
+	TA = models.CharField(max_length=50)
+	FC = models.CharField(max_length=50)
+	FR = models.CharField(max_length=50)
+	Peso = models.CharField(max_length=50)
+	Estatura = models.CharField(max_length=50)
+	IMC = models.CharField(max_length=50)
+	Perimetro_cintura = models.CharField(max_length=50)
+	Pulso = models.CharField(max_length=50)
 
 class medidas_antropometricas(models.Model):
 	Id_medidas = models.AutoField(primary_key = True, max_length = 35, unique = True)

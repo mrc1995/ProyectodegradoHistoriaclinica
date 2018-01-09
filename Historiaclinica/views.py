@@ -48,6 +48,7 @@ def loginstart(request):
 def privado(request):
 	username = request.user
 	return render(request,'base.html')
+	
 
 @login_required(login_url='/ingresar')
 def endsesion(request):
@@ -105,13 +106,13 @@ def gustos_paciente(request):
 	return render (request,'Gustos.html') 
 
 @login_required(login_url='/ingresar')
-def Examen(request):
+def Examen_fis(request):
 	if request.method == "POST":
 		form_examen = examen(request.POST or None)
 		if form_examen.is_valid():
 			p =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
 			newExamen = Examen_Fisico(id_paciente = p, TA = request.POST['TA'], FC = request.POST['FC'],FR = request.POST['FR'], Peso = request.POST['Peso'],
-				Estatura =request.POST['Estatura'],Perimetro_cintura = request.POST['Perimetro_cintura'],IMC = request.POST['IMC'],Pulso = request.POST['Pulso'] )
+				Estatura =request.POST['Estatura'],IMC = request.POST['IMC'],Perimetro_cintura = request.POST['Perimetro_cintura'],Pulso = request.POST['Pulso'] )
 			newExamen.save()
 	else:
 		form_gustos = examen()

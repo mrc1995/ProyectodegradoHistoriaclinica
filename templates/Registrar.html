@@ -9,6 +9,17 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="{% static 'css/registrar.css' %}">
+    <script type="text/javascript">
+      function comprobarClave(){ 
+    password1= document.f1.password1.value 
+    password2 = document.f1.password2.value 
+
+    if (password2 == password2) 
+        alert("Contrasena igual") 
+    else 
+        alert("La contraseña no es igual") 
+} 
+    </script>
 </head>
 
 <a class="navbar-brand" href="loginstart" target="_top">Volver</a>
@@ -65,7 +76,7 @@
       <div class="col-md-8 col-md-offset-2">
         <div class="form-group">
           <label>Contraseña (*)</label>
-          <input class="form-control" type="password" name="password1" required>
+          <input class="form-control" type="password" name="password1" required minlength="8" maxlength="25">
         </div>
       </div>
     </div>
@@ -73,7 +84,7 @@
       <div class="col-md-8 col-md-offset-2">
         <div class="form-group">
           <label>Confirmar contraseña (*)</label>
-          <input class="form-control" type="password" name="password2" required>
+          <input class="form-control" type="password" name="password2" required minlength="8" maxlength="25">
         </div>
       </div>
     </div>
@@ -81,7 +92,7 @@
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="form-group">
-          <button class="btn btn-primary" type= "submit">Guardar</button>
+          <button class="btn btn-primary" type= "submit" onclick="comprobarClave()">Guardar</button>
         </div>
       </div>
     </div>
