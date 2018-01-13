@@ -1,6 +1,7 @@
 
 body {
    background: url(../images/caduceus.jpg) no-repeat center;
+   background-size: auto;
 }
 
 label{
@@ -17,6 +18,27 @@ div .impresion{
 
 form{
 	display: none;
+}
+
+h1 {
+	color: #3A7DA3;
+	font-family: 'Tangerine', cursive;
+	text-align: center;	
+	font-size: 40px;
+}
+
+h3 {
+	color: #3A7DA3;
+	font-family: 'Marcellus', serif;
+	margin-left: 540px;	
+	font-size: 20px;
+}
+
+h5 {
+	color: #3A7DA3;
+	font-family: 'Marcellus', serif;
+	margin-left: 590px;	
+	font-size: 10px;
 }
 
 

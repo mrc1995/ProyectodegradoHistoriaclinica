@@ -38,18 +38,152 @@
 						<label for="codigo">Código:</label>
 					</th>
 					<td>
-						<input class="form-control" name="codigo" id = "codigo" required placeholder="Código CIE10"  maxlength="50">
+						<select class="juntos" name="codigo" id = "codigo" required placeholder="Código CIE10"  maxlength="50">
+							<option>L709</option>
+							<option>N912</option>
+							<option>D509</option>
+							<option>D638</option>
+							<option>F419</option>
+							<option>F412</option>
+							<option>M199</option>
+							<option>J459</option>
+							<option>J209</option>
+							<option>J219</option>
+							<option>G442</option>
+							<option>M542</option>
+							<option>N951</option>
+							<option>H101</option>
+							<option>H103</option>
+							<option>M938</option>
+							<option>H527</option>
+							<option>L209</option>
+							<option>L259</option>
+							<option>I878</option>
+							<option>L210</option>
+							<option>R104</option>
+							<option>A09X</option>
+							<option>J449</option>
+							<option>J441</option>
+							<option>N609</option>
+							<option>M773</option>
+							<option>M674</option>
+							<option>K297</option>
+							<option>N939</option>
+							<option>E780</option>
+							<option>E782</option>
+							<option>N40X</option>
+							<option>E781</option>
+							<option>E039</option>
+							<option>I839</option>
+							<option>M545</option>
+							<option>M544</option>
+							<option>G439</option>
+							<option>L741</option>
+							<option>H659</option>
+							<option>H664</option>
+							<option>H663</option>
+							<option>N951</option>
+							<option>L282</option>
+							<option>K219</option>
+							<option>D649</option>
+							<option>K580</option>
+							<option>G560</option>
+							<option>M751</option>
+						</select>
+
+					<input type="text" class="juntos" id="captura" size="4">
+                    <button type="button" onclick="myFunction()">Insertar</button>
+
+					<script>
+					function myFunction() {
+					    var x = document.getElementById("codigo");
+					    var option = document.createElement("option");
+					    option.text = document.getElementById("captura").value;
+					    x.add(option);
+					}
+					</script>
+
 					</td>
 				</tr>
+			
+				<br>
 				<tr>
 					<br>
 					<th>
 						<label for="Nombre">Nombre:</label>
 					</th>
 					<td>
-						<input class="form-control" name="Nombre" id = "Nombre" required placeholder="Nombre CIE10"  maxlength="50">
+						<select class="juntos" name="Nombre" id = "Nombre" required placeholder="Nombre CIE10"  maxlength="50">
+							<option>Acné</option>
+							<option>Amenorrea</option>
+							<option>Anemia ferropenica</option>
+							<option>Anemia por enfermedad crónica</option>
+							<option>Ansiedad</option>
+							<option>Ansiedad más depresión</option>
+							<option>Artrosis</option>
+							<option>Asma</option>
+							<option>Bronquitis aguda</option>
+							<option>Bronquiolitis</option>
+							<option>Cefalea tensional</option>
+							<option>Cervicalgia</option>
+							<option>Climaterio</option>
+							<option>Conjuntivitis aguda</option>
+							<option>Conjuntivitis alergica</option>
+							<option>Defecto de refracción</option>
+							<option>Dermatitis atopica</option>
+							<option>Costocondritis</option>
+							<option>Dermatitis por contacto</option>                       
+							<option>Dermatitis por estasis</option>                          
+							<option>Dermatitis seborreica  capitis </option>             
+							<option>Desarreglo interno rodilla</option>     
+							<option>Dolor abdominal</option>
+							<option>E..D.A infecciosa</option>
+							<option>E.P.O.C.</option>
+							<option>E.P.O.C.  descompensado</option>
+							<option>Enf. Fibroquistica del seno</option>
+							<option>Espolón calcáneo</option>
+							<option>Ganglión</option>
+							<option>Gastritis aguda</option>
+							<option>H.U.A.</option>
+							<option>Hipercolesterolemia</option>
+							<option>Hiperlipidemia mixta</option>
+							<option>Hiperplasia próstata</option>
+							<option>Hipertrigliceridemia</option>
+							<option>Hipotiroidismo adquirido</option>
+							<option>Insuficiencia venosa M.I.I.S</option>
+							<option>Lumbalgia</option>  
+							<option>Lumbalgia con radiculopatia</option>
+							<option>Migraña</option>
+							<option>Miliaria cristalina</option>
+							<option>Otitis media aguda  no supur.</option>
+							<option>Otitis media aguda supurada</option>
+							<option>Otitis media crónica  sup.</option>
+							<option>Perimenopausia</option>
+							<option>Prurigo</option>
+							<option>Reflujo  gastroesofagico</option>
+							<option>Síndrome Anémico</option>
+							<option>Síndrome Intest. irritab. Con diarrea</option>
+							<option>Síndrome túnel carpiano</option>
+							<option>Tendinitis manguito rotador</option>  
+						</select>
+
+					<input type="text" class="juntos" id="captura1" size="4">
+                    <button type="button" onclick="myFunction1()">Insertar</button>
+
+					<script>
+					function myFunction1() {
+					    var x = document.getElementById("Nombre");
+					    var option = document.createElement("option");
+					    option.text = document.getElementById("captura1").value;
+					    x.add(option);
+					}
+					</script>
+
+
+
 					</td>
 				</tr>
+				<br>	
 				<tr>
 					<br>
 					<th>
