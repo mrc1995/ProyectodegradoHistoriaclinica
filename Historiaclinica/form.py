@@ -47,6 +47,15 @@ class IngresarPaciente(forms.Form):
 	Email = forms.CharField()
 	Municipio = forms.CharField(required = True)
 	Edad = forms.CharField(required = True)
+	Estado_civil = forms.CharField()
+	Telefono = forms.CharField()
+	Direccion = forms.CharField()
+	Religion = forms.CharField()
+	Ocupacion = forms.CharField()
+	Dia = forms.CharField()
+	Mes = forms.CharField()
+	Ano = forms.CharField()
+
 
 
 class modificar_paciente(forms.Form):
@@ -90,7 +99,9 @@ class gustos(forms.ModelForm):
 class examen(forms.ModelForm):
     class Meta:
     	model = Examen_Fisico
-        fields = ('id_paciente','TA','FC','FR','Peso','Estatura','IMC','Perimetro_cintura','Pulso')
+        fields = ('id_paciente','TA','FC','FR','Peso','Estatura','IMC','Perimetro_cintura','Pulso','Aspecto_general',
+        	'Cabeza','Cavidad_oral','Cuello','Cardiopulmonar','Abdomen','Genitourinario','Osteomuscular','Piel',
+        	'Neurologico','Extremidades')
 
 class medidas(forms.ModelForm):
 	class Meta:

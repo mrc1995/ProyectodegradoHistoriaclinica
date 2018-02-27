@@ -62,7 +62,9 @@ def Ingresarpaciente(request):
 		if form_registro_usuario.is_valid():
 			newPaciente = paciente(id_paciente = request.POST['id_paciente'], Nombre =request.POST['Nombre'],
 			Apellido=request.POST['Apellido'],EPS=request.POST['EPS'],Genero=request.POST['Genero'],
-			Email=request.POST['Email'],Municipio=request.POST['Municipio'],Edad=request.POST['Edad'])
+			Email=request.POST['Email'],Municipio=request.POST['Municipio'],Edad=request.POST['Edad'],Estado_civil=request.POST['Estado_civil'],
+			Telefono=request.POST['Telefono'],Direccion=request.POST['Direccion'],Religion=request.POST['Religion'],Ocupacion=request.POST['Ocupacion'],Dia=request.POST['Dia'],
+			Mes=request.POST['Mes'],Ano=request.POST['Ano'])
 			newPaciente.save()
 	else:
 		form_registro_usuario = IngresarPaciente()
@@ -112,11 +114,15 @@ def Examen_fis(request):
 		if form_examen.is_valid():
 			p =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
 			newExamen = Examen_Fisico(id_paciente = p, TA = request.POST['TA'], FC = request.POST['FC'],FR = request.POST['FR'], Peso = request.POST['Peso'],
-				Estatura =request.POST['Estatura'],IMC = request.POST['IMC'],Perimetro_cintura = request.POST['Perimetro_cintura'],Pulso = request.POST['Pulso'] )
+				Estatura =request.POST['Estatura'],IMC = request.POST['IMC'],Perimetro_cintura = request.POST['Perimetro_cintura'],Pulso = request.POST['Pulso'], 
+				Aspecto_general = request.POST['Aspecto_general'],Cabeza  = request.POST['Cabeza '],Cavidad_oral = request.POST['Cavidad_oral'],Cuello = request.POST['Cuello'],Cardiopulmonar = request.POST['Cardiopulmonar'],
+				Abdomen = request.POST['Abdomen'],Genitourinario = request.POST['Genitourinario'],Osteomuscular = request.POST['Osteomuscular'],Piel  = request.POST['Piel '],Neurologico = request.POST['Neurologico'],
+				Extremidades = request.POST['Extremidades'])
 			newExamen.save()
 	else:
 		form_gustos = examen()
 	return render (request,'Examen.html') 
+
 
 @login_required(login_url='/ingresar')
 def Medidas(request):

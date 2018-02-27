@@ -15,6 +15,14 @@ class paciente(models.Model):
 	Email = models.EmailField(max_length = 35)
 	Municipio = models.CharField(max_length = 35)
 	Edad = models.CharField (max_length =12)
+	Estado_civil = models.CharField(max_length = 25)
+	Telefono = models.CharField(max_length = 25)
+	Direccion = models.CharField(max_length = 25)
+	Religion = models.CharField(max_length = 25)
+	Ocupacion = models.CharField(max_length = 25)
+	Dia = models.CharField(max_length = 2)
+	Mes = models.CharField(max_length = 2)
+	Ano = models.CharField(max_length = 4)
 
 	def __str__(self):
 		return self.id_paciente + self.Nombre + self.Apellido + self.EPS + self.Genero + self.Municipio + self.Edad
@@ -23,12 +31,12 @@ class paciente(models.Model):
 class Motivo_consulta(models.Model):
 	Id_Motivo = models.AutoField(primary_key = True, max_length = 35, unique = True)
 	id_paciente = models.ForeignKey(paciente, null = False, blank = False)
-	Motivo_consulta = models.CharField(max_length = 200)
+	Motivo_consulta = models.CharField(max_length = 800)
 
 class Enfermedad_Actual(models.Model):
 	Id_Enfermedad = models.AutoField(primary_key = True, max_length = 35, unique = True)
 	id_paciente = models.ForeignKey(paciente, null = False, blank = False)
-	Enf_actual = models.CharField(max_length = 200)
+	Enf_actual = models.CharField(max_length = 800)
 
 class Gustos_preferencias(models.Model):
 	Id_Gustos = models.AutoField(primary_key = True, max_length = 35, unique = True)
@@ -49,6 +57,19 @@ class Examen_Fisico(models.Model):
 	IMC = models.CharField(max_length=50)
 	Perimetro_cintura = models.CharField(max_length=50)
 	Pulso = models.CharField(max_length=50)
+	Aspecto_general = models.CharField(max_length=50)
+	Cabeza = models.CharField(max_length=50)
+	Cavidad_oral = models.CharField(max_length=50)
+	Cuello = models.CharField(max_length=50)
+	Cardiopulmonar = models.CharField(max_length=50)
+	Abdomen = models.CharField(max_length=50)
+	Genitourinario = models.CharField(max_length=50)
+	Osteomuscular = models.CharField(max_length=50)
+	Piel = models.CharField(max_length=50)
+	Neurologico = models.CharField(max_length=50)
+	Extremidades = models.CharField(max_length=50)
+
+
 
 class medidas_antropometricas(models.Model):
 	Id_medidas = models.AutoField(primary_key = True, max_length = 35, unique = True)

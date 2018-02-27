@@ -25,7 +25,8 @@ SECRET_KEY = '=-&!-8i9%byfm)qjp9az@^*9kxdqy!7l0)dkb24)v#q@wv@#fa'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.6','127.0.0.1']
+ALLOWED_HOSTS = ['192.168.1.22',
+                 '127.0.0.1']
 
 
 # Application definition
@@ -83,8 +84,9 @@ DATABASES = {
         'ENGINE': 'mysql_cymysql',
         'NAME': 'PruebaHistoria',
         'USER' : 'root',
-        'PASSWORD' : '12345',
+        'PASSWORD' : '1111',
         'HOST': '127.0.0.1',
+
     }
 }
 
