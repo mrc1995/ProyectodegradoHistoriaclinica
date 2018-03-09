@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Marcellus|Tangerine" rel="stylesheet"> 
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="{% static 'css/cuerpo12.css' %}">
+  <link rel="stylesheet" href="{% static 'css/cuerpo5.css' %}">
 
   <!--<link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
   <link rel="stylesheet" href="{%static 'js/bootstrap.min.js'%}">
@@ -25,44 +25,32 @@
 				<tr>
 					<th>
 						<br>
-						<label for="Id_examen">Documento identificacion:</label>
+						<label for="id_paciente">Documento identificacion:</label>
 					</th>
 					<td>
-						<input title="Ingrese un documento valido" pattern="[0-9]*" class="form-control" type="text" name="Id_examen" id = "Id_examen" required 
-						placeholder="Cc paciente" maxlength="25">
+						<input title="Ingrese un documento valido" pattern="[0-9]*" class="form-control" type="text" name="id_paciente" id = "id_paciente" required placeholder="Cc paciente" maxlength="25">
+
+						<script>
+			                  var value = parent.frames["items"].asignar(); 
+			                  document.getElementById('id_paciente').value = value;
+		              	</script>
 					</td>
 				</tr>
 				<tr>
-					<br>
 					<th>
-						<label for="Organo">Organo:</label>
+						<br>
+						<label for="Recomendacion'">Recomendaciones:</label>
 					</th>
 					<td>
-						<input class="form-control" name="Organo" id = "Organo" required placeholder="Organo"  maxlength="100">
-				</tr>
-				<tr>
-					<br>
-					<th>
-						<label for="Clasificacion">Clasificación:</label>
-					</th>
-					<td>
-						<input class="form-control" name="Clasificacion" id = "Clasificacion" required placeholder="Clasificación"  maxlength="100">
-				</tr>
-				<tr>
-					<br>
-					<th>
-						<label for="Especificacion">Especificación:</label>
-					</th>
-					<td>
-						<textarea class="form-control" name="Especificacion" id = "Especificacion" required placeholder="Describa las especificaciones"  maxlength="1000"></textarea>
+						<textarea rows="5" cols="50" class="form-control" name="Recomendacion'" id = "Recomendacion'" required placeholder="Describa aqui las recomendaciones"  maxlength="1000"></textarea>
+					</td>
 				</tr>
 			</div>
 		<br>
 		<div align="center"><input class="btn btn-primary btn-block-form" type="submit" value="Guardar"></div>
 	</form>
 	<br>
-	<a href="individuales">Siguiente</a>
-	<br><br><br>
+	<a href="Solicitud">Siguiente</a>
 	{% endblock content %}
 </div>
 </body>

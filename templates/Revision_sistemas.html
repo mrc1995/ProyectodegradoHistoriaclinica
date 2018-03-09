@@ -28,17 +28,21 @@
 						<label for="id_paciente">Documento identificacion:</label>
 					</th>
 					<td>
-						<input title="Ingrese un documento valido" pattern="[0-9]*" class="form-control" type="text" name="id_paciente" id = "id_paciente" required 
-						placeholder="Cc paciente" maxlength="25">
+						<input title="Ingrese un documento valido" pattern="[0-9]*" class="form-control" type="text" name="id_paciente" id = "id_paciente" required placeholder="Cc paciente" maxlength="25">
+
+						<script>
+			                  var value = parent.frames["items"].asignar(); 
+			                  document.getElementById('id_paciente').value = value;
+		              	</script>
 					</td>
 				</tr>
 				<tr>
 					<th>
 						<br>
-						<label for="Rev_consulta">Revisión en Consulta:</label>
+						<label for="Rev_consulta">Revisión por sistemas:</label>
 					</th>
 					<td>
-						<textarea class="form-control" name="Rev_consulta" id = "Rev_consulta" required placeholder="Describa aqui la revisión de sistemas"  maxlength="1000"></textarea>
+						<textarea rows="5" cols="50" class="form-control" name="Rev_consulta" id = "Rev_consulta" required placeholder="Describa aqui la revisión en consulta"  maxlength="1000"></textarea>
 					</td>
 				</tr>
 			</div>
@@ -46,7 +50,7 @@
 		<div align="center"><input class="btn btn-primary btn-block-form" type="submit" value="Guardar"></div>
 	</form>
 	<br>
-	<a href="plan_de_manejo">Siguiente</a>
+	<a href="gustos_paciente">Siguiente</a>
 	{% endblock content %}
 </div>
 </body>

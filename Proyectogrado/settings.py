@@ -84,7 +84,7 @@ DATABASES = {
         'ENGINE': 'mysql_cymysql',
         'NAME': 'PruebaHistoria',
         'USER' : 'root',
-        'PASSWORD' : '1111',
+        'PASSWORD' : '12345',
         'HOST': '127.0.0.1',
 
     }

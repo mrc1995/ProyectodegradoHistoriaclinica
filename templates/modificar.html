@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="{%static 'js/bootstrap.min.js'%}">
     <link rel="stylesheet"  href="{% static 'css/estilos.css'%}">
     <link href="{% static 'css/sb-admin.css'%}" rel="stylesheet">-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -51,72 +50,192 @@
 <br>
 <form method="POST">
 		{% csrf_token %}
-		<div class="form-group" align="center">
+		
+    <div class="form-group" align="center">
+
+
+          <br>
             <tr>
-              <br>
-              <label for="id_paciente">Documento Identificacion:</label>
+              <label for="Fecha">Fecha y hora de atención:</label><br>
             </tr>
-            <td>
-				<input title="Ingrese un documento valido" pattern="[0-9]*" class="form-control" name="id_paciente" id = "id_paciente" required  
-				placeholder="Documento Identificacion" maxlength="25" value="{{lpaciente.id_paciente}}" readonly>
-            </td>
+          <td>    
+            <input type=text class=form-inline name=Fecha  id=Fecha  readonly maxlength=25 value="{{lpaciente.Fecha}}">
+          </td>
+
+          <td>
+            <input type=text class=form-inline name=Hora  id=Hora readonly value="{{lpaciente.Hora}}">
+          </td>
+            <br>
+            <br>
             <tr>
               <label for="Nombre">Nombre:</label>
             </tr>
             <td>
-              	<input title="Ingrese un nombre valido" pattern="[A-Z a-z]*" class="form-control" name="Nombre"  id = "Nombre" required 
-				placeholder="Nombre" maxlength="25" pattern="[A-Za-z]" value="{{lpaciente.Nombre}}" readonly>
+                <input title="Ingrese un nombre valido" pattern="[A-Z a-z]*" class="form-inline" name="Nombre"  id = "Nombre" required placeholder="Nombre" maxlength="25" pattern="[A-Za-z]" value="{{lpaciente.Nombre}}" readonly>
             </td>
-             <tr>
+            <br>
+            <br>
+            <tr>
               <label for="Apellido">Apellidos:</label>
             </tr>
             <td>
-              	<input title="Ingrese un apellido valido" pattern="[A-Za-z]*" class="form-control" name="Apellido" id = "Apellido" required 
-				placeholder="Apellidos" maxlength="25" value="{{lpaciente.Apellido}}" readonly>
+                <input title="Ingrese un apellido valido" pattern="[A-Z a-z]*" class="form-inline" name="Apellido" id = "Apellido" required placeholder="Apellidos" maxlength="25" value="{{lpaciente.Apellido}}" readonly>
             </td>    
-             <tr>
-              <label for="EPS">EPS:</label>
-            </tr>
-            <td>
-            <select class="form-control" name="EPS" id = "EPS" required 
-				placeholder="EPS" maxlength="25">
-				<option>{{lpaciente.EPS}}</option>
-				<option>Cafesalud</option>
-				<option>Medimas</option>
-				<option>Nueva EPS</option>
-				<option>Particular</option>
-			</select>
-			</td>
-             <tr>
-              <label for="Genero">Genero:</label>
-            </tr>
-            <td>
-            <input type="text" class="form-control" name="Genero" id = "Genero" required 
-				placeholder="Genero" maxlength="25" value="{{lpaciente.Genero}}" readonly>
-			</td>
-			<tr>
-              <label for="Email">Email:</label>
-            </tr>
-            <td>
-              	<input class="form-control" name="Email" id = "Email" required 
-				placeholder="Email" maxlength="25" type="Email" value="{{lpaciente.Email}}">
-            </td> 
+            <br>
+
+            <br>
             <tr>
-              <label for="Municipio">Municipio:</label>
+              <label for="Fecha_Nac">Fecha de nacimiento:</label>
             </tr>
             <td>
-              	<input title="Ingrese un municipio valido" class="form-control" name="Municipio" id = "Municipio" required 
-				placeholder="Municipio" maxlength="25" value="{{lpaciente.Municipio}}">
+                <input class="form-inline" size="2" name="Dia" id = "Dia" required placeholder="Día" maxlength="25" readonly value="{{lpaciente.Dia}}">
+            </td>
+            <td>
+                <input class="form-inline" size="2" name="Mes" id = "Mes" required placeholder="Mes" maxlength="25" readonly value="{{lpaciente.Mes}}">
             </td> 
+            <td>
+                <input class="form-inline" size="2" name="Ano" id = "Ano" required placeholder="Año" maxlength="25" readonly value="{{lpaciente.Ano}}">
+            </td>
+            <br>
+
+            <br>
             <tr>
               <label for="Edad">Edad:</label>
             </tr>
             <td>
-              	<input title="Ingrese una edad valida" pattern="[1-9]*" class="form-control" name="Edad" id = "Edad" required 
-				placeholder="Edad" maxlength="25" value="{{lpaciente.Edad}}">
-            </td>                  
+                <input size="4" class="form-inline" name="Edad" id = "Edad" required placeholder="Edad" maxlength="25" readonly value="{{lpaciente.Edad}}">
+            </td>
+            <br> 
+
+            <tr>
+              <br>
+              <label for="id_paciente">Documento:</label>
+            </tr>
+            <td> 
+              <input title="Ingrese un documento valido" pattern="[0-9]*" class="form-inline" name="id_paciente" id = "id_paciente" readonly required placeholder="Documento de identificación" maxlength="25" value="{{lpaciente.id_paciente}}" readonly>
+            <br>
+            <br>
+            <tr>
+              <label for="Genero">Género:</label>
+            </tr>
+            <td>
+            <select class="form-inline" name="Genero" id = "Genero" placeholder="Genero" maxlength="25" >
+              <option>{{lpaciente.Genero}}</option>
+              <option>Masculino</option>
+              <option>Femenino</option>
+              <option>Otro</option>
+            </select>
+            </td>
+            <br>
+            
+            <br>
+            <tr>
+              <label for="Estado_civil">Estado civil:</label>
+            </tr>
+            <td>
+            <select class="form-inline" name="Estado_civil" id = "Estado_civil" placeholder="Estado civil" maxlength="25" >
+            <option>{{lpaciente.Estado_civil}}</option>
+              <option>Soltero(a)</option>
+              <option>Casado(a)</option>
+              <option>Unión libre</option>
+              <option>Viudo(a)</option>
+              <option>Separado(a)</option>
+              <option>Otro</option>
+            </select>
+            </td>
+            <br>
+            
+            <br>
+            <tr>
+              <label for="Direccion">Dirección:</label>
+            </tr>
+            <td>
+                <input class="form-inline" name="Direccion" id = "Direccion" placeholder="Dirección" maxlength="25" value="{{lpaciente.Direccion}}">
+            </td>
+            <br>
+
+            <br>
+            <tr>
+              <label for="Telefono">Teléfono:</label>
+            </tr>
+            <td>
+                <input title="Ingrese un teléfono valido" pattern="[0-9]*" class="form-inline" name="Telefono" id = "Telefono" placeholder="Teléfono" maxlength="25" value="{{lpaciente.Telefono}}">
+            </td>
+            <br>
+
+
+            <br>
+            <tr>
+              <label for="Religion">Religión:</label>
+            </tr>
+            <td>
+                <input class="form-inline" name="Religion" id = "Religion" placeholder="Religión" maxlength="25" value="{{lpaciente.Religion}}">
+            </td>
+            <br>
+
+            <br>
+            <tr>
+              <label for="Educativo">Nivel educativo:</label>
+            </tr>
+            <td>
+            <input class="form-inline" name="Educativo" id = "Educativo" maxlength="50" placeholder= "Nivel Educativo" value="{{lpaciente.Educativo}}">
+            </td>
+            <br>
+
+
+            <br>
+            <tr>
+              <label for="Ocupacion">Ocupación:</label>
+            </tr>
+            <td>
+                <input class="form-inline" name="Ocupacion" id = "Ocupacion"  placeholder="Ocupación" maxlength="25" value="{{lpaciente.Ocupacion}}">
+            </td>
+            <br>
+
+
+            <br>
+             <tr>
+              <label for="EPS">EPS:</label>
+            </tr>
+            <td>
+            <select class="form-control" name="EPS" id = "EPS" required placeholder="EPS" maxlength="25">
+        				<option>{{lpaciente.EPS}}</option>
+        				<option>Cafesalud</option>
+                <option>Medimas</option>
+                <option>Nueva EPS</option>
+                <option>Salud total</option>
+                <option>Sura</option>
+                <option>SOS</option>
+                <option>Sanitas</option>
+                <option>Coomeva</option>
+                <option>Asmet salud</option>
+                <option>Cosmitet</option>
+                <option>Particular</option>
+                <option>Otro</option>
+        			</select>
+        			</td>
+            <br>
+
+            <br>
+			       <tr>
+              <label for="Email">Email:</label>
+            </tr>
+            <td>
+                <input class="form-inline" name="Email" id = "Email"   placeholder="Email" maxlength="25" type="Email" value="{{lpaciente.Email}}">
+            </td> 
+            <br>
+
+            <br>
+            <tr>
+              <label for="Municipio">Municipio:</label>
+            </tr>
+            <td>
+                <input title="Ingrese un municipio valido" class="form-inline" name="Municipio" id = "Municipio" required placeholder="Municipio" maxlength="25" value="{{lpaciente.Municipio}}">
+            </td>
+            <br> 
+          <div align="center"><input class="btn btn-primary btn-block-form"  type="submit" value="Guardar"></div>            
         </div><br>
-		<div align="center"><input class="btn btn-primary btn-block-form"  type="submit" value="Guardar"></div>
+		
 	</form>
 	<a href="javascript:history.go(-1)">Regresar</a>
 </body>

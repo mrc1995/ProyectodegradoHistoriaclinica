@@ -1,5 +1,5 @@
-
 {% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,43 +21,71 @@
 	{% block content %}
 	<form method="POST">
 		{% csrf_token %}
-			<div class="form-group" align="center">
+
+
+
+
+		<div class="row">
+    
+
+      		<div class="col-md-6" align="center">
+
+
+
+
 				<tr>
 					<th>
 						<br>
-						<label for="id_paciente">Documento identificacion:</label>
+						<label for="id_paciente">Documento:</label>
 					</th>
 					<td>
-						<input title="Ingrese un documento valido" pattern="[0-9]*" class="form-control" type="text" name="id_paciente" id = "id_paciente" required 
-						placeholder="Cc paciente" maxlength="25">
+						<input title="Ingrese un documento valido" pattern="[0-9]*" class="form-inline" type="text" name="id_paciente" id = "id_paciente" required 
+						placeholder="Documento" size="8" maxlength="25" >
+						<script>
+			                  var value = parent.frames["items"].asignar(); 
+			                  document.getElementById('id_paciente').value = value;
+		              	</script>
 					</td>
 				</tr>
+				<br>
+
+				<br>
+				<h2>Signos vitales</h2>
+
+				<br>
 				<tr>
 					<th>
 						<label for="TA">Tensión Arterial:</label>
 					</th>
 					<td>
-						<input title="Ingrese valores numericos"  class="form-control" name="TA" id = "TA" required placeholder="TA"  maxlength="50">
+						<input title="Ingrese valores numericos"  size="3" class="form-inline" name="TA" id = "TA" required placeholder="TA"  maxlength="50">
 				</tr>
-				<tr>
+				<br>
+
+				<br>
+				<tr>	
 					<th>
-						<label for="FC">Frecuencia Cardíaca:</label>
+						<label for="FC">Frecuencia Cardíaca en un min:</label>
 					</th>
 					<td>
-						<input title="Ingrese valores numericos"  class="form-control" name="FC" id = "FC" required placeholder="FC"  maxlength="50">
+						<input title="Ingrese valores numericos" size="2" class="form-inline" name="FC" id = "FC" required placeholder="FC"  maxlength="50">
 				</tr>
+				<br>
+
+
+				<br>
 				<tr>
 					<th>
-						<label for="FR">Frecuencia Respiratoria:</label>
+						<label for="FR">Frecuencia Respiratoria en un min:</label>
 					</th>
 					<td>
-						<input title="Ingrese valores numericos"  class="form-control" name="FR" id = "FR" required placeholder="FR"  maxlength="50">
+						<input title="Ingrese valores numericos" size="2" class="form-inline" name="FR" id = "FR" required placeholder="FR"  maxlength="50">
 				</tr>
+				<br>
+
+
 				
-
-
-
-				<tr>
+				
 						<script type="text/javascript"> 
             				//definimos la funcion 
     						function calculaIMC() 
@@ -92,24 +120,31 @@
 						</script> 
     				 
 					    <br>
-					    
+					    <tr>
 					    <label for="Peso">Peso en kg:</label>
 					    <!--definimos una caja donde introducir el dato del peso--> 
-					    <input title="Ingrese valores numericos" class="form-control" name="Peso" id = "Peso" required placeholder="Peso"  maxlength="50"> 
-					    
+					    <input title="Ingrese valores numericos" size="2" class="form-inline" name="Peso" id = "Peso" required placeholder="Peso"  maxlength="50"> 
+					    </tr>
+					    <br>
 					   
+					    <br>
+					   	<tr>
 					    <label for="Estatura">Altura en cm:</label>
 					    <!--definimos una caja donde introducir el dato de la altura--> 
-					    <input title="Ingrese valores numericos" class="form-control" name="Estatura" id = "Estatura" required placeholder="Estatura"  maxlength="50"> 
-					    
+					    <input title="Ingrese valores numericos" size="2" class="form-inline" name="Estatura" id = "Estatura" required placeholder="Talla"  maxlength="50"> 
+					    </tr>
+					    <br>
+
+
+					    <br>
 					    <!--definimos un boton que hara la llamada a la funcion para calcular el imc--> 
-					    <input type="button" value="Calcular IMC" onClick="calculaIMC()"> 
-					    <br>
-					    <br>
+					    <tr>
+					   
 					    <label for="IMC">IMC:</label>
 					    <!--definimos una caja donde la funcion devolvera el valor de imc calculado--> 
-					    <input input class="form-control" name="IMC" id = "IMC" required placeholder="IMC"  maxlength="50" onclick="calculaIMC()"> 
-
+					    <input input class="form-inline" size="2" name="IMC" id = "IMC" required placeholder="IMC"  maxlength="50" onclick="calculaIMC()"> 
+					    </tr>
+					    <br>
 					    
 					
 
@@ -118,33 +153,260 @@
 
 
 
+
+				<br>
+				<tr>
+					<th>
+						<label for="Perimetro_cintura">Perimetro cintura en cm:</label>
+					</th>
+					<td>
+						<input title="Ingrese valores numericos" size="5" pattern="[0-9]*" class="form-inline" name="Perimetro_cintura" id = "Perimetro_cintura" required placeholder="Perimetro"  maxlength="50">
 				</tr>
+				<br>
+
+				<br>
+				<tr>
+					<th>
+						<label for="Pulso">Pulsos:</label>
+					</th>
+					<td>
+						<input title="Ingrese valores numericos" size="2" pattern="[0-9]*" class="form-inline" name="Pulso" id = "Pulso" required placeholder="Pulso"  maxlength="50">
+				</tr>
+				<br>
+
+
+				<hr>
+
+
+				<br>
+				<tr>
+					<th>
+						<label for="Aspecto_general">Aspecto general:</label>
+					</th>
+					<td>
+
+
+						<input type="checkbox" class="form-inline" name="Aspecto_general" id = "Aspecto_general"  placeholder="Aspecto"  maxlength="500" value="Normal">Normal
+						
+						<input type="checkbox" class="form-inline" name="Anormal" id = "1"  placeholder="Aspecto"  maxlength="500" onclick="document.getElementById('2').disabled = ! document.getElementById('2').disabled;">Anormal
+
+						<textarea disabled class="form-inline" name="Aspecto_general" id = "2"  placeholder="Describa aqui las observaciones"  maxlength="500"></textarea>
+
+				</tr>
+				<br>
+
+
+
+				<br>
+				<tr>
+					<th>
+						<label for="Cabeza">Cabeza:</label>
+					</th>
+					<td>
+
+
+						<input type="checkbox" class="form-inline" name="Cabeza" id = "Cabeza" placeholder="Cabeza"  maxlength="500" value="Normal">Normal
+						
+						<input type="checkbox" class="form-inline" name="Cabeza" id = "3" placeholder="Cabeza"  maxlength="500" value="Anormal" onclick="document.getElementById('4').disabled = ! document.getElementById('4').disabled;">Anormal
+
+						<br>
+						<textarea disabled class="form-inline" name="Cabeza" id = "4"  placeholder="Describa aqui las observaciones"  maxlength="500"></textarea>
+
+						
+				</tr>
+				<br>
+
+
+				<br>
+				<tr>
+					<th>
+						<label for="Cavidad_oral">Cavidad oral:</label>
+					</th>
+					<td>
+						<input type="checkbox" class="form-inline" name="Cavidad_oral" id = "Cavidad_oral" placeholder="Cavidad oral"  maxlength="500" value="Normal">Normal
+						
+						<input type="checkbox" class="form-inline" name="Cavidad_oral" id = "5" placeholder="Cavidad oral"  maxlength="500" onclick="document.getElementById('6').disabled = ! document.getElementById('6').disabled;">Anormal
+
+						<textarea disabled class="form-inline" name="Cavidad_oral" id = "6"  placeholder="Describa aqui las observaciones"  maxlength="500"></textarea>
+						
+				</tr>
+				<br>
+
+
+				<br>
+				<tr>
+					<th>
+						<label for="Cuello">Cuello:</label>
+					</th>
+					<td>
+						<input type="checkbox" class="form-inline" name="Cuello" id = "Cuello" placeholder="Cuello"  maxlength="500" value="Normal">Normal
+						
+						<input type="checkbox" class="form-inline" name="Cuello" id = "7" placeholder="Cuello"  maxlength="500" onclick="document.getElementById('8').disabled = ! document.getElementById('8').disabled;">Anormal
+						<br>
+						<textarea disabled class="form-inline" name="Cuello" id = "8"  placeholder="Describa aqui las observaciones"  maxlength="500"></textarea>
+
+				</tr>
+				<br>
+
 				
 
 
 
 
-				<tr>
-					<th>
-						<label for="Perimetro_cintura">Perimetro Cintura:</label>
-					</th>
-					<td>
-						<input title="Ingrese valores numericos" pattern="[0-9]*" class="form-control" name="Perimetro_cintura" id = "Perimetro_cintura" required placeholder="Perimetro Cintura"  maxlength="50">
-				</tr>
-				<tr>
-					<th>
-						<label for="Pulso">Pulso:</label>
-					</th>
-					<td>
-						<input title="Ingrese valores numericos" pattern="[0-9]*" class="form-control" name="Pulso" id = "Pulso" required placeholder="Pulso"  maxlength="50">
-				</tr>
+
 
 			</div>
+
+
+			<div class="col-md-6" align="center">
+
+				<br>
+				<tr>
+					<th>
+						<label for="Cardiopulmonar">Cardiopulmonar:</label>
+					</th>
+					<td>
+						<input type="checkbox" class="form-inline" name="Cardiopulmonar" id = "Cardiopulmonar"  placeholder="Cardiopulmonar"  maxlength="500" value="Normal">Normal
+
+						<input type="checkbox" class="form-inline" name="Cardiopulmonar" id = "9"  placeholder="Cardiopulmonar"  maxlength="500" onclick="document.getElementById('10').disabled = ! document.getElementById('10').disabled;">Anormal
+
+						<textarea disabled class="form-inline" name="Cardiopulmonar" id = "10"  placeholder="Describa aqui las observaciones"  maxlength="500"></textarea>
+
+
+				</tr>
+				<br>
+
+				<br>
+				<tr>
+					<th>
+						<label for="Abdomen">Abdomen:</label>
+					</th>
+					<td>
+						<input type="checkbox" class="form-inline" name="Abdomen" id = "Abdomen" placeholder="Abdomen"  maxlength="500" value="Normal">Normal
+
+						<input type="checkbox" class="form-inline" name="Abdomen" id = "11" placeholder="Abdomen"  maxlength="500" onclick="document.getElementById('12').disabled = ! document.getElementById('12').disabled;">Anormal
+
+						<textarea disabled class="form-inline" name="Abdomen" id = "12"  placeholder="Describa aqui las observaciones"  maxlength="500"></textarea>
+
+
+
+				</tr>
+				<br>
+				
+
+				<br>
+				<tr>
+					<th>
+						<label for="Genitourinario">Genitourinario:</label>
+					</th>
+					<td>
+						<input type="checkbox" class="form-inline" name="Genitourinario" id = "Genitourinario"  placeholder="Genitourinario"  maxlength="500" value="Normal">Normal
+
+						<input type="checkbox" class="form-inline" name="Genitourinario" id = "13" placeholder="Genitourinario"  maxlength="500" onclick="document.getElementById('14').disabled = ! document.getElementById('14').disabled;">Anormal
+
+						<textarea disabled class="form-inline" name="Genitourinario" id = "14"  placeholder="Describa aqui las observaciones"  maxlength="500"></textarea>
+
+
+				</tr>
+				<br>
+
+				<br>
+				<tr>
+					<th>
+						<label for="Osteomuscular">Osteomuscular:</label>
+					</th>
+					<td>
+						<input type="checkbox" class="form-inline" name="Osteomuscular" id = "Osteomuscular"  placeholder="Osteomuscular"  maxlength="500" value="Normal">Normal
+
+						<input type="checkbox" class="form-inline" name="Osteomuscular" id = "15" placeholder="Osteomuscular"  maxlength="500" onclick="document.getElementById('16').disabled = ! document.getElementById('16').disabled;">Anormal
+
+						<textarea disabled class="form-inline" name="Osteomuscular" id = "16"  placeholder="Describa aqui las observaciones"  maxlength="500"></textarea>
+				</tr>
+				<br>
+
+				<br>
+				<tr>
+					<th>
+						<label for="Piel">Piel:</label>
+					</th>
+					<td>
+						<input type="checkbox" class="form-inline" name="Piel" id = "Piel"  placeholder="Piel"  maxlength="500" value="Normal">Normal
+
+						<input type="checkbox" class="form-inline" name="Piel" id = "17"  placeholder="Piel"  maxlength="500" onclick="document.getElementById('18').disabled = ! document.getElementById('18').disabled;">Anormal
+						<br>
+						<textarea disabled class="form-inline" name="Piel" id = "18"  placeholder="Describa aqui las observaciones"  maxlength="500"></textarea>
+
+
+				</tr>
+				<br>
+
+				<br>
+				<tr>
+					<th>
+						<label for="Neurologico">Neurológico:</label>
+					</th>
+					<td>
+						<input type="checkbox" class="form-inline" name="Neurologico" id = "Neurologico" placeholder="Neurologico"  maxlength="500" value="Normal">Normal
+
+						<input type="checkbox" class="form-inline" name="Neurologico" id = "19"  placeholder="Neurologico"  maxlength="500" onclick="document.getElementById('20').disabled = ! document.getElementById('20').disabled;">Anormal
+
+						<textarea disabled class="form-inline" name="Neurologico" id = "20"  placeholder="Describa aqui las observaciones"  maxlength="500"></textarea>
+
+
+				</tr>
+				<br>
+
+				<br>
+				<tr>
+					<th>
+						<label for="Extremidades">Extremidades:</label>
+					</th>
+					<td>
+						<input type="checkbox" class="form-inline" name="Extremidades" id = "Extremidades"  placeholder="Extremidades"  maxlength="500" value="Normal">Normal
+
+						<input type="checkbox" class="form-inline" name="Extremidades" id = "21"  placeholder="Extremidades"  maxlength="500" onclick="document.getElementById('22').disabled = ! document.getElementById('22').disabled;">Anormal
+
+						<textarea disabled class="form-inline" name="Extremidades" id = "22"  placeholder="Describa aqui las observaciones"  maxlength="500"></textarea>
+
+
+				</tr>
+				<br>
+
+				<br>
+				<tr>
+					<th>
+						<label for="Energia">Calidad y distribución energética:</label>
+					</th>
+					<td>
+						<br>
+						<input type="checkbox" class="form-inline" name="Energia" id = "Energia" placeholder="Energia"  maxlength="500" value="Normal">Normal
+
+						<input type="checkbox" class="form-inline" name="Energia" id = "23" placeholder="Energia"  maxlength="500" onclick="document.getElementById('24').disabled = ! document.getElementById('24').disabled;">Anormal
+						<br>
+						<textarea disabled class="form-inline" name="Energia" id = "24"  placeholder="Describa aqui las observaciones"  maxlength="500"></textarea>
+
+
+				</tr>
+				<br>
+
+
+
+
+			
+			</div>
+
+
+
+		</div>
+
+
+
+
 		<br>
 		<div align="center"><input class="btn btn-primary btn-block-form" type="submit" value="Guardar"></div>
 	</form>
 	<br>
-	<a href="Revision_sistemas">Siguiente</a>
+	<a href="diagnostico_medico">Siguiente</a>
 	<br><br><br>	
 	{% endblock content %}
 </div>

@@ -30,38 +30,20 @@
 					<td>
 						<input title="Ingrese un documento valido" pattern="[0-9]*" class="form-control" type="text" name="id_paciente" id = "id_paciente" required 
 						placeholder="Cc paciente" maxlength="25">
+						<script>
+			                  var value = parent.frames["items"].asignar(); 
+			                  document.getElementById('id_paciente').value = value;
+		              	</script>
+
 					</td>
 				</tr>
 				<tr>
-					<br>
 					<th>
-						<label for="Terapia">Terapia(s):</label>
+						<br>
+						<label for="Plan_terapeutico">Plan terapéutico:</label>
 					</th>
 					<td>
-						<input class="form-control" name="Terapia" id = "Terapia" required placeholder="Descripción Terapia"  maxlength="500">
-					</td>
-				</tr>
-				<tr>
-					<br>
-					<th>
-						<label for="Estado">Estado:</label>
-					</th>
-					<td>
-						<select class="form-control" name="Estado" id = "Estado" required placeholder="Estado Terapia" maxlength="25" >
-						<option>En proceso</option>
-						<option>Finalizada</option>
-						<option>Cancelada</option>
-						<option>A definir</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<br>
-					<th>
-						<label for="Especificaciones">Especificaciones:</label>
-					</th>
-					<td>
-						<textarea class="form-control" name="Especificaciones" id = "Especificaciones" required placeholder="Describa las especificaciones de la(s) terapia(s)"  maxlength="1000"></textarea>
+						<textarea rows="5" cols="50" class="form-control" name="Plan_terapeutico" id="Plan_terapeutico"  maxlength="1000" placeholder="Describa el plan terapéutico" required></textarea>
 					</td>
 				</tr>
 			</div>
@@ -69,7 +51,7 @@
 		<div align="center"><input class="btn btn-primary btn-block-form" type="submit" value="Guardar"></div>
 	</form>
 	<br>
-	<a href="Resultado">Siguiente</a>
+	<a href="Recomendacion">Siguiente</a>
 	<br><br><br>	
 	{% endblock content %}
 </div>

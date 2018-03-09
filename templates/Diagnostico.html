@@ -30,33 +30,113 @@
 					<td>
 						<input title="Ingrese un documento valido" pattern="[0-9]*" class="form-control" type="text" pattern="[0-9]*" name="id_paciente" id = "id_paciente" required 
 						placeholder="Cc paciente" maxlength="25">
+						<script>
+			                  var value = parent.frames["items"].asignar(); 
+			                  document.getElementById('id_paciente').value = value;
+		              	</script>
 					</td>
 				</tr>
+				
+
+
+
+
+				<th>
+						<br>
+						<label>Diagnóstico CIE10:</label>
+					</th>
+
 				<tr>
 					<br>
 					<th>
-						<label for="codigo">Código:</label>
+						<label for="Codigo_Nombre">Código y Nombre:</label>
 					</th>
 					<td>
-						<input class="form-control" name="codigo" id = "codigo" required placeholder="Código CIE10"  maxlength="50">
+						<select class="juntos" name="Codigo_Nombre" id = "Codigo_Nombre" required placeholder="Código CIE10"  maxlength="200" onchange="myFunction2(this.value)">
+
+
+							<option>L709 - Acné</option>
+							<option>N912 - Amenorrea</option>
+							<option>D509 - Anemia ferropenica</option>
+							<option>D638 - Anemia por enfermedad crónica</option>
+							<option>F419 - Ansiedad</option>
+							<option>F412 - Ansiedad más depresión</option>
+							<option>M199 - Artrosis</option>
+							<option>J459 - Asma</option>
+							<option>J209 - Bronquitis aguda</option>
+							<option>J219 - Bronquiolitis</option>
+							<option>G442 - Cefalea tensional</option>
+							<option>M542 - Cervicalgia</option>
+							<option>N951 - Climaterio</option>
+							<option>H101 - Conjuntivitis aguda</option>
+							<option>H103 - Conjuntivitis alergica</option>
+							<option>M938 - Costocondritis</option>
+							<option>H527 - Defecto de refracción</option>
+							<option>L209 - Dermatitis atopica</option>
+							<option>L259 - Dermatitis por contacto</option>
+							<option>I878 - Dermatitis por estasis</option>
+							<option>L210 - Dermatitis seborreica  capitis</option>
+							<option>M238 - Desarreglo interno rodilla</option>
+							<option>R104 - Dolor abdominal</option>
+							<option>A09X - E.D.A infecciosa</option>
+							<option>J449 - E.P.O.C.</option>
+							<option>J441 - E.P.O.C.  descompensado</option>
+							<option>N609 - Enf. Fibroquistica del seno</option>
+							<option>M773 - Espolón calcáneo</option>
+							<option>M674 - Ganglión</option>
+							<option>K297 - Gastritis aguda</option>
+							<option>N939 - H.U.A.</option>
+							<option>E780 - Hipercolesterolemia</option>
+							<option>E782 - Hiperlipidemia mixta</option>
+							<option>N40X - Hiperplasia próstata</option>
+							<option>E781 - Hipertrigliceridemia</option>
+							<option>E039 - Hipotiroidismo adquirido</option>
+							<option>I839 - Insuficiencia venosa M.I.I.S</option>
+							<option>M545 - Lumbalgia</option>
+							<option>M544 - Lumbalgia con radiculopatia</option>
+							<option>G439 - Migraña</option>
+							<option>L741 - Miliaria cristalina</option>
+							<option>H659 - Otitis media aguda  no supur.</option>
+							<option>H664 - Otitis media aguda supurada</option>
+							<option>H663 - Otitis media crónica  sup.</option>
+							<option>N951 - Perimenopausia</option>
+							<option>L282 - Prurigo</option>
+							<option>K219 - Reflujo  gastroesofagico</option>
+							<option>D649 - Síndrome Anémico</option>
+							<option>K580 - Síndrome Intest. irritab. Con diarrea</option>
+							<option>G560 - Síndrome túnel carpiano</option>
+							<option>M751 - Tendinitis manguito rotador</option>
+						</select>						
+
+					
+
+
+					<input type="text" class="juntos" id="captura" size="10">
+                    <button type="button" onclick="myFunction()">Insertar</button>
+
+					<script>
+					function myFunction() {
+
+					    var x = document.getElementById("Codigo_Nombre");
+					    var option = document.createElement("option");
+					    option.text = document.getElementById("captura").value;
+					    	 x.add(option);
+					}
+					</script>
+
 					</td>
 				</tr>
+			
+				
+							
+				<br>
 				<tr>
 					<br>
 					<th>
-						<label for="Nombre">Nombre:</label>
+						<label for="Nombre_diag">Diagnóstico no codificado:</label>
 					</th>
 					<td>
-						<input class="form-control" name="Nombre" id = "Nombre" required placeholder="Nombre CIE10"  maxlength="50">
-					</td>
-				</tr>
-				<tr>
-					<br>
-					<th>
-						<label for="Tipo">Tipo:</label>
-					</th>
-					<td>
-						<input class="form-control" name="Tipo" id = "Tipo" required placeholder="Tipo CIE10"  maxlength="50">
+						<textarea rows="5" cols="50" class="form-control" name="Nombre_diag" id = "Nombre_diag" required placeholder="Describa su impresión diagnóstica"  maxlength="400"></textarea>
 					</td>
 				</tr>
 			</div>
@@ -64,7 +144,7 @@
 		<div align="center"><input class="btn btn-primary btn-block-form" type="submit" value="Guardar"></div>
 	</form>
 	<br>
-	<a href="propios">Siguiente</a>
+	<a href="Terapias_new">Siguiente</a>
 	{% endblock content %}
 </div>
 </body>

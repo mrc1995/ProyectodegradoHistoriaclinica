@@ -39,22 +39,25 @@ class loginForm(forms.Form):
 	email = forms.CharField()"""
 
 class IngresarPaciente(forms.Form):
+	Fecha_atencion = forms.CharField(required = False)
+	Hora_atencion = forms.CharField(required = False)
 	id_paciente = forms.CharField(required = True)
 	Nombre = forms.CharField(required = True)
 	Apellido = forms.CharField(required = True)
-	EPS = forms.CharField(required = True)
-	Genero = forms.CharField(required = True)
-	Email = forms.CharField()
-	Municipio = forms.CharField(required = True)
-	Edad = forms.CharField(required = True)
-	Estado_civil = forms.CharField()
-	Telefono = forms.CharField()
-	Direccion = forms.CharField()
-	Religion = forms.CharField()
-	Ocupacion = forms.CharField()
-	Dia = forms.CharField()
-	Mes = forms.CharField()
-	Ano = forms.CharField()
+	EPS = forms.CharField(required = False)
+	Genero = forms.CharField(required = False)
+	Email = forms.CharField(required = False)
+	Municipio = forms.CharField(required = False)
+	Edad = forms.CharField(required = False)
+	Estado_civil = forms.CharField(required = False)
+	Telefono = forms.CharField(required = False)
+	Direccion = forms.CharField(required = False)
+	Religion = forms.CharField(required = False)
+	Nivel_educativo = forms.CharField(required = False)
+	Ocupacion = forms.CharField(required = False)
+	Dia = forms.CharField(required = False)
+	Mes = forms.CharField(required = False)
+	Ano = forms.CharField(required = False)
 
 
 
@@ -82,6 +85,19 @@ class Motivoconsulta(forms.ModelForm):
 		model = Motivo_consulta
 		fields = ('id_paciente','Motivo_consulta')
 
+class Antecfami(forms.ModelForm):
+
+	class Meta:
+		model = Antec_fami
+		fields = ('id_paciente','Antec_fami')
+
+
+class Paraaportados(forms.ModelForm):
+
+	class Meta:
+		model = Para_aportados
+		fields = ('id_paciente','Para_aportados')
+
 
 class Enfermedadactual(forms.ModelForm):
 
@@ -94,56 +110,38 @@ class gustos(forms.ModelForm):
 
 	class Meta:
 		model = Gustos_preferencias
-		fields = ('id_paciente','Clima','Temperatura','Colores','Numeros')
+		fields = ('id_paciente','Gustos')
 
-class examen(forms.ModelForm):
+class Examen(forms.ModelForm):
     class Meta:
     	model = Examen_Fisico
         fields = ('id_paciente','TA','FC','FR','Peso','Estatura','IMC','Perimetro_cintura','Pulso','Aspecto_general',
         	'Cabeza','Cavidad_oral','Cuello','Cardiopulmonar','Abdomen','Genitourinario','Osteomuscular','Piel',
-        	'Neurologico','Extremidades')
+        	'Neurologico','Extremidades','Energia')
 
-class medidas(forms.ModelForm):
-	class Meta:
-		model = medidas_antropometricas
-		fields = ('Id_examen','Organo','Clasificacion','Especificacion')
+
 
 class diagnostico(forms.ModelForm):
 	class Meta:
 		model = Diagnostico
-		fields = ('id_paciente','codigo','Nombre','Tipo')
+		fields = ('id_paciente','Codigo_Nombre','Nombre_diag')
 
-class Resultado_examen(forms.ModelForm):
 
-	class Meta:
-		model = Resultado_Examen
-		fields = ('id_paciente','Resultado')
 
 class terapias(forms.ModelForm):
 
 	class Meta:
 		model = Terapias
-		fields = ('id_paciente','Terapia','Estado','Especificaciones')
+		fields = ('id_paciente','Plan_terapeutico')
 
-
-class diagnosticos_propios(forms.ModelForm):
-
-	class Meta:
-		model =Diagnosticos_propios
-		fields = ('id_paciente','Nombre_diag')
 
 class antecedentes(forms.ModelForm):
 
 	class Meta: 
 		model = Antecedentes
-		fields = ('id_paciente','Patologicos_medicamentos','Toxicos_alergicos','Quirurgicos','Trau_fisicos',
-			'Trau_emocionales','Habitos_saludables','Habitos_riesgo','Familiares')
+		fields = ('id_paciente','Patologicos', 'Farmacologicos','Toxicos','Alergicos','Quirurgicos','Trau_fisicos',
+			'Trau_emocionales','Habitos_saludables','Habitos_riesgo')
 
-class plan(forms.ModelForm):
-
-	class Meta:
-		model = Plan_manejo
-		fields = ('id_paciente','Plan','Control')
 
 class revision_sistemas(forms.ModelForm):
 
@@ -156,6 +154,22 @@ class paracli(forms.ModelForm):
 	class Meta:
 		model =  Paraclinicos
 		fields = ('Diagnostico','Medicamentos','Incapacidad')
+
+
+class recomendaciones(forms.ModelForm):
+
+	class Meta:
+		model =  Recomendaciones
+		fields = ('id_paciente','Recomendacion')
+
+class solicitud_ayudas_diag(forms.ModelForm):
+
+	class Meta:
+		model =  Solicitud_ayudas
+		fields = ('id_paciente','Solicitud_ayudas_diag')
+
+
+
 
 class BuscarPaciente(forms.Form):
 	id_paciente = forms.CharField(required = True)

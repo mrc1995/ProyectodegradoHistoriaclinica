@@ -30,51 +30,29 @@
 					<td>
 						<input title="Ingrese un documento valido" pattern="[0-9]*" class="form-control" type="text" name="id_paciente" id = "id_paciente" required 
 						placeholder="Cc paciente" maxlength="25">
-					</td>
-				</tr>
-				<tr>
-					<br>
-					<th>
-						<label for="Clima">Clima:</label><br>
-					</th>
 
-					<td>
-						<input class="form-control" name="Clima" id = "Clima" required placeholder="Clima"  maxlength="50">
-					</td>
-				</tr>
-				<tr>	
-					<br>
-					<th>
-						<label for="Temperatura">Temperatura:</label>
-					</th>
-					<td>
-						<input class="form-control" name="Temperatura" id = "Temperatura" required placeholder="Temperatura"  maxlength="50">
+						<script>
+			                  var value = parent.frames["items"].asignar(); 
+			                  document.getElementById('id_paciente').value = value;
+		              	</script>
 					</td>
 				</tr>
 				<tr>
 					<br>
 					<th>
-						<label for="Colores">Colores:</label>
+						<br>
+						<label for="Gustos">Gustos(clima y temperatura, colores, números):</label>
 					</th>
 					<td>
-						<input class="form-control" name="Colores" id = "Colores" required placeholder="Colores"  maxlength="50">
+						<textarea rows="5" cols="50" class="form-control" name="Gustos" id="Gustos"  maxlength="1000" placeholder="Describa aquí los gustos del paciente" required></textarea>
 					</td>
-				</tr>
-				<tr>
-					<br>
-					<th>
-						<label for="Numeros">Numeros:</label>
-					</th>
-					<td>
-						<input class="form-control" name="Numeros" id = "Numeros" required placeholder="Numeros"  maxlength="50">
-					</td>
-				</tr>
+				</tr>	
 			</div>
 		<br>
 		<div align="center"><input class="btn btn-primary btn-block-form" type="submit" value="Guardar"></div>
 	</form>
 	<br>
-	<a href="Examen">Siguiente</a>
+	<a href="AntecFami">Siguiente</a>
 	<br><br><br>
 	{% endblock content %}
 </div>

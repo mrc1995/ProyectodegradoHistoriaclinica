@@ -21,51 +21,101 @@
 	{% block content %}
 	<form method="POST">
 		{% csrf_token %}
-			<div class="form-group" align="center">
+
+		<div class="row">
+    
+      		<div class="col-md-6" align="center">
+
 				<tr>
 					<th>
 						<br>
-						<label for="id_paciente">Documento identificacion:</label>
+						<label for="id_paciente">Documento:</label>
 					</th>
 					<td>
-						<input title="Ingrese un documento valido" class="form-control" type="text" pattern="[0-9]*" name="id_paciente" id = "id_paciente" required 
-						placeholder="Cc paciente" maxlength="25" >
+						<input title="Ingrese un documento valido" class="form-inline" type="text" pattern="[0-9]*" name="id_paciente" id = "id_paciente" required  
+						placeholder="Cc paciente" maxlength="25">
+
+						<script>         
+
+			                var value = parent.frames["items"].asignar(); 
+			                document.getElementById('id_paciente').value = value;
+
+			                function myFunction(val) {
+			                  parent.frames["items"].myFunction(val); 
+			                }
+              			</script>
+
+
 					</td>
 				</tr>
+				<br>
+
+
+
 				<tr>
 					<br>
 					<th>
-						<label for="Patologicos_medicamentos">Patológicos/Medicamentos:</label>
+						<label for="Patologicos">Patológicos:</label>
 					</th>
 					<td>
-						<input class="form-control" name="Patologicos_medicamentos" id = "Patologicos_medicamentos" required placeholder="Patologicos/Medicamentos"  maxlength="200">
+						<textarea class="form-control" name="Patologicos" id = "Patologicos" required placeholder="Antecedentes patológicos del paciente"  maxlength="800"></textarea>
 					</td>
 				</tr>
+
 				<tr>
 					<br>
 					<th>
-						<label for="Toxicos_alergicos">Tóxicos/Alérgicos:</label>
+						<label for="Farmacologicos">Farmacológicos:</label>
 					</th>
 					<td>
-						<input class="form-control" name="Toxicos_alergicos" id = "Toxicos_alergicos" required placeholder="Tóxicos/Alérgicos"  maxlength="200">
+						<textarea class="form-control" name="Farmacologicos" id = "Farmacologicos" required placeholder="Antecedentes farmacológicos del paciente"  maxlength="800"></textarea>
 					</td>
 				</tr>
+
+
+				<tr>
+					<br>
+					<th>
+						<label for="Toxicos">Tóxicos:</label>
+					</th>
+					<td>
+						<textarea class="form-control" name="Toxicos" id = "Toxicos" required placeholder="Antecedentes tóxicos del paciente"  maxlength="800"></textarea>
+					</td>
+				</tr>
+
+
+				<tr>
+					<br>
+					<th>
+						<label for="Alergicos">Alérgicos:</label>
+					</th>
+					<td>
+						<textarea class="form-control" name="Alergicos" id = "Alergicos" required placeholder="Antecedentes alérgicos del paciente"  maxlength="800"></textarea>
+					</td>
+				</tr>
+
+
 				<tr>
 					<br>
 					<th>
 						<label for="Quirurgicos">Quirúrgicos:</label>
 					</th>
 					<td>
-						<input class="form-control" name="Quirurgicos" id = "Quirurgicos" required placeholder="Quirúrgicos"  maxlength="200">
+						<textarea class="form-control" name="Quirurgicos" id = "Quirurgicos" required placeholder="Antecedentes quirúrgicos del paciente"  maxlength="800"></textarea>
 					</td>
 				</tr>
+				
+			</div>
+			<div class="col-md-6" align="center">	
+
+
 				<tr>
 					<br>
 					<th>
 						<label for="Trau_fisicos">Traumas Físicos:</label>
 					</th>
 					<td>
-						<input class="form-control" name="Trau_fisicos" id = "Trau_fisicos" required placeholder="Traumas Físicos"  maxlength="200">
+						<textarea class="form-control" name="Trau_fisicos" id = "Trau_fisicos" required placeholder="Traumas físicos del paciente"  maxlength="800"></textarea>
 					</td>
 				</tr>
 				<tr>
@@ -74,7 +124,7 @@
 						<label for="Trau_emocionales">Traumas Emocionales:</label>
 					</th>
 					<td>
-						<input class="form-control" name="Trau_emocionales" id = "Trau_emocionales" required placeholder="Traumas Emocionales"  maxlength="200">
+						<textarea class="form-control" name="Trau_emocionales" id = "Trau_emocionales" required placeholder="Traumas emocionales del paciente"  maxlength="800"></textarea>
 					</td>
 				</tr>
 				<tr>
@@ -83,34 +133,32 @@
 						<label for="Habitos_saludables">Hábitos Saludables:</label>
 					</th>
 					<td>
-						<input class="form-control" name="Habitos_saludables" id = "Habitos_saludables" required placeholder="Hábitos Saludables"  maxlength="200">
+						<textarea class="form-control" name="Habitos_saludables" id = "Habitos_saludables" required placeholder="Hábitos saludables del paciente"  maxlength="800"></textarea>
 					</td>
 				</tr>
+				<tr>
 					<br>
 					<th>
 						<label for="Habitos_riesgo">Hábitos de Riesgo:</label>
 					</th>
 					<td>
-						<input class="form-control" name="Habitos_riesgo" id = "Habitos_riesgo" required placeholder="Hábitos de Riesgo"  maxlength="200">
+						<textarea class="form-control" name="Habitos_riesgo" id = "Habitos_riesgo" required placeholder="Hábitos de riesgo del paciente"  maxlength="800"></textarea>
 					</td>
-				</tr>
-				</tr>
-					<br>
-					<th>
-						<label for="Familiares">Familiares:</label>
-					</th>
-					<td>
-						<input class="form-control" name="Familiares" id = "Familiares" required placeholder="Familiares"  maxlength="200">
-					</td>
-				</tr>
+				</tr>	
 
 			</div>
 		<br>
-		<div align="center"><input class="btn btn-primary btn-block-form" type="submit" value="Guardar"></div>
-	</form>
+		</div>
+	
 	<br>
-	<a href="diagnostico_medico">Siguiente</a>
+	<div align="center">
+	<input class="btn btn-primary btn-block-form" type="submit" value="Guardar">
+	</div>
+	<br>
+	<a href="Revision_sistemas">Siguiente</a>
 	<br><br><br>
+	
+	</form>
 	{% endblock content %}
 </div>
 </body>

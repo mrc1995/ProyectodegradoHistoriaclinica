@@ -22,6 +22,7 @@
 </head>
 <body>
 
+
 <div class="navbar-right">
     <a class="navbar-brand" href="{% url 'endsesion' %}">
        <span class="glyphicon glyphicon-log-out"></span> Cerrar sesión   
@@ -63,10 +64,10 @@
 </table> 
 
 <div align="center">
-    <font size="3">
+
     <script languaje="JavaScript"> 
         var mydate=new Date() 
-        var year=mydate.getYear() 
+        var year=mydate.getYear()
         if (year < 1000) 
         year+=1900 
         var day=mydate.getDay() 
@@ -76,9 +77,21 @@
         daym="0"+daym 
         var dayarray=new Array("Domingo,","Lunes,","Martes,","Miércoles,","Jueves,","Viernes,","Sábado,")
         var montharray=new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre")
-        document.write("<font color='black' face='Georgia' style='font-size:8pt'>"+dayarray[day]+" "+daym+" de "+montharray[month]+" de "+year+"</font>") 
+        document.write("<font color='black' face='Georgia' style='font-size:8pt'>"+dayarray[day]+" "+daym+" de "+montharray[month]+" de "+year+"</font>")
+
+    function hora(){
+        var fecha= new Date();
+        var horas= fecha.getHours();
+        var minutos = fecha.getMinutes();
+        var segundos = fecha.getSeconds();
+        document.writeln("Hora:<input type=text name=nombre value='" +horas+':'+minutos+':'+segundos+ "' ><br>");
+    }
+
+
+    hora();
+
     </script>
-    </font>
+
 </div>
 
         <table class="table table-striped">
@@ -98,7 +111,7 @@
             <tbody> 
             {%for b in paraclinicos%}
              <tr>
-            <th>Medicamentos</th>
+            <th>Plan terapéutico</th>
             </tr> 
             <tr>
                 <td>{{b.Medicamentos}}</td>

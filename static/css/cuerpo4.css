@@ -24,3 +24,10 @@ a{
   	font-size: 17px;
 
 }
+
+hr {
+	border: 3px solid #3A7DA3; 
+	border-radius: 300px/10px; 
+	height: 0px; 
+	text-align: center;
+}

@@ -30,6 +30,11 @@
 					<td>
 						<input title="Ingrese un documento valido" pattern="[0-9]*" class="form-control" type="text" name="id_paciente" id = "id_paciente" required 
 						placeholder="Cc paciente" maxlength="25">
+
+						<script>
+			                  var value = parent.frames["items"].asignar(); 
+			                  document.getElementById('id_paciente').value = value;
+		              	</script>
 					</td>
 				</tr>
 				<tr>
@@ -38,7 +43,7 @@
 						<label for="Enf_actual">Enfermedad actual:</label>
 					</th>
 					<td>
-						<textarea class="form-control" name="Enf_actual" id="Enf_actual" required placeholder="Describa aqui la enfermedad actual del paciente"  maxlength="1500"></textarea>
+						<textarea rows="5" cols="50" class="form-control" name="Enf_actual" id="Enf_actual" required placeholder="Describa aqui la enfermedad actual del paciente"  maxlength="1500"></textarea>
 					</td>
 				</tr>
 			</div>
@@ -46,7 +51,7 @@
 		<div align="center"><input class="btn btn-primary btn-block-form" type="submit" value="Guardar"></div>
 	</form>
 	<br>
-	<a href="gustos_paciente">Siguiente</a>
+	<a href="ParaAportados">Siguiente</a>
 	{% endblock content %}
 </div>
 </body>

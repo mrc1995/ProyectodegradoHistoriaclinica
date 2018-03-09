@@ -1,4 +1,4 @@
-
+  
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
@@ -16,85 +16,295 @@
   <link href="{% static 'css/sb-admin.css'%}" rel="stylesheet">-->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
 </head>
 <body>
 	{% block content %}
 	<form method="POST">
 		{% csrf_token %}
-		<div class="form-group" align="center">
+		
+  <div class="row">
+    
+
+      <div class="col-md-6">
+            <br>
             <tr>
-              <br>
-              <label for="id_paciente">Documento Identificación:</label>
+              <label for="Fecha">Fecha y hora de atención:</label><br>
             </tr>
-            <td> 
-				<input title="Ingrese un documento valido" pattern="[0-9]*" class="form-control" name="id_paciente" id = "id_paciente" required  
-				placeholder="Documento Identificación" maxlength="25" >
-            </td>
+          <td>    
+            <script languaje="JavaScript"> 
+                var mydate=new Date() 
+                var year=mydate.getYear()
+                if (year < 1000) 
+                year+=1900 
+                var day=mydate.getDay() 
+                var month=mydate.getMonth() 
+                var daym=mydate.getDate() 
+                if (daym<10) 
+                daym="0"+daym 
+                var dayarray=new Array("Domingo,","Lunes,","Martes,","Miércoles,","Jueves,","Viernes,","Sábado,")
+                var montharray=new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre")
+                
+                document.write("<input type=text class=form-inline name=Fecha  id=Fecha required  maxlength=25 value='" +daym+ ' de ' +montharray[month]+ ' de ' +year+ "' >")
+
+            </script>
+          </td>
+
+          <td>
+            <script>
+              var fecha= new Date()
+              var horas= fecha.getHours()
+              var minutos = fecha.getMinutes()
+              var segundos = fecha.getSeconds()
+              document.write("<input type=time class=form-inline name=Hora  id=Hora required  value='" +horas+':'+minutos+':'+segundos+ "' >")
+            </script>
+          </td>         
+
+            <br>
+            <br>
             <tr>
               <label for="Nombre">Nombre:</label>
             </tr>
             <td>
-              	<input title="Ingrese un nombre valido" pattern="[A-Z a-z]*" class="form-control" name="Nombre"  id = "Nombre" required 
-				placeholder="Nombre" maxlength="25" pattern="[A-Za-z]">
+                <input title="Ingrese un nombre valido" pattern="[A-Z a-z]*" class="form-inline" name="Nombre"  id = "Nombre" required placeholder="Nombre" maxlength="25" pattern="[A-Za-z]">
             </td>
-             <tr>
+            <br>
+            <br>
+            <tr>
               <label for="Apellido">Apellidos:</label>
             </tr>
             <td>
-              	<input title="Ingrese un apellido valido" pattern="[A-Z a-z]*" class="form-control" name="Apellido" id = "Apellido" required 
-				placeholder="Apellidos" maxlength="25">
+                <input title="Ingrese un apellido valido" pattern="[A-Z a-z]*" class="form-inline" name="Apellido" id = "Apellido" required placeholder="Apellidos" maxlength="25">
             </td>    
-             <tr>
-              <label for="EPS">EPS:</label>
+            <br>
+
+
+
+            <tr>
+              <br>
+              <label for="id_paciente">Documento:</label>
             </tr>
-            <td>
-            <select class="form-control" name="EPS" id = "EPS" required 
-				placeholder="EPS" maxlength="25" >
-				<option>Cafesalud</option>
-				<option>Medimas</option>
-				<option>Nueva EPS</option>
-				<option>Particular</option>
-			</select>
-			</td>
-             <tr>
+            <td> 
+				      <input title="Ingrese un documento valido" pattern="[0-9]*" class="form-inline" name="id_paciente" id = "id_paciente" onchange="myFunction(this.value)" required placeholder="Documento de identificación" maxlength="25" >
+              
+              <script>         
+
+                var value = parent.frames["items"].asignar(); 
+                document.getElementById('id_paciente').value = value;
+
+
+                function myFunction(val) {
+                  parent.frames["items"].myFunction(val); 
+                }
+              </script>
+            </td>
+            <br>
+          
+            <br>
+            <tr>
               <label for="Genero">Género:</label>
             </tr>
             <td>
-            <select class="form-control" name="Genero" id = "Genero" required 
-				placeholder="Genero" maxlength="25" >
-				<option>Masculino</option>
-				<option>Femenino</option>
-        <option>Otro</option>
-			</select>
-			</td>
-			<tr>
-              <label for="Email">Email:</label>
-            </tr>
-            <td>
-              	<input class="form-control" name="Email" id = "Email" required 
-				placeholder="Email" maxlength="25" type="Email">
-            </td> 
+            <select class="form-inline" name="Genero" id = "Genero" placeholder="Genero" maxlength="25" >
+              <option>Masculino</option>
+              <option>Femenino</option>
+              <option>Otro</option>
+            </select>
+            </td>
+            <br>
+            
+    
+
+
+            <br>
             <tr>
-              <label for="Municipio">Municipio:</label>
+              <label for="Fecha_Nac">Fecha de nacimiento:</label>
             </tr>
             <td>
-              	<input title="Ingrese un municipio valido"  class="form-control" name="Municipio" id = "Municipio" required pattern="[A-Z a-z]*"
-				placeholder="Municipio" maxlength="25">
+                <input class="form-inline" size="2" name="Dia" id = "Dia" required placeholder="Día" maxlength="25">
+            </td>
+            <td>
+                <input class="form-inline" size="2" name="Mes" id = "Mes" required placeholder="Mes" maxlength="25">
             </td> 
+            <td>
+                <input class="form-inline" size="2" name="Ano" id = "Ano" required placeholder="Año" maxlength="25">
+            </td>
+            <br>
+
+
+            <script type="text/javascript">
+
+              function calcular_edad(){
+ 
+                  var dia = document.getElementById("Dia").value;
+                  var mes = document.getElementById("Mes").value;
+                  var ano = document.getElementById("Ano").value;
+                   
+                  fecha_hoy = new Date();
+                  ahora_ano = fecha_hoy.getYear();
+                  ahora_mes = fecha_hoy.getMonth();
+                  ahora_dia = fecha_hoy.getDate();
+                  edad = (ahora_ano + 1900) - ano;
+                      
+                      if ( ahora_mes < (mes - 1)){
+                        edad--;
+                      }
+                      if (((mes - 1) == ahora_mes) && (ahora_dia < dia)){ 
+                        edad--;
+                      }
+                      if (edad > 1900){
+                          edad -= 1900;
+                      }
+                    document.getElementById('Edad').value= +edad+ " años";
+                  }
+
+
+            </script>
+
+            <br>
             <tr>
               <label for="Edad">Edad:</label>
             </tr>
             <td>
-              	<input title="Ingrese una edad valida" pattern="[0-9]*" class="form-control" name="Edad" id = "Edad" required 
-				placeholder="Edad" maxlength="25">
-            </td>                  
-        </div><br>
-		<div align="center"><input class="btn btn-primary btn-block-form"  type="submit" value="Guardar"></div>
-    <br>
-    <a href="MotivoConsulta">Siguiente</a>
-    <br><br><br>
-	</form>
-	{% endblock %}
-</div>
+                <input size="4" class="form-inline" name="Edad" id = "Edad" required placeholder="Edad" maxlength="25" onclick="calcular_edad()">
+            </td>
+            <br> 
+
+            <br>
+            <tr>
+              <label for="Estado_civil">Estado civil:</label>
+            </tr>
+            <td>
+            <select class="form-inline" name="Estado_civil" id = "Estado_civil" placeholder="Estado civil" maxlength="25" >
+              <option>Soltero(a)</option>
+              <option>Casado(a)</option>
+              <option>Unión libre</option>
+              <option>Viudo(a)</option>
+              <option>Separado(a)</option>
+              <option>Otro</option>
+            </select>
+            </td>
+            <br>
+
+
+    </div>
+
+    <div class="col-md-6">
+
+              
+            <br>
+            <tr>
+              <label for="Direccion">Dirección:</label>
+            </tr>
+            <td>
+                <input class="form-inline" name="Direccion" id = "Direccion" placeholder="Dirección" maxlength="25">
+            </td>
+            <br>
+
+            <br>
+            <tr>
+              <label for="Municipio">Municipio:</label>
+            </tr>
+            <td>
+                <input title="Ingrese un municipio valido"  class="form-inline" name="Municipio" id = "Municipio" required pattern="[A-Z a-z]*" placeholder="Municipio" maxlength="25">
+            </td>
+            <br> 
+
+            <br>
+            <tr>
+              <label for="Telefono">Teléfono:</label>
+            </tr>
+            <td>
+                <input title="Ingrese un teléfono valido" pattern="[0-9]*" class="form-inline" name="Telefono" id = "Telefono" placeholder="Teléfono" maxlength="25">
+            </td>
+            <br>
+
+
+            <br>
+            <tr>
+              <label for="Religion">Religión:</label>
+            </tr>
+            <td>
+                <input class="form-inline" name="Religion" id = "Religion" placeholder="Religión" maxlength="25">
+            </td>
+            <br>
+
+            <br>
+            <tr>
+              <label for="Educativo">Nivel educativo:</label>
+            </tr>
+            <td>
+            <input class="form-inline" name="Educativo" id = "Educativo" required maxlength="50" placeholder= "Nivel Educativo">
+            </td>
+            <br>
+
+
+            <br>
+            <tr>
+              <label for="Ocupacion">Ocupación:</label>
+            </tr>
+            <td>
+                <input class="form-inline" name="Ocupacion" id = "Ocupacion"  placeholder="Ocupación" maxlength="25">
+            </td>
+            <br>
+
+            <br>
+            <tr>
+              <label for="EPS">EPS:</label>
+            </tr>
+            <td>
+            <select class="form-inline" name="EPS" id = "EPS"  placeholder="EPS" maxlength="25">
+      				<option>Cafesalud</option>
+      				<option>Medimas</option>
+      				<option>Nueva EPS</option>
+              <option>Salud total</option>
+              <option>Sura</option>
+              <option>SOS</option>
+              <option>Sanitas</option>
+              <option>Coomeva</option>
+              <option>Asmet salud</option>
+              <option>Cosmitet</option>
+      				<option>Particular</option>
+              <option>Otro</option>
+      			</select>
+      			</td>
+            <br>
+                   
+			      
+            <br>
+            <tr>
+              <label for="Email">Email:</label>
+            </tr>
+            <td>
+              	<input class="form-inline" name="Email" id = "Email" placeholder="Email" maxlength="50" type="Email">
+            </td> 
+            <br>
+
+          <br><br>
+
+          
+         <input class="btn btn-primary btn-block-form"  type="submit" value="Guardar">
+
+
+          <br>
+          <a href="MotivoConsulta">Siguiente</a>
+          <br><br>
+
+
+
+
+	
+	 {% endblock %}
+    </div>
+   </div>
+  </div>
+
+   
+          
+     
+
+
+</form>
 </body>
 </html>

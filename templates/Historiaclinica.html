@@ -15,14 +15,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
-
-
-
-<!--<div id="editor"></div>
-<button id="cmd">Generate PDF</button>-->
-<!--Add External Libraries - JQuery and jspdf 
-check out url - https://scotch.io/@nagasaiaytha/generate-pdf-from-html-using-jquery-and-jspdf
--->
 <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
 <script src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>
@@ -30,56 +22,6 @@ check out url - https://scotch.io/@nagasaiaytha/generate-pdf-from-html-using-jqu
 <script src="https://raw.githubusercontent.com/MrRio/jsPDF/master/dist/jspdf.debug.js"></script>
 <script src="https://raw.githubusercontent.com/MrRio/jsPDF/master/examples/js/basic.js"></script>
 
-<!--<button type="button" id="pdfDownloader">Download</button>
-
-<script>
-$(document).ready(function(){
-
-    //pdf 다운로드  
-    $("#pdfDownloader").click(function(){
-    
-        html2canvas(document.getElementById("testDiv"), {
-            onrendered: function(canvas) {
-
-                var imgData = canvas.toDataURL('image/png');
-                console.log('Report Image URL: '+imgData);
-                var doc = new jsPDF('p', 'mm', [297, 210]); //210mm wide and 297mm high
-                
-                doc.addImage(imgData, 'PNG', 10, 10);
-                doc.save('sample.pdf');
-            }
-        });
-
-    });
-    
-    
-})
-</script>-->
-
-
-
-
-
-
-
-<!--<script>
-var doc = new jsPDF();
-var specialElementHandlers = {
-    '#editor': function (element, renderer) {
-        return true;
-    }
-};
-
-$('#cmd').click(function () {   
-    doc.fromHTML($('#content').html(), 15, 15, {
-        'width': 170,
-            'elementHandlers': specialElementHandlers
-    });
-    doc.save('sample-file.pdf');
-});
-
-// This code is collected but useful, click below to jsfiddle link.
-</script> -->
 
 
 
@@ -121,43 +63,86 @@ $('#cmd').click(function () {
         <table class="table table-striped">
        
             <tbody>
+
+
+
             <tr>
             <th>Información Personal</th>
             </tr>
+            
+            <tr>
+                <td>Fecha y hora de atención:</td>
+                
+                <td>{{lpaciente.Fecha_atencion}}</td>
+                <td>{{lpaciente.Hora_atencion}}</td>
+
+            </tr><br>
+
+
+            <tr>
+                <td>Nombre:</td>
+                <td>{{lpaciente.Nombre}}</td>
+                <td>{{lpaciente.Apellido}}</td>
+            </tr><br>
+            
+
+
             <tr>
                 <td>Documento identificación:</td>
                 <td>{{lpaciente.id_paciente}}</td>
             </tr><br>
             
             <tr>
-                <td>Nombre:</td>
-                <td>{{lpaciente.Nombre}}</td>
+                <td>Genero:</td>
+                <td>{{lpaciente.Genero}}</td>
+            </tr><br>
+
+
+            <tr>
+                <td>Edad:</td>
+                <td>{{lpaciente.Edad}}</td>
+            </tr><br>
+            
+
+            <tr>
+                <td>Estado civil:</td>
+                <td>{{lpaciente.Estado_civil}}</td>
             </tr><br>
             
             <tr>
-                <td>Apellido:</td>
-                <td>{{lpaciente.Apellido}}</td>
+                <td>Dirección:</td>
+                <td>{{lpaciente.Direccion}}</td>
             </tr><br>
-            
+
+            <tr>
+                <td>Telefono:</td>
+                <td>{{lpaciente.Telefono}}</td>
+            </tr><br>
+
+            <tr>
+                <td>Religión:</td>
+                <td>{{lpaciente.Religion}}</td>
+            </tr><br>
+
+            <tr>
+                <td>Nivel educativo:</td>
+                <td>{{lpaciente.Nivel_educativo}}</td>
+            </tr><br>
+
+            <tr>
+                <td>Ocupación:</td>
+                <td>{{lpaciente.Ocupacion }}</td>
+            </tr><br>
+
+
             <tr>
                 <td>EPS:</td>
                 <td>{{lpaciente.EPS}}</td>
             </tr><br>
             
-            <tr>
-                <td>Genero:</td>
-                <td>{{lpaciente.Genero}}</td>
-            </tr><br>
             
-            <tr>
-                <td>Municipio:</td>
-                <td>{{lpaciente.Municipio}}</td>
-            </tr><br>
             
-            <tr>
-                <td>Edad:</td>
-                <td>{{lpaciente.Edad}}</td>
-            </tr><br>
+
             </tbody> 
         </table>
 
@@ -196,7 +181,92 @@ $('#cmd').click(function () {
             {%endfor%}
             </tbody>
         </table>
+
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+            <th>Paraclínicos aportados</th>
+            </tr> 
+            
+            {%for b in aportados%}
+            <tr>
+                <td>{{b.Para_aportados}}</td>
+            </tr><br>
+         
+            {%endfor%}
+            </tbody>  
+        </table>
+
+        <table class="table table-striped">
+                <tbody>
+                <tr>
+                <th>Antecedentes</th>
+                </tr> 
+            
+                {%for c in antecedentes%}
+                <tr>
+                    <td>Patológicos:</td>
+                    <td>{{c.Patologicos}}</td>
+                </tr><br>
+                <tr>
+                    <td>Farmacológicos:</td>
+                    <td>{{c.Farmacologicos}}</td>
+                </tr><br>
+
+                <tr>
+                    <td>Tóxicos:</td>
+                    <td>{{c.Toxicos}}</td>
+                </tr><br>
+
+                <tr>
+                    <td>Alérgicos:</td>
+                    <td>{{c.Alergicos}}</td>
+                </tr><br>
+
+
+                <tr>
+                    <td>Quirúrgicos:</td>
+                    <td>{{c.Quirurgicos}}</td>
+                </tr><br>
+                <tr>
+                    <td>Traumas fisicos:</td>
+                    <td>{{c.Trau_fisicos}}</td>
+                </tr><br>
+                <tr>
+                    <td>Traumas emocionales:</td>
+                    <td>{{c.Trau_emocionales}}</td>
+                </tr><br>
+                <tr>
+                    <td>Habitos saludables:</td>
+                    <td>{{c.Habitos_saludables}}</td>
+                </tr><br>
+                <tr>
+                    <td>Habitos riesgo:</td>
+                    <td>{{c.Habitos_riesgo}}</td>
+                </tr><br>
+    
+                {%endfor%}
+                </tbody>
+            </table> 
+
+
+
+
+        <table class="table table-striped">
+            <tbody>
+            <tr>
+            <th>Revisión de sistemas</th>
+            </tr> 
         
+            {%for b in revision%}
+            <tr>
+                <td>Revisión por sistemas:</td>
+                <td>{{b.Rev_consulta}}</td>
+            </tr><br>
+            {%endfor%}
+            </tbody>
+        </table>
+
 
         <table class="table table-striped">
             <tbody>
@@ -205,64 +275,131 @@ $('#cmd').click(function () {
             </tr> 
             {%for b in gustos%}
             <tr>
-                <td>Clima:</td>
-                <td>{{b.Clima}}</td>
+                <td>{{b.Gustos}}</td>
             </tr><br>
-            <tr>
-                <td>Temperatura:</td>
-                <td>{{b.Temperatura}}</td>
-            </tr><br>
-            <tr>
-                <td>Colores:</td>
-                <td>{{b.Colores}}</td>
-            </tr><br>
-            <tr>
-                <td>Numeros:</td>
-                <td>{{b.Numeros}}</td>
-            </tr><br>
+            
             {%endfor%}
             </tbody>
         </table>
         
+
+
+
         <table class="table table-striped">
             <tbody>
             <tr>
-            <th>Examen Fisico</th>
+            <th>Antecedentes familiares</th>
             </tr> 
+            {%for b in familiares%}
+            <tr>
+                <td>{{b.Antec_fami}}</td>
+            </tr><br>
+            
+            {%endfor%}
+            </tbody>
+        </table>
 
+
+
+
+
+        <table class="table table-striped">
+            <tbody>
             {%for c in examen%}
             <tr>
-                <td>TA:</td>
+                <th>Examen Fisico</th>
+            </tr>
+            
+            <tr>
+                <th>Signos vitales</th>
+            </tr>
+            
+            <tr>
+                <th>TA</th>
+                <th>FC</th>
+                <th>FR</th>
+                <th>Peso</th>
+                <th>Talla</th>
+                <th>IMC</th>
+                <th>PC</th>
+                <th>Pulsos</th>
+            </tr> 
+
+            
+            <tr>
+                
                 <td>{{c.TA}}</td>
-            </tr><br>
-            <tr>
-                <td>FC:</td>
                 <td>{{c.FC}}</td>
-            </tr><br>
-            <tr>
-                <td>FR:</td>
                 <td>{{c.FR}}</td>
-            </tr><br>
-            <tr>
-                <td>Peso:</td>
                 <td>{{c.Peso}}</td>
-            </tr><br>
-            <tr>
-                <td>Estatura:</td>
                 <td>{{c.Estatura}}</td>
-            </tr><br>
-            <tr>
-                <td>Perimetro Cintura:</td>
-                <td>{{c.Perimetro_cintura}}</td>
-            </tr><br>
-            <tr>
-                <td>IMC:</td>
                 <td>{{c.IMC}}</td>
+                <td>{{c.Perimetro_cintura}}</td>
+                <td>{{c.Pulso}}</td>
+
             </tr><br>
             <tr>
-                <td>Pulso:</td>
-                <td>{{c.Pulso}}</td>
-            </tr><br>
+
+            <tr>
+                <td>Aspecto general:</td>
+                <td>{{c.Aspecto_general}}</td>
+            </tr>
+
+            <tr>
+                <td>Cabeza:</td>
+                <td>{{c.Cabeza}}</td>
+            </tr>
+
+            <tr>
+                <td>Cavidad oral:</td>
+                <td>{{c.Cavidad_oral}}</td>
+            </tr>
+
+            <tr>
+                <td>Cuello:</td>
+                <td>{{c.Cuello}}</td>
+            </tr>
+
+            <tr>
+                <td>Cardiopulmonar:</td>
+                <td>{{c.Cardiopulmonar}}</td>
+            </tr>
+
+            <tr>
+                <td>Abdomen:</td>
+                <td>{{c.Abdomen}}</td>
+            </tr>
+
+            <tr>
+                <td>Genitourinario:</td>
+                <td>{{c.Genitourinario}}</td>
+            </tr>
+
+            <tr>
+                <td>Osteomuscular:</td>
+                <td>{{c.Osteomuscular}}</td>
+            </tr>
+
+            <tr>
+                <td>Piel:</td>
+                <td>{{c.Piel}}</td>
+            </tr>
+
+            <tr>
+                <td>Neurologico:</td>
+                <td>{{c.Neurologico}}</td>
+            </tr>
+
+            <tr>
+                <td>Extremidades:</td>
+                <td>{{c.Extremidades}}</td>
+            </tr>
+
+            <tr>
+                <td>Calidad y distribución energética:</td>
+                <td>{{c.Energia}}</td>
+            </tr>
+
             {%endfor%}
             </tbody>
         </table>
@@ -271,150 +408,62 @@ $('#cmd').click(function () {
         <table class="table table-striped">
             <tbody>
             <tr>
-            <th>Diagnostico CIE10</th>
+            <th>Impresión diagnóstica</th>
             </tr> 
             {%for b in diagnostico%}
             <tr>
-                <td>Codigo:</td>
-                <td>{{b.codigo}}</td>
+                <td>Diagnótico CIE10:</td>
+                <td>{{b.Codigo_Nombre}}</td>
             </tr><br>
-            <tr>
-                <td>Nombre:</td>
-                <td>{{b.Nombre}}</td>
-            </tr><br>
-            <tr>
-                <td>Tipo:</td>
-                <td>{{b.Tipo}}</td>
-            </tr><br>
-            {%endfor%}
-            </tbody>
-        </table>
 
-        <table class="table table-striped">
-            <tbody>
             <tr>
-            <th>Resultado Examen</th>
-            </tr> 
-
-            {%for b in resultado%}
-            <tr>
-                <td>Resultado examen:</td>
-                <td>{{b.Resultado}}</td>
-            </tr><br>
-            {%endfor%}
-            </tbody>
-        </table>
-
-        <table class="table table-striped">
-            <tbody>
-            <tr>
-            <th>Plan Terapeutico</th>
-            </tr> 
-            {%for b in terapia%}
-            <tr>
-                <td>Terapia:</td>
-                <td>{{b.Terapia}}</td>
-            </tr><br>
-            <tr>
-                <td>Estado:</td>
-                <td>{{b.Estado}}</td>
-            </tr><br>
-            <tr>
-                <td>Especificacion:</td>
-                <td>{{b.Especificaciones}}</td>
-            </tr><br>
-            {%endfor%}
-            </tbody>
-        </table>
-
-
-        <table class="table table-striped">
-            <tbody>
-            <tr>
-            <th>Diagnostico propio</th>
-            </tr> 
-            {%for b in propios%}
-            <tr>
-                <td>Diagnostico propio:</td>
+                <td>Diagnóstico no codificado:</td>
                 <td>{{b.Nombre_diag}}</td>
+            </tr><br>
+            {%endfor%}
+            </tbody>
+        </table>
+
+
+        <table class="table table-striped">
+            <tbody>
+            <tr>
+            <th>Plan Terapéutico</th>
+            </tr> 
+            {%for c in terapia%}
+            <tr>
+                <td>{{c.Plan_terapeutico}}</td>
+            </tr><br>
+            
+            {%endfor%}
+            </tbody>
+        </table>
+
+
+        <table class="table table-striped">
+            <tbody>
+            <tr>
+            <th>Recomendaciones</th>
+            </tr> 
+
+            {%for b in recomendacion%}
+            <tr>
+                <td>{{b.Recomendacion}}</td>
+            </tr><br>
+            {%endfor%}
+            </tbody>
+        </table>
+
+
+        <table class="table table-striped">
+            <tbody>
+            <tr>
+            <th>Solicitud de ayudas diagnósticas</th>
+            </tr> 
+            {%for b in solicitud%}
+            <tr>
+                <td>{{b.Solicitud_ayudas_diag}}</td>
             </tr> <br>
-            {%endfor%}
-            </tbody>
-        </table>
-
-        <table class="table table-striped">
-            <tbody>
-            <tr>
-            <th>Antecedentes</th>
-            </tr> 
-        
-            {%for c in antecedentes%}
-            <tr>
-                <td>Patologicos medicamentos:</td>
-                <td>{{c.Patologicos_medicamentos}}</td>
-            </tr><br>
-            <tr>
-                <td>Toxicos alergicos:</td>
-                <td>{{c.Toxicos_alergicos}}</td>
-            </tr><br>
-            <tr>
-                <td>Quirurgicos:</td>
-                <td>{{c.Quirurgicos}}</td>
-            </tr><br>
-            <tr>
-                <td>Traumas fisicos:</td>
-                <td>{{c.Trau_fisicos}}</td>
-            </tr><br>
-            <tr>
-                <td>Traumas emocionales:</td>
-                <td>{{c.Trau_emocionales}}</td>
-            </tr><br>
-            <tr>
-                <td>Habitos saludables:</td>
-                <td>{{c.Habitos_saludables}}</td>
-            </tr><br>
-            <tr>
-                <td>Habitos riesgo:</td>
-                <td>{{c.Habitos_riesgo}}</td>
-            </tr><br>
-            <tr>
-                <td>Familiares:</td>
-                <td>{{c.Familiares}}</td>
-            </tr><br>
-            {%endfor%}
-            </tbody>
-        </table>
-        
-
-        <table class="table table-striped">
-            <tbody>
-            <tr>
-            <th>Plan de manejo</th>
-            </tr> 
-            {%for b in plan%}
-            <tr>
-                <td>Plan:</td>
-                <td>{{b.Plan}}</td>
-            </tr><br>
-            <tr>
-                <td>Control:</td>
-                <td>{{b.Control}}</td>
-            </tr><br>
-            {%endfor%}
-            </tbody>
-        </table>
-
-        <table class="table table-striped">
-            <tbody>
-            <tr>
-            <th>Revision Consulta</th>
-            </tr> 
-        
-            {%for b in revision%}
-            <tr>
-                <td>Revision consulta:</td>
-                <td>{{b.Rev_consulta}}</td>
-            </tr><br>
             {%endfor%}
             </tbody>
         </table>

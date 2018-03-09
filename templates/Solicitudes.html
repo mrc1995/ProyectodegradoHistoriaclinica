@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Marcellus|Tangerine" rel="stylesheet"> 
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="{% static 'css/cuerpo6.css' %}">
+  <link rel="stylesheet" href="{% static 'css/cuerpo5.css' %}">
 
   <!--<link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
   <link rel="stylesheet" href="{%static 'js/bootstrap.min.js'%}">
@@ -28,26 +28,21 @@
 						<label for="id_paciente">Documento identificacion:</label>
 					</th>
 					<td>
-						<input title="Ingrese un documento valido" pattern="[0-9]*" class="form-control" type="text" name="id_paciente" id = "id_paciente" required 
-						placeholder="Cc paciente" maxlength="25">
+						<input title="Ingrese un documento valido" pattern="[0-9]*" class="form-control" type="text" name="id_paciente" id = "id_paciente" required  placeholder="Cc paciente" maxlength="25">
+
+						<script>
+			                  var value = parent.frames["items"].asignar(); 
+			                  document.getElementById('id_paciente').value = value;
+		              	</script>
 					</td>
 				</tr>
 				<tr>
-					<br>
 					<th>
-						<label for="Plan">Plan de Manejo:</label>
+						<br>
+						<label for="Solicitud_ayudas_diag">Solicitud de ayudas diagnósticas:</label>
 					</th>
 					<td>
-						<textarea class="form-control" name="Plan" id = "Plan" required placeholder="Describa el plan de manejo"  maxlength="1000"></textarea>
-					</td>
-				</tr>
-				<tr>
-					<br>
-					<th>
-						<label for="Control">Control:</label>
-					</th>
-					<td>
-						<input class="form-control" name="Control" id = "Control" required placeholder="Control"  maxlength="50">
+						<textarea rows="5" cols="50" class="form-control" name="Solicitud_ayudas_diag" id = "Solicitud_ayudas_diag" required placeholder="Describa aqui las ayudas diagnósticas necesarias para el paciente"  maxlength="1000"></textarea>
 					</td>
 				</tr>
 			</div>
@@ -55,7 +50,7 @@
 		<div align="center"><input class="btn btn-primary btn-block-form" type="submit" value="Guardar"></div>
 	</form>
 	<br>
-	<a href="recuerdos">Siguiente</a>
+	<a href="individuales">Siguiente</a>
 	{% endblock content %}
 </div>
 </body>

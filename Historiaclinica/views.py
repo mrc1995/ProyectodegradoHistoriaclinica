@@ -63,8 +63,8 @@ def Ingresarpaciente(request):
 			newPaciente = paciente(id_paciente = request.POST['id_paciente'], Nombre =request.POST['Nombre'],
 			Apellido=request.POST['Apellido'],EPS=request.POST['EPS'],Genero=request.POST['Genero'],
 			Email=request.POST['Email'],Municipio=request.POST['Municipio'],Edad=request.POST['Edad'],Estado_civil=request.POST['Estado_civil'],
-			Telefono=request.POST['Telefono'],Direccion=request.POST['Direccion'],Religion=request.POST['Religion'],Ocupacion=request.POST['Ocupacion'],Dia=request.POST['Dia'],
-			Mes=request.POST['Mes'],Ano=request.POST['Ano'])
+			Telefono=request.POST['Telefono'],Direccion=request.POST['Direccion'],Religion=request.POST['Religion'], Nivel_educativo = request.POST['Educativo'], Ocupacion=request.POST['Ocupacion'],Dia=request.POST['Dia'],
+			Mes=request.POST['Mes'],Ano=request.POST['Ano'], Fecha_atencion = request.POST ['Fecha'], Hora_atencion = request.POST ['Hora'])
 			newPaciente.save()
 	else:
 		form_registro_usuario = IngresarPaciente()
@@ -83,6 +83,51 @@ def MotivoConsulta(request):
 		form_registro_motivo = Motivoconsulta()
 	return render(request,'MotivoConsulta.html')
 
+
+@login_required(login_url='/ingresar')
+def Examen_fis(request):
+	if request.method == "POST":
+		form_examen = Examen(request.POST or None)
+		if form_examen.is_valid():
+			p =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
+			newExamen = Examen_Fisico(id_paciente = p, TA = request.POST['TA'], FC = request.POST['FC'],FR = request.POST['FR'], Peso = request.POST['Peso'],
+				Estatura =request.POST['Estatura'],IMC = request.POST['IMC'],Perimetro_cintura = request.POST['Perimetro_cintura'],Pulso = request.POST['Pulso'], 
+				Aspecto_general = request.POST['Aspecto_general'],Cabeza  = request.POST['Cabeza'],Cavidad_oral = request.POST['Cavidad_oral'],Cuello = request.POST['Cuello'],Cardiopulmonar = request.POST['Cardiopulmonar'],
+				Abdomen = request.POST['Abdomen'],Genitourinario = request.POST['Genitourinario'],Osteomuscular = request.POST['Osteomuscular'],Piel  = request.POST['Piel'],Neurologico = request.POST['Neurologico'],
+				Extremidades = request.POST['Extremidades'], Energia = request.POST['Energia'])
+			newExamen.save()
+	else:
+		form_examen = Examen()
+	return render (request,'Examen.html') 
+
+
+
+@login_required(login_url='/ingresar')
+def AntecFami(request):
+	if request.method == "POST":
+		form_familiar = Antecfami(request.POST or None)
+		if form_familiar.is_valid():
+			p =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
+			newFami = Antec_fami(id_paciente = p, Antec_fami=request.POST['Antec_fami'])
+			newFami.save()
+	else:
+		form_familiar = Antec_fami()
+	return render(request,'Anteced_Familiares.html')
+
+
+@login_required(login_url='/ingresar')
+def ParaAportados(request):
+	if request.method == "POST":
+		form_aportados = Paraaportados(request.POST or None)
+		if form_aportados.is_valid():
+			p =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
+			newPara = Para_aportados(id_paciente = p, Para_aportados=request.POST['Para_aportados'])
+			newPara.save()
+	else:
+		form_aportados = Para_aportados()
+	return render(request,'Aportados.html')
+
+
 @login_required(login_url='/ingresar')
 def EnfermedadActual(request):
 	if request.method == "POST":
@@ -95,46 +140,21 @@ def EnfermedadActual(request):
 		form_enfermedad = Enfermedadactual()
 	return render(request, 'EnfermedadActual.html')
 
+
+
 @login_required(login_url='/ingresar')
 def gustos_paciente(request):
 	if request.method == "POST":
 		form_gustos = gustos(request.POST or None)
 		if form_gustos.is_valid():
 			p =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newGustos = Gustos_preferencias(id_paciente = p, Clima = request.POST['Clima'], Temperatura = request.POST['Temperatura'],Colores = request.POST['Colores'], Numeros = request.POST['Numeros'])
+			newGustos = Gustos_preferencias(id_paciente = p, Gustos = request.POST['Gustos'])
 			newGustos.save()
 	else:
 		form_gustos = gustos()
 	return render (request,'Gustos.html') 
 
-@login_required(login_url='/ingresar')
-def Examen_fis(request):
-	if request.method == "POST":
-		form_examen = examen(request.POST or None)
-		if form_examen.is_valid():
-			p =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newExamen = Examen_Fisico(id_paciente = p, TA = request.POST['TA'], FC = request.POST['FC'],FR = request.POST['FR'], Peso = request.POST['Peso'],
-				Estatura =request.POST['Estatura'],IMC = request.POST['IMC'],Perimetro_cintura = request.POST['Perimetro_cintura'],Pulso = request.POST['Pulso'], 
-				Aspecto_general = request.POST['Aspecto_general'],Cabeza  = request.POST['Cabeza '],Cavidad_oral = request.POST['Cavidad_oral'],Cuello = request.POST['Cuello'],Cardiopulmonar = request.POST['Cardiopulmonar'],
-				Abdomen = request.POST['Abdomen'],Genitourinario = request.POST['Genitourinario'],Osteomuscular = request.POST['Osteomuscular'],Piel  = request.POST['Piel '],Neurologico = request.POST['Neurologico'],
-				Extremidades = request.POST['Extremidades'])
-			newExamen.save()
-	else:
-		form_gustos = examen()
-	return render (request,'Examen.html') 
 
-
-@login_required(login_url='/ingresar')
-def Medidas(request):
-	if request.method == "POST":
-		form_medidas = medidas(request.POST or None)
-		if form_medidas.is_valid():
-			e = Examen_Fisico.objects.get(Id_examen = request.POST['Id_examen'])
-			newMedidas = medidas_antropometricas(Id_examen = e, Organo = request.POST['Organo'], Clasificacion = request.POST['Clasificacion'],Especificacion = request.POST['Especificacion'])
-			newMedidas.save()
-	else:
-		form_gustos = medidas()
-	return render (request,'Medidas.html') 
 
 @login_required(login_url='/ingresar')
 def diagnostico_medico(request):
@@ -142,23 +162,13 @@ def diagnostico_medico(request):
 		form_diagnostico = diagnostico(request.POST or None)
 		if form_diagnostico.is_valid():
 			p =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newDiagnostico = Diagnostico(id_paciente = p, codigo = request.POST['codigo'], Nombre = request.POST['Nombre'],Tipo = request.POST['Tipo'])
+			newDiagnostico = Diagnostico(id_paciente = p, Codigo_Nombre = request.POST['Codigo_Nombre'], Nombre_diag = request.POST['Nombre_diag'])
 			newDiagnostico.save()
 	else:
 		form_gustos = diagnostico()
-	return render (request,'Diagnostico.html') 
+	return render (request,'Diagnostico.html')
 
-@login_required(login_url='/ingresar')
-def Resultado(request):
-	if request.method == "POST":
-		form_resultado = Resultado_examen(request.POST or None)
-		if form_resultado.is_valid():
-			p = paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newResultado = Resultado_Examen(id_paciente = p, Resultado = request.POST['Resultado'])
-			newResultado.save()
-	else:
-		form_gustos = Resultado_examen()
-	return render (request,'Resultado_examen.html') 
+
 
 @login_required(login_url='/ingresar')
 def Terapias_new(request):
@@ -166,23 +176,13 @@ def Terapias_new(request):
 		form_terapia = terapias(request.POST or None)
 		if form_terapia.is_valid():
 			p = paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newTerapia = Terapias(id_paciente = p, Terapia = request.POST['Terapia'],Estado = request.POST['Estado'],Especificaciones = request.POST['Especificaciones'])
+			newTerapia = Terapias(id_paciente = p, Plan_terapeutico = request.POST['Plan_terapeutico'])
 			newTerapia.save()
 	else:
 		form_gustos = terapias()
 	return render (request,'Terapias.html') 
 
-@login_required(login_url='/ingresar')
-def propios(request):
-	if request.method == "POST":
-		form_propios = diagnosticos_propios(request.POST or None)
-		if form_propios.is_valid():
-			p = paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newPropios = Diagnosticos_propios(id_paciente = p, Nombre_diag = request.POST['Nombre_diag'])
-			newPropios.save()
-	else:
-		form_gustos = diagnosticos_propios()
-	return render (request,'Diagnosticos_propios.html') 
+
 
 @login_required(login_url='/ingresar')
 def recuerdos(request):
@@ -190,7 +190,7 @@ def recuerdos(request):
 		form_antecedentes = antecedentes(request.POST or None)
 		if form_antecedentes.is_valid():
 			p = paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newAntecedentes = Antecedentes(id_paciente = p, Patologicos_medicamentos = request.POST['Patologicos_medicamentos'], Toxicos_alergicos = request.POST['Toxicos_alergicos'],Quirurgicos = request.POST['Quirurgicos'],Trau_fisicos = request.POST['Trau_fisicos'], Trau_emocionales = request.POST['Trau_emocionales'], Habitos_saludables = request.POST['Habitos_saludables'],Habitos_riesgo = request.POST['Habitos_riesgo'], Familiares = request.POST['Familiares'])
+			newAntecedentes = Antecedentes(id_paciente = p, Patologicos = request.POST['Patologicos'], Farmacologicos = request.POST['Farmacologicos'], Toxicos = request.POST['Toxicos'], Alergicos = request.POST['Alergicos'], Quirurgicos = request.POST['Quirurgicos'],Trau_fisicos = request.POST['Trau_fisicos'], Trau_emocionales = request.POST['Trau_emocionales'], Habitos_saludables = request.POST['Habitos_saludables'],Habitos_riesgo = request.POST['Habitos_riesgo'])
 			newAntecedentes.save()
 	else:
 		form_antecedentes = antecedentes()
@@ -207,19 +207,38 @@ def Revision_sistemas(request):
 			newRevision.save()
 	else:
 		form_revision = revision_sistemas()
-	return render (request,'Revision_sistemas.html') 
+	return render (request,'Revision_sistemas.html')
+
+
+
 
 @login_required(login_url='/ingresar')
-def plan_de_manejo(request):
+def Recomendacion(request):
 	if request.method == "POST":
-		form_plan = plan(request.POST or None)
-		if form_plan.is_valid():
-			p =  paciente.objects.get(id_paciente = request.POST['id_paciente'])
-			newPlan = Plan_manejo(id_paciente = p, Plan = request.POST['Plan'], Control = request.POST['Control'])				
-			newPlan.save()
+		form_recomendacion_medica = recomendaciones(request.POST or None)
+		if form_recomendacionmedica.is_valid():
+			p = paciente.objects.get(id_paciente = request.POST['id_paciente'])
+			newRecomendacionmedica = Recomendaciones(id_paciente = p, Recomendacion = request.POST['Recomendacion'])
+			newRecomendacionmedica.save()
 	else:
-		form_plan = plan()
-	return render (request,'Plan_manejo.html')
+		form_recomendacionmedica = recomendaciones()
+	return render (request,'Recomendaciones.html') 
+
+@login_required(login_url='/ingresar')
+def Solicitud(request):
+	if request.method == "POST":
+		form_solicitudayudas = solicitud_ayudas_diag(request.POST or None)
+		if form_solicitudayudas.is_valid():
+			p = paciente.objects.get(id_paciente = request.POST['id_paciente'])
+			newSolicitudayudas = Solicitud_ayudas_diag(id_paciente = p, Solicitud_ayudas_diag = request.POST['Solicitud_ayudas_diag'])
+			newSolicitudayudas.save()
+	else:
+		form_solicitudayudas = solicitud_ayudas_diag()
+	return render (request,'Solicitudes.html') 
+
+
+
+
 
 @login_required(login_url='/ingresar')
 def paraclinicos(request):
@@ -262,28 +281,29 @@ def BuscarHistoria(request):
 			enfermedad = Enfermedad_Actual.objects.filter(id_paciente = request.POST.get('id_paciente'))
 			gustos = Gustos_preferencias.objects.filter(id_paciente = request.POST.get('id_paciente'))
 			examen = Examen_Fisico.objects.filter(id_paciente = request.POST.get('id_paciente'))
-		#medidas = medidas_antropometricas.objects.filter(id_paciente = request.POST.get('id_paciente'))
 			diagnostico = Diagnostico.objects.filter(id_paciente = request.POST.get('id_paciente'))
-			resultado = Resultado_Examen.objects.filter(id_paciente = request.POST.get('id_paciente'))
 			terapia = Terapias.objects.filter(id_paciente = request.POST.get('id_paciente'))
-			propios =Diagnosticos_propios.objects.filter(id_paciente = request.POST.get('id_paciente'))
 			antecedentes = Antecedentes.objects.filter(id_paciente = request.POST.get('id_paciente'))
-			plan = Plan_manejo.objects.filter(id_paciente = request.POST.get('id_paciente'))
 			revision = Rev_sistemas.objects.filter(id_paciente = request.POST.get('id_paciente'))
+			aportados = Para_aportados.objects.filter(id_paciente = request.POST.get('id_paciente'))
+			familiares = Antec_fami.objects.filter(id_paciente = request.POST.get('id_paciente'))
+			recomendacion = Recomendaciones.objects.filter(id_paciente = request.POST.get('id_paciente'))
+			solicitud = Solicitud_ayudas.objects.filter(id_paciente = request.POST.get('id_paciente'))
 			context = {
 				"lpaciente": lpaciente,
 				"motivos": motivos,
 				"enfermedad": enfermedad,
 				"gustos":gustos,
 				"examen":examen,
-			#"medidas":medidas,
 				"diagnostico":diagnostico,
-				"resultado":resultado,
 				"terapia":terapia,
-				"propios":propios,
 				"antecedentes":antecedentes,
-				"plan":plan,
 				"revision":revision,
+				"aportados":aportados,
+				"familiares":familiares,
+				"recomendacion":recomendacion,
+				"solicitud":solicitud,
+
 			}
 		except:
 			return HttpResponseRedirect('no_existe')

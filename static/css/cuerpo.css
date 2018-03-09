@@ -1,4 +1,4 @@
-
+ 
 body {
    color: #0369ac;
    font-family: 'Marcellus', serif;
@@ -8,19 +8,11 @@ body {
 }
 
 
-.form-control{
+.col-md-6{
 	font-family: 'Lobster';
 	color: #3A7DA3;
 	text-align: center;
 	width: auto;
 	margin-left: auto;
   	margin-right: auto;
-}
-
-a{
-	font-family: 'Lobster';
-	color: #3A7DA3;
-	margin-left: 450px;
-  	font-size: 17px;
-
 }

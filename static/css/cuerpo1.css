@@ -2,9 +2,11 @@
 body {
    color: #0369ac;
    font-family: 'Marcellus', serif;
-   background: url(../images/caduceus.jpg) no-repeat center;
-   background-size: 700px 500px;
-   background-position: center top;
+   background: url(../images/caduceus.jpg);
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+   background-position: center center;
    font-size: 15px;
 }
 

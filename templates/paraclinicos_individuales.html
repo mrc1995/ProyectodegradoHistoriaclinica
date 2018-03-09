@@ -40,11 +40,16 @@
                         <textarea class="form-control" type="text" name="Diagnostico" id = "Diagnostico"
                         placeholder="Describa el diagnóstico del paciente" maxlength="1000"></textarea>
                         <br>
+                        <script>
+                              var value = parent.frames["items"].asignar2(); 
+                              document.getElementById('Diagnostico').value = value;
+                        </script>
+                    </td>
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        <label for="Medicamentos">Medicamentos:</label>
+                        <label for="Medicamentos">Plan terapéutico:</label>
                     </th>
                     <td>
                         <textarea class="form-control" name="Medicamentos" id = "Medicamentos" placeholder="Medicamentos a formular"  maxlength="500"></textarea>

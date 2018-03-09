@@ -30,6 +30,10 @@
 					<td>
 						<input title="Ingrese un documento valido" pattern="[0-9]*" class="form-control" type="text" name="id_paciente" id = "id_paciente" required 
 						placeholder="Cc paciente" maxlength="25">
+						<script>
+			                  var value = parent.frames["items"].asignar(); 
+			                  document.getElementById('id_paciente').value = value;
+		              	</script>
 					</td>
 				</tr>
 				<tr>
@@ -38,11 +42,12 @@
 						<label for="Motivo_consulta">Motivo consulta:</label>
 					</th>
 					<td>
-						<textarea class="form-control" name="Motivo_consulta" id="Motivo_consulta"  maxlength="1000" placeholder="Describa el motivo de la consulta" required></textarea>
+						<textarea rows="5" cols="50" class="form-control" name="Motivo_consulta" id="Motivo_consulta"  maxlength="1000" placeholder="Describa el motivo de la consulta" required></textarea>
 					</td>
 				</tr>
 			</div><br><br>
-		<div align="center"><input class="btn btn-primary btn-block-form" type="submit" value="Guardar"></div>
+		<div align="center">
+		<input class="btn btn-primary btn-block-form" type="submit" value="Guardar"></div>
 	</form>
 
 	<br>

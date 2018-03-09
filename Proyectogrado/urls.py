@@ -31,13 +31,9 @@ urlpatterns = [
     url(r'^EnfermedadActual',EnfermedadActual, name = 'Enfermedad'),
     url(r'^gustos_paciente',gustos_paciente, name = 'Gustos'),
     url(r'^Examen_fis',Examen_fis,name='Examen_fis'),
-    url(r'^Medidas',Medidas,name ='Medidas_antropometricas'),
     url(r'^diagnostico_medico', diagnostico_medico, name='diagnostico_medico'),
-    url(r'^Resultado', Resultado, name='Resultado'),
     url(r'^Terapias_new', Terapias_new, name = 'Terapias'),
-    url(r'^propios', propios, name='propios'),
     url(r'^recuerdos', recuerdos, name='hola'),
-    url(r'^plan_de_manejo', plan_de_manejo, name= 'Plan'),
     url(r'^Revision_sistemas', Revision_sistemas, name= 'Revision'),
     url(r'^registrar', RegistroUsuario.as_view(), name = 'Registrar'),
     #rl(r'^desplegar', desplegar, name = 'desplegar'),
@@ -50,5 +46,11 @@ urlpatterns = [
     url(r'^individuales',individuales,name= 'individuales'),
     url(r'^paraclinicos',paraclinicos,name = 'paraclinicos'),
     url(r'^no_existe',no_existe,name = 'no_existe'),
+    url(r'^ParaAportados',ParaAportados,name = 'ParaAportados'),
+    url(r'^AntecFami',AntecFami,name = 'AntecFami'),
+    url(r'^Recomendacion',Recomendacion,name = 'Recomendacion'),
+    url(r'^Solicitud',Solicitud,name = 'Solicitud')
+
+
 ]
 

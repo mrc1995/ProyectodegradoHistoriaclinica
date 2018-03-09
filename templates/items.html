@@ -26,21 +26,42 @@
       <div class="cuerporec">
       <ul>
         
-         
+            <input type="hidden" name="idprueba" id="idprueba" value = "">
+
+            <input type="hidden" name="idprueba2" id="idprueba2" value = "">
+
+            <script>
+                function myFunction(val) {
+                  document.getElementById('idprueba').value = val;
+                }
+
+                function asignar(){
+                   var value = document.getElementById('idprueba').value;
+                   return value;
+                }
+
+            </script>
+            
+
+
             <li><a href="{% url 'Ingresarpaciente' %}" target="contenido">Ingresa paciente</a><br></li>
             <li><a href="{% url 'MotivoConsulta' %}" target="contenido">Motivo de consulta</a><br></li>
             <li><a href="{% url 'Enfermedad' %}" target="contenido">Enfermedad actual</a><br></li>
+            <li><a href="{% url 'ParaAportados' %}" target="contenido">Paraclínicos Aportados</a><br></li>
+            <li><a href="{% url 'hola' %}" target="contenido">Antecedentes personales</a><br></li>
+            <li><a href="{% url 'Revision' %}" target="contenido">Revisión por sistemas</a><br></li>
             <li><a href="{% url 'Gustos' %}" target="contenido">Gustos</a><br></li>
+            <li><a href="{% url 'AntecFami' %}" target="contenido">Antecedentes familiares</a><br></li>
             <li><a href="{% url 'Examen_fis' %}" target="contenido">Examen Físico</a><br></li>
-            <li><a href="{% url 'Revision' %}" target="contenido">Revisión de Sistemas</a><br></li>
-            <li><a href="{% url 'Plan' %}" target="contenido">Plan de Manejo</a><br></li>
-            <li><a href="{% url 'hola' %}" target="contenido">Antecedentes</a><br></li>
-            <li><a href="{% url 'diagnostico_medico' %}" target="contenido">Diagnóstico (CIE 10)</a><br></li>
-            <li><a href="{% url 'propios' %}" target="contenido">Diagnóstico Propio</a><br></li>
-            <li><a href="{% url 'Terapias' %}" target="contenido">Terapias</a><br></li>
-            <li><a href="{% url 'Resultado' %}" target="contenido">Resultado Examenes</a><br></li>
-            <li><a href="{% url 'Medidas_antropometricas' %}" target="contenido">Medidas antropométricas</a><br></li>
+            <li><a href="{% url 'diagnostico_medico' %}" target="contenido">Impresión diagnóstica</a><br></li>
+            <li><a href="{% url 'Terapias' %}" target="contenido">Plan terapéutico</a><br></li>
+            <li><a href="{% url 'Recomendacion' %}" target="contenido">Recomendaciones</a><br></li>
+            <li><a href="{% url 'Solicitud' %}" target="contenido">Solicitud de ayudas diagnósticas</a><br></li>
+            
+
+          
             <li><a href="{% url 'individuales' %}" target="contenido">Paraclínicos</a><br></li>
+
 
       </ul>
       </div>
