@@ -59,11 +59,11 @@
               <label for="Fecha">Fecha y hora de atención:</label><br>
             </tr>
           <td>    
-            <input type=text class=form-inline name=Fecha  id=Fecha  readonly maxlength=25 value="{{lpaciente.Fecha}}">
+            <input type=text class=form-inline name=Fecha  id="Fecha"  readonly maxlength="25" value="{{lpaciente.Fecha_atencion}}">
           </td>
 
           <td>
-            <input type=text class=form-inline name=Hora  id=Hora readonly value="{{lpaciente.Hora}}">
+            <input type=text class=form-inline name=Hora  id="Hora" readonly value="{{lpaciente.Hora_atencion}}">
           </td>
             <br>
             <br>
@@ -175,10 +175,10 @@
 
             <br>
             <tr>
-              <label for="Educativo">Nivel educativo:</label>
+              <label for="Nivel_educativo">Nivel educativo:</label>
             </tr>
             <td>
-            <input class="form-inline" name="Educativo" id = "Educativo" maxlength="50" placeholder= "Nivel Educativo" value="{{lpaciente.Educativo}}">
+            <input class="form-inline" name="Nivel_educativo" id = "Nivel_educativo" maxlength="50" placeholder= "Nivel Educativo" value="{{lpaciente.Nivel_educativo}}">
             </td>
             <br>
 

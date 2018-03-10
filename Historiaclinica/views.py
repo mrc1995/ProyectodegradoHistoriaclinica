@@ -338,12 +338,15 @@ def modificar(request):
 			lpaciente = paciente.objects.get(id_paciente = request.POST.get('id_paciente'))
 			context = {"lpaciente": lpaciente}
 			form_modificar = modificar_paciente(request.POST or None)
-		#print "aqui estoy"
+			print "aqui estoy"
 			if form_modificar.is_valid():
-			#print "aqui despues del if"
+				print "aqui despues del if"
 				modpaciente = paciente(id_paciente = request.POST['id_paciente'], Nombre =request.POST['Nombre'],
 				Apellido=request.POST['Apellido'],EPS=request.POST['EPS'],Genero=request.POST['Genero'],
-				Email=request.POST['Email'],Municipio=request.POST['Municipio'],Edad=request.POST['Edad'])
+				Email=request.POST['Email'],Municipio=request.POST['Municipio'],Edad=request.POST['Edad'],
+				Estado_civil=request.POST['Estado_civil'],Telefono=request.POST['Telefono'],Direccion=request.POST['Direccion'],
+				Religion=request.POST['Religion'],Nivel_educativo=request.POST['Nivel_educativo'],Ocupacion=request.POST['Ocupacion'],
+				Dia=request.POST['Dia'],Mes=request.POST['Mes'],Ano=request.POST['Ano'], Fecha_atencion = request.POST ['Fecha'], Hora_atencion = request.POST ['Hora'])
 				modpaciente.save()
 		except:
 			return HttpResponseRedirect('no_existe')
@@ -353,5 +356,5 @@ def modificar(request):
 	return render(request,'modificar.html',context)
 
 
-       
+
 

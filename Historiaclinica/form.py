@@ -65,12 +65,22 @@ class modificar_paciente(forms.Form):
 	id_paciente = forms.CharField(required = True)
 	Nombre = forms.CharField(required = True)
 	Apellido = forms.CharField(required = True)
-	EPS = forms.CharField(required = True)
-	Genero = forms.CharField(required = True)
-	Email = forms.CharField()
-	Municipio = forms.CharField(required = True)
-	Edad = forms.CharField(required = True)
-
+	EPS = forms.CharField(required = False)
+	Genero = forms.CharField(required = False)
+	Email = forms.CharField(required = False)
+	Municipio = forms.CharField(required = False)
+	Edad = forms.CharField(required = False)
+	Estado_civil = forms.CharField(required = False)
+	Telefono = forms.CharField(required = False)
+	Direccion = forms.CharField(required = False)
+	Religion = forms.CharField(required = False)
+	Nivel_educativo = forms.CharField(required = False)
+	Ocupacion = forms.CharField(required = False)
+	Dia = forms.CharField(required = False)
+	Mes = forms.CharField(required = False)
+	Ano = forms.CharField(required = False)
+	Fecha_atencion = forms.CharField(required = False)
+	Hora_atencion = forms.CharField(required = False)
 
 class paracli(forms.ModelForm):
 
